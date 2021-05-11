@@ -14,11 +14,11 @@
 		<table class="table table-bordered">
 		<thead>
 		<tr>
-				<th>S.No</th>
-				<th>Donor Name</th>
-				<th>Mobile Number</th>
-				<th>Blood Group</th>
-				<th>Age</th>
+				<th scope="col">S.No</th>
+				<th scope="col">Donor Name</th>
+				<th scope="col">Mobile Number</th>
+				<th scope="col">Blood Group</th>
+				<th scope="col">Age</th>
 		</tr>
 				
 		</thead>
