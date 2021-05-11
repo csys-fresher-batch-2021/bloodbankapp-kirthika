@@ -1,4 +1,5 @@
 <!DOCTYPE>
+<html lang="en">
 <%@page import="java.util.List"%>
 <%@page import="in.kirthika.service.DonorDetail"%>
 <%@page import="java.util.ArrayList"%>
