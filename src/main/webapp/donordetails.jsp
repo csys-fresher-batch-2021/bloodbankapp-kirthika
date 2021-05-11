@@ -10,8 +10,9 @@
 <body>
 	<jsp:include page="header.jsp"></jsp:include>
 	<main class="container-fluid">
-		<h3>Blood Group</h3>
+		<h3>Donor Details</h3>
 		<table class="table table-bordered">
+		<caption>Donor Details</caption>
 		<thead>
 		<tr>
 				<th scope="col">S.No</th>

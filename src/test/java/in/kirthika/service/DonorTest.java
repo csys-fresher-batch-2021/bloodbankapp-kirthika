@@ -10,14 +10,14 @@ import org.junit.Test;
 public class DonorTest 
 {
 	@Test
-	public void test() {
+	public void test1() {
 	
 		boolean valid=DonorManager.displayDonor("Kirthika");
 		assertTrue(valid);
 		
 	}
 	@Test
-	public void test1()
+	public void test2()
 	{
 		boolean valid=DonorManager.displayDonor("Swetha");
 		assertTrue(valid);
@@ -25,7 +25,7 @@ public class DonorTest
 	}
 	@Test
 	
-		public void test2()
+		public void test3()
 		{
 			
 			boolean valid=DonorManager.displayDonor("Ram");
@@ -33,7 +33,7 @@ public class DonorTest
 		}
 	@Test
 	
-	public void test3()
+	public void test4()
 	{
 		
 		boolean valid=DonorManager.displayDonor("anu");
