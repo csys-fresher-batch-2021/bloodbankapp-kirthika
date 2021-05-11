@@ -19,7 +19,7 @@ public class DonorTest
 	@Test
 	public void test2()
 	{
-		boolean valid=DonorManager.displayDonor("anu");
+		boolean valid=DonorManager.displayDonor("vinay");
 		assertFalse(valid);
 		
 	}
@@ -36,7 +36,7 @@ public class DonorTest
 	public void test4()
 	{
 		
-		boolean valid=DonorManager.displayDonor("vinay");
+		boolean valid=DonorManager.displayDonor("anu");
 		assertFalse(valid);
 	}
 }
