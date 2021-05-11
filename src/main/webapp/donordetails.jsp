@@ -1,10 +1,9 @@
 <!DOCTYPE>
-<html lang="en">
+<html lang="en" xml:lang="en">
 <%@page import="java.util.List"%>
 <%@page import="in.kirthika.service.DonorDetail"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="in.kirthika.service.DonorManager"%>
-<html>
 <head>
 <title>MyApp</title>
 </head>
