@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class DonorManager {
-	private static final List<DonorDetail> taskList = new ArrayList<DonorDetail>();
+	private static final List<DonorDetail> taskList = new ArrayList<>();
 	   static
 	   {
 		DonorDetail task1 = new DonorDetail("B+","kirthika",7598002793L,21);		
@@ -29,10 +29,6 @@ public class DonorManager {
 				 valid=true;
 			 }
 			 
-		 }
-		 if(valid==false)
-		 {
-			 System.out.println("Details not available");
 		 }
 		
 		 return valid;
