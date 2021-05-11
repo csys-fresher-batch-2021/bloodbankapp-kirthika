@@ -29,7 +29,7 @@ public class DonorManager {
 		 {   
 			 if(detail.getName().equalsIgnoreCase(name))
 			 {
-				 System.out.println(detail);
+				 
 				 valid=true;
 			 }
 			 
