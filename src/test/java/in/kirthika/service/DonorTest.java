@@ -11,15 +11,15 @@ public class DonorTest
 {
 	@Test
 	public void test() {
-		DonorDetails.donorAdd();
-		boolean valid=DonorDetails.displayDonor("O+");
+	
+		boolean valid=DonorManager.displayDonor("Kirthika");
 		assertTrue(valid);
 		
 	}
 	@Test
 	public void test1()
 	{
-		boolean valid=DonorDetails.displayDonor("A+");
+		boolean valid=DonorManager.displayDonor("Swetha");
 		assertTrue(valid);
 		
 	}
@@ -28,7 +28,7 @@ public class DonorTest
 		public void test2()
 		{
 			
-			boolean valid=DonorDetails.displayDonor("B+");
+			boolean valid=DonorManager.displayDonor("Ram");
 			assertTrue(valid);
 		}
 	@Test
@@ -36,7 +36,7 @@ public class DonorTest
 	public void test3()
 	{
 		
-		boolean valid=DonorDetails.displayDonor("A1B+");
+		boolean valid=DonorManager.displayDonor("anu");
 		assertFalse(valid);
 	}
 }
