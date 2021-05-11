@@ -4,10 +4,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class DonorManager {
-	private void DonoManager()
+	private DonorManager()
 	{
 		//default constructor
 	}
+	
 	private static final List<DonorDetail> taskList = new ArrayList<>();
 	   static
 	   {
