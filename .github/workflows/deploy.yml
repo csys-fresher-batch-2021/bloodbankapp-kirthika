@@ -1,0 +1,15 @@
+name: Deploy
+on:
+  push:
+    branches:
+      - main
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: akhileshns/heroku-deploy@v3.12.12 # This is the action
+        with:
+          heroku_api_key: ${{c3d204bd-b9cd-4ac7-bf63-defc594e3f33}}
+          heroku_app_name: "bloodbankapp-kirthika" #Must be unique in Heroku
+          heroku_email: "kirthy2411@gmail.com"
