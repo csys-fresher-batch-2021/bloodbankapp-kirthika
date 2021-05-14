@@ -38,6 +38,7 @@ public class DonorManager {
 		
 		 return valid;
 	    }
+
 	   public static boolean addDonor(String donorBlood,String donorName,Long donorNumber,int donorAge)
 	   {     boolean valid=false;
 		       for(DonorDetail number:taskList)
@@ -63,11 +64,12 @@ public class DonorManager {
 		 
 	   
        
+
 	   public static List<DonorDetail> displayDonor()
 	   {   
 		   return taskList;
 	   }
-	  
+
 }
 	
 

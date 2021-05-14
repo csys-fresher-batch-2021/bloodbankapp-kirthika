@@ -4,7 +4,11 @@
 
 <header>
 <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+
   <a class="navbar-brand" href="#">Blood Bank App</a>
+
+  <a class="navbar-brand" href="#">Blood-Bank App</a>
+
   <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#collapsibleNavId" aria-controls="collapsibleNavId"
       aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -15,10 +19,14 @@
         <a class="nav-link" href="index.jsp">Home <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
+
         <a class="nav-link" href="adddonor.jsp">Add Donor</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="donordetails.jsp">Donors details</a>
+
+        <a class="nav-link" href="donordetails.jsp">Donor Details</a>
+
       </li>
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="dropdownId" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown</a>
