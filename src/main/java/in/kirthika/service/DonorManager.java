@@ -49,7 +49,7 @@ public class DonorManager {
 		    		   valid=true;
 		    	   }
 		       }
-		       if(valid==false)
+		       if(!valid)
 		       {
 		    	   taskList.add(new DonorDetail(donorBlood,donorName,donorNumber,donorAge));
 		       }
