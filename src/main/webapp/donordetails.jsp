@@ -39,6 +39,7 @@
 			    <td><%=detail.getMobileNumber() %></td>
 			    <td><%=detail.getBloodGroup()%></td>
 			    <td><%=detail.getAge() %></td>
+
 			    </tr>
 	     <%}%>
 	    
@@ -46,6 +47,9 @@
 	   
 		
 		</table>
+
+		<a href="adddonor.jsp">Add Donor</a>
+
 </main>
 </body>
 </html>

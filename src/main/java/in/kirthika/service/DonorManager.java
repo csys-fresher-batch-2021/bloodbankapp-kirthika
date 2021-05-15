@@ -38,11 +38,34 @@ public class DonorManager {
 		
 		 return valid;
 	    }
+
+	   public static boolean addDonor(String donorBlood,String donorName,Long donorNumber,int donorAge)
+	   {     boolean valid=false;
+		       for(DonorDetail number:taskList)
+		       {   
+		    	   if(number.getMobileNumber().equals(donorNumber))
+		    	   {
+		    		   
+		    		   valid=true;
+		    	   }
+		       }
+		       if(!valid)
+		       {
+		    	   taskList.add(new DonorDetail(donorBlood,donorName,donorNumber,donorAge));
+		       }
+		    return valid;  
+			 
+	}
+		   
+		 
+	   
+       
+
 	   public static List<DonorDetail> displayDonor()
 	   {   
 		   return taskList;
 	   }
-	   
+
 }
 	
 
