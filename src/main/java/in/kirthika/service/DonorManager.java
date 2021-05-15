@@ -49,11 +49,7 @@ public class DonorManager {
 		    		   valid=true;
 		    	   }
 		       }
-		       if(valid==true)
-		       {
-		    	   System.out.println("Already exist");
-		       }
-		       else
+		       if(valid==false)
 		       {
 		    	   taskList.add(new DonorDetail(donorBlood,donorName,donorNumber,donorAge));
 		       }
