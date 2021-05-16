@@ -7,7 +7,7 @@
 
   <a class="navbar-brand" href="#">Blood Bank App</a>
 
-  <a class="navbar-brand" href="#">Blood-Bank App</a>
+  
 
   <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#collapsibleNavId" aria-controls="collapsibleNavId"
       aria-expanded="false" aria-label="Toggle navigation">
@@ -25,7 +25,7 @@
       <li class="nav-item">
         <a class="nav-link" href="donordetails.jsp">Donors details</a>
 
-        <a class="nav-link" href="donordetails.jsp">Donor Details</a>
+        
 
       </li>
       <li class="nav-item dropdown">
