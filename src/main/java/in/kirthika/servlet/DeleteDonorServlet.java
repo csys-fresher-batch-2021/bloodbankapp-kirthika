@@ -31,7 +31,7 @@ public class DeleteDonorServlet extends HttpServlet {
 			   }
 			   catch(IOException e)
 			   {
-				   response.sendRedirect("donordetails.jsp");
+				   System.out.println("error");
 			   }
 			   
 		   }
