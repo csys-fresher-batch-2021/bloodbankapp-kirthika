@@ -56,6 +56,19 @@ public class DonorManager {
 		    return valid;  
 			 
 	}
+	   public static void deleteDonor(String donorName)
+	   {   int index=0;
+		   for(DonorDetail name:taskList )
+		   {
+			   if(name.getName().equals(donorName))
+			   {   
+				
+				   index=taskList.indexOf(name);
+				   break;
+			   }
+		   }
+		   taskList.remove(index);
+	   }
 		   
 		 
 	   

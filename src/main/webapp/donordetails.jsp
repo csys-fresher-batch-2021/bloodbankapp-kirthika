@@ -20,6 +20,7 @@
 				<th scope="col">Mobile Number</th>
 				<th scope="col">Blood Group</th>
 				<th scope="col">Age</th>
+				<th scope="col">Delete</th>
 		</tr>
 				
 		</thead>
@@ -39,6 +40,8 @@
 			    <td><%=detail.getMobileNumber() %></td>
 			    <td><%=detail.getBloodGroup()%></td>
 			    <td><%=detail.getAge() %></td>
+			    <td><a href="DeleteDonorServlet?donorName=<%=detail.getName()%>" 
+			           class="btn btn-danger">Delete</a>
 
 			    </tr>
 	     <%}%>
