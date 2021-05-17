@@ -31,7 +31,7 @@ public class DeleteDonorServlet extends HttpServlet {
 			   }
 			   catch(IOException e)
 			   {
-				   System.out.println("error");
+				   logger.info(e.getMessage());
 			   }
 			   
 		   }
