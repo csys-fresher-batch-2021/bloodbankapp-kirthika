@@ -23,14 +23,10 @@ public class DeleteDonorServlet extends HttpServlet {
 		
 		
 			String donorName=request.getParameter("donorName");
-			try {
+		
 			 DonorManager.deleteDonor(donorName);
 		     response.sendRedirect("donordetails.jsp");
-			}
-			catch(Exception e)
-			{
-				response.sendRedirect("donordetails.jsp?="+e.getMessage());
-			}
-	    
+			 
+			
 }
 }
