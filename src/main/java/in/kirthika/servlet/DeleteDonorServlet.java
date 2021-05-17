@@ -28,7 +28,7 @@ public class DeleteDonorServlet extends HttpServlet {
 			   DonorManager.deleteDonor(donorName);
 			   response.sendRedirect("donordetails.jsp");
 		   }
-		   catch(Exception e)
+		   catch( IOException e  )
 		   {
 			   response.sendRedirect("donorderails.jsp?errorMessage=" +e.getMessage());
 			   logger.info(e.getMessage());
