@@ -5,6 +5,11 @@ import in.kirthika.exception.InvalidNumberLengthException;
 import in.kirthika.exception.NumberCannotBeNegativeException;
 
 public class MobileNumberValidator {
+	private MobileNumberValidator ()
+	{
+		//default constructor
+	}
+  
 	
 
 	/**

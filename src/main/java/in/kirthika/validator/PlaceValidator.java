@@ -3,6 +3,10 @@ package in.kirthika.validator;
 import in.kirthika.exception.InvalidPlaceException;
 
 public class PlaceValidator {
+	private PlaceValidator()
+	{
+		//default constructor
+	}
 	public static boolean DonorPlaceValidator(String place, String errorMessage) 
 			throws InvalidPlaceException
 	{
