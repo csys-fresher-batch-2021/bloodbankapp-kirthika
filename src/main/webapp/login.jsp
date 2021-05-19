@@ -8,7 +8,7 @@
 	<main class="container-fluid">
 		<h3>Blood Bank</h3>
 		<h3>Admin Sign in</h3>
-<form action="AdminLoginServlet">
+<form action="AdminLoginServlet" method="post">
 <label for="UserName"></label>
 	<input type="text" name="userName" placeholder="Enter User name" required autofocus/>
 		
@@ -18,17 +18,13 @@
 	<input type="password" name="password" placeholder="Enter password" required autofocus/> 
 	<br/>
 	<br/>
-		<div class="row">
-		 	<div class="col=1">
-		     <button type="submit" class="btn btn-success">Login</button>
-				</div>
-		<div class="col=4">
-		    <button type="reset" class="btn btn-danger">Reset</button>
-		</div>
-		<div class="col=4">
-			<a href="register.jsp" class="btn btn-primary">New User</a>
-	    </div>
-	</div>
+		
+		<button type="submit" class="btn btn-success">Login</button>			
+		
+	     <button type="reset" class="btn btn-danger">Reset</button>
+		
+		<a href="register.jsp" class="btn btn-primary">New User</a>
+	    
 	<br/>
 	
 </form>
