@@ -21,8 +21,7 @@ public class AdminLoginServlet extends HttpServlet {
 @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-    	 //PrintWriter out=response.getWriter();
-	     //out.println("page content");
+    	
 		String userName=request.getParameter("userName");
 		String userPassword=request.getParameter("password");
 		boolean isValid=AdminManager.userCheck(userName,userPassword);
