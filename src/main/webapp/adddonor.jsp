@@ -12,16 +12,50 @@
 	<label for="donorName"></label>
 	<input type="text" name="donorName" placeholder="Enter donor name" required autofocus/> 
 	<br/>
+	<br/>
 	<label for="bloodGroup"></label>
-	<input type="text" name="bloodGroup" placeholder="Enter blood group" required autofocus/>
+	<select name="bloodGroup" required>
+	<option>----Blood type----</option>
+	<option value="A+">A+</option>
+	<option value="A-">A-</option>
+	<option value="B+">B+</option>
+	<option value="B-">B-</option>
+	<option value="O+">O+</option>
+	<option value="O-">O-</option>
+	<option value="A1B">A1B</option>
+	</select>
+	<br/>
 	<br/>
 	<label for="mobileNumber"></label>
 	<input type="number" name="mobileNumber" placeholder="Enter mobile number" required autofocus/>
 	<br/>
+	<br/>
 	<label for="age"></label>
 	<input type="number" name="age" placeholder="Enter age" required autofocus/>
 	<br/>
-	<button type="submit">Submit</button>
+	<br/>
+	<label for="place"></label>
+	<input type="text" name="place" placeholder="Enter place" required autofocus/>
+	<br/>
+	<br/>
+	<%
+	       String message=request.getParameter("errorMessage");
+			if(message==null)
+			{
+				out.print("");
+			}
+			else
+			{
+	          out.print("<font color='red'>"+message+"</font>");
+			}
+	%>
+    <br/>
+    <br/>
+	
+	<button type="submit" class="btn btn-primary">Add Donor</button>
+	<br/>
+	<br/>
+	<a href="adminmanager.jsp">Back to homepage</a>
 	
 	</form>
 	

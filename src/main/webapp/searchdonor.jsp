@@ -21,13 +21,13 @@
 				<th scope="col">Blood Group</th>
 				<th scope="col">Age</th>
 				<th scope="col">Place</th>
-				<th scope="col">Delete</th>
+				
 		</tr>
 				
 		</thead>
 	    <tbody>
 	    <%
-	      List<DonorDetail> taskList=DonorManager.displayDonor();
+	      List<DonorDetail> taskList=DonorManager.displaySearchDonor();
 	      int i=0;
 	      for(DonorDetail detail:taskList)
 	      {
@@ -42,8 +42,7 @@
 			    <td><%=detail.getBloodGroup()%></td>
 			    <td><%=detail.getAge() %></td>
 			    <td><%=detail.getPlace()%></td>
-			    <td><a href="DeleteDonorServlet?donorName=<%=detail.getName()%>" 
-			           class="btn btn-danger">Delete</a>
+			 
 			</tr>
 	     <%}
 	     %>
@@ -51,7 +50,7 @@
 	   </tbody>
 	  </table>
 		
-		<a href="adddonor.jsp">Add Donor</a>
+	    <a href="donorsearchpage.jsp">search donor</a>
 		<br/>
 		<br/>
 		<a href="adminmanager.jsp">Back to homepage</a>

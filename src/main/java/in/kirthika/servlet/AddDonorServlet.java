@@ -19,23 +19,26 @@ public class AddDonorServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 @Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		PrintWriter out=response.getWriter();
-		out.println("page content");
+		
+	    //PrintWriter out=response.getWriter();
+		//out.println("page content");
+		
 		
 		String donorName=request.getParameter("donorName");
 		String donorBlood=request.getParameter("bloodGroup");
 		Long donorNumber=Long.parseLong(request.getParameter("mobileNumber"));
 		Integer donorAge=Integer.parseInt(request.getParameter("age"));
-		boolean valid=DonorManager.addDonor(donorBlood,donorName,donorNumber,donorAge);
+		String donorPlace=request.getParameter("place");
+		boolean valid=DonorManager.addDonor(donorBlood,donorName,donorNumber,donorAge,donorPlace);
 		if(valid) 
 		{
 			String errorMessage="Donor already exist";
-			response.sendRedirect("donordetails.jsp?errorMessage=" +errorMessage);
+			response.sendRedirect("adddonor.jsp?errorMessage=" +errorMessage);
+			
 		}
 		else
 		{
-			String infoMessage="Donor added";
-			response.sendRedirect("donordetails.jsp?infoMessage=" +infoMessage);
+			response.sendRedirect("donordetails.jsp");
 		}
 	
 	}
