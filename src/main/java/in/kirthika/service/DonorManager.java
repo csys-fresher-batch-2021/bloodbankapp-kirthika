@@ -78,7 +78,7 @@ public class DonorManager {
 	    * @param donorPlace
 	    */
 	   public static void donorSearch(String donorBlood,String donorPlace)
-	   {   donorSearch.removeAll(donorSearch);
+	   {   donorSearch.clear();
 		   for(DonorDetail detail:taskList)
 		   {
 			   if(detail.getBloodGroup().equals(donorBlood) && detail.getPlace().equalsIgnoreCase(donorPlace))

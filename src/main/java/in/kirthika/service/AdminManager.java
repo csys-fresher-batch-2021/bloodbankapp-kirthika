@@ -1,6 +1,11 @@
 package in.kirthika.service;
 
 public class AdminManager {
+	private AdminManager()
+	{
+		//default constructor
+	}
+	
 	
 	public static boolean userCheck(String userName,String userPassword)
 	{    boolean isValid=false;

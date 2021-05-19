@@ -18,16 +18,7 @@
       <li class="nav-item active">
         <a class="nav-link" href="index.jsp">Home <span class="sr-only">(current)</span></a>
       </li>
-      <li class="nav-item">
-
-        <!-- <a class="nav-link" href="adddonor.jsp">Add Donor</a>---->
-      </li>
-      <li class="nav-item">
-        <!-- <a class="nav-link" href="donordetails.jsp">Donors details</a>--->
-
-        
-
-      </li>
+   
       <li class="nav-item dropdown">
         
         <div class="dropdown-menu" aria-labelledby="dropdownId">

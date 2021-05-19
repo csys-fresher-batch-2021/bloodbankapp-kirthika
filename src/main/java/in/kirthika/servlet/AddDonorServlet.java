@@ -19,11 +19,6 @@ public class AddDonorServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 @Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-	    //PrintWriter out=response.getWriter();
-		//out.println("page content");
-		
-		
 		String donorName=request.getParameter("donorName");
 		String donorBlood=request.getParameter("bloodGroup");
 		Long donorNumber=Long.parseLong(request.getParameter("mobileNumber"));
