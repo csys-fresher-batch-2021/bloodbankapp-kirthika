@@ -27,11 +27,13 @@ public class AddDonorServlet extends HttpServlet {
 		String donorPlace=request.getParameter("place");
 		try {
 			
-			NameValidator.isStringNotNullOrEmpty(donorName, "UserName field Cannot be Empty");
+			NameValidator.isValidName(donorName);
 			BloodGroupValidator.donorBloodGroupValidator(donorBlood,"Blood Group cannot be Empty");
 			MobileNumberValidator.isValidMobileNumber(donorNumber);
 			AgeValidator.isEligibleDonor(donorAge,"Invalid Age for Donor");
 		    PlaceValidator.DonorPlaceValidator(donorPlace, "Invalid Place");
+	
+	
 		boolean valid=DonorManager.addDonor(donorBlood,donorName,donorNumber,donorAge,donorPlace);
 		if(valid) 
 		{
@@ -43,14 +45,15 @@ public class AddDonorServlet extends HttpServlet {
 		{
 			response.sendRedirect("donordetails.jsp");
 		}
+	}
+		catch (Exception e) 
+		{
+			response.sendRedirect("adddonor.jsp?errorMessage=" + e.getMessage());
+		}
 }
 
-	    catch (Exception e) 
-			{
-				response.sendRedirect("adddonor.jsp?errorMessage=" + e.getMessage());
-			}
-		
+	    
 		
 }
-}
+
 
