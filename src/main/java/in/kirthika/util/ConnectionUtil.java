@@ -3,7 +3,6 @@ package in.kirthika.util;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
-import java.sql.ResultSet;
 import java.sql.Statement;
 
 
@@ -39,26 +38,9 @@ public class ConnectionUtil {
 				con.close();
 			}
 		} catch (SQLException e) {
-			e.printStackTrace();
+			e.getMessage();
 		}
 	}
 	
-	public static void close( ResultSet rs, Statement statement, Connection con) {
-		try {
-			
-			if(rs!=null) {
-				rs.close();
-			}
-			
-			if(statement!= null) {
-				statement.close();
-			}
-			
-			if (con != null) {
-				con.close();
-			}
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-	}
+	
 }
