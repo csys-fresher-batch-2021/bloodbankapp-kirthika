@@ -1,11 +1,20 @@
-package in.kirthika.service;
+package in.kirthika.model;
 
 public class DonorDetail {
 	private String bloodGroup;
 	private String name;
 	private Long mobileNumber;
 	private int age;
+	private String place;
 	
+	public String getPlace() {
+		return place;
+	}
+
+	public void setPlace(String place) {
+		this.place = place;
+	}
+
 	public String getName() {
 		return name;
 	}
@@ -38,18 +47,22 @@ public class DonorDetail {
 		this.age = age;
 	}
 
-	public DonorDetail(String bloodGroup,String name, Long mobileNumber,int age) 
+	public DonorDetail(String bloodGroup,String name, Long mobileNumber,int age,String place) 
 	{   this.bloodGroup=bloodGroup;
 		this.name=name;
 		this. mobileNumber=mobileNumber;
 		this.age=age;
-		
+		this.place=place;		
+	}
+	public DonorDetail(String bloodGroup) 
+	{   this.bloodGroup=bloodGroup;
+				
 	}
 
 	@Override
 	public String toString() {
 		return "DonorManager [name=" + name + ", BloodGroup=" + bloodGroup + ", mobileNumber=" + mobileNumber + ", age="
-				+ age + "]";
+				+ age + ",Place=" + place + "]";
 	}
 
 	

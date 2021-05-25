@@ -1,5 +1,4 @@
 package in.kirthika.servlet;
-
 import java.io.IOException;
 import java.util.logging.Logger;
 
@@ -22,13 +21,13 @@ public class DeleteDonorServlet extends HttpServlet {
 @Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		
+			
+	        DonorManager manager=new DonorManager();
 			String donorName=request.getParameter("donorName");
-		 
-			   DonorManager.deleteDonor(donorName);
+		    manager.deleteDonor(donorName);
 			   try {
 				   response.sendRedirect("donordetails.jsp");
-			   }
+				   }
 			   catch(IOException e)
 			   {
 				   logger.info(e.getMessage());
