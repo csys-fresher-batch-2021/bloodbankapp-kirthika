@@ -33,7 +33,7 @@ public class ConnectionUtil {
 				con.close();
 			} catch (SQLException e) {
 				
-				e.printStackTrace();
+				e.getMessage();
 			}
 			
 		}

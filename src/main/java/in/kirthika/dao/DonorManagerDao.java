@@ -1,5 +1,6 @@
 package in.kirthika.dao;
 
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -29,7 +30,7 @@ public class DonorManagerDao {
 			displayAllList();
 		} catch (ClassNotFoundException | SQLException e) {
 			
-			e.printStackTrace();
+			e.getMessage();
 		}
     }
     

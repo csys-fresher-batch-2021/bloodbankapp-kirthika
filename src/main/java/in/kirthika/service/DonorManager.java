@@ -18,7 +18,7 @@ public class DonorManager {
 				managerDao.save(task);
 				managerDao.displayIndividual(String.valueOf(donorNumber));
 			} catch (ClassNotFoundException | SQLException e) {
-				System.out.println(e.getMessage());
+				e.getMessage();
 				isValid=true;
 			}
 	      return isValid;
@@ -29,7 +29,7 @@ public class DonorManager {
 			    managerDao.deleteDonor(donorName);
 		} catch (ClassNotFoundException | SQLException e) {
 			
-			System.out.println(e.getMessage());
+			e.getMessage();
 		}
 	   }
 	   
@@ -39,7 +39,7 @@ public class DonorManager {
 			managerDao.searchList(donorBlood, donorPlace);
 		} catch (ClassNotFoundException | SQLException e) {
 		
-			System.out.println(e.getMessage());
+			e.getMessage();
 		} 
 	   }
 	
