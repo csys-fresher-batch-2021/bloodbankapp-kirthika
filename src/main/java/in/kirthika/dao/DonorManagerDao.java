@@ -14,6 +14,16 @@ public class DonorManagerDao {
 
 	private static final List<DonorDetail> taskList = new ArrayList<>();
     private static final List<DonorDetail> donorSearch= new ArrayList<>();
+    private static final String DONOR_BLOOD ="donor_blood";
+	private static final String DONOR_NAME ="donor_name";
+	private static final String DONOR_MOBILENUMBER ="donor_number";
+	private static final String DONOR_AGE ="donor_age";
+	private static final String DONOR_PLACE ="donor_place";
+	private static final String INSERT_DONOR_DATA_QUERY ="insert into donor_detail (donor_blood,donor_name,donor_number,donor_age,donor_place) values (?,?,?,?,?)";
+	private static final String DISPLAY_ALL_DATA_QUERY="select * from donor_detail";
+	private static final String SEARCH_DONOR_DATA_QUERY="select * from donor_detail where donor_blood=? and donor_place=?";
+	private static final String DELETE_DONOR_DATA_QUERY="delete from donor_detail where donor_name=?";
+	private static final String DISPLAY_INDIVIDUAL_DATA_QUERY="select * from donor_detail where donor_number=?";
     static {
     	try {
 			displayAllList();
@@ -27,10 +37,7 @@ public class DonorManagerDao {
     public  void save(DonorDetail detail) throws ClassNotFoundException, SQLException {
     	
     	Connection connection=ConnectionUtil.getConnection();
-    	
-    
-    	
-    	String sql="insert into donor_detail (donor_blood,donor_name,donor_number,donor_age,donor_place) values (?,?,?,?,?)";
+    	String sql=INSERT_DONOR_DATA_QUERY;
     	
     	
     	PreparedStatement pst=connection.prepareStatement(sql);
@@ -52,18 +59,18 @@ public class DonorManagerDao {
     	
     	Connection connection=ConnectionUtil.getConnection();
     	
-    	String sql="select * from donor_detail";
+    	String sql=DISPLAY_ALL_DATA_QUERY;
     	
     	PreparedStatement pst=connection.prepareStatement(sql);
     	
     	ResultSet rs=pst.executeQuery();
     	
     	while(rs.next()) {
-    		String donorBlood=rs.getString("donor_blood");
-    		String donorName=rs.getString("donor_name");
-    		Long donorNumber=rs.getLong("donor_number");
-    		int donorAge=rs.getInt("donor_age");
-    		String donorPlace=rs.getString("donor_place");
+    		String donorBlood=rs.getString(DONOR_BLOOD);
+    		String donorName=rs.getString(DONOR_NAME);
+    		Long donorNumber=rs.getLong(DONOR_MOBILENUMBER);
+    		int donorAge=rs.getInt(DONOR_AGE);
+    		String donorPlace=rs.getString(DONOR_PLACE);
     		
     		DonorDetail detail=new DonorDetail(donorBlood,donorName,donorNumber,donorAge,donorPlace);
     		taskList.add(detail);
@@ -79,7 +86,7 @@ public class DonorManagerDao {
     public List<DonorDetail> searchList(String donorBlood,String donorPlace) throws ClassNotFoundException, SQLException{
     	Connection connection=ConnectionUtil.getConnection();
     	donorSearch.clear();
-    	String sql="select * from donor_detail where donor_blood=? and donor_place=?";
+    	String sql=SEARCH_DONOR_DATA_QUERY;
     	
     	PreparedStatement pst=connection.prepareStatement(sql);
     	pst.setString(1, donorBlood);
@@ -89,12 +96,11 @@ public class DonorManagerDao {
     	
     	while(rs.next()) {
     		
-    		String donorBlood1=rs.getString("donor_blood");
-    		String donorName=rs.getString("donor_name");
-    		
-    		Long donorNumber=rs.getLong("donor_number");
-    		int donorAge=rs.getInt("donor_age");
-    		String donorPlace1=rs.getString("donor_place");
+    		String donorBlood1=rs.getString(DONOR_BLOOD);
+    		String donorName=rs.getString(DONOR_NAME);
+            Long donorNumber=rs.getLong(DONOR_MOBILENUMBER);
+    		int donorAge=rs.getInt(DONOR_AGE);
+    		String donorPlace1=rs.getString(DONOR_PLACE);
     		
 
     		DonorDetail detail=new DonorDetail(donorBlood1,donorName,donorNumber,donorAge, donorPlace1);
@@ -112,7 +118,7 @@ public class DonorManagerDao {
 	public void deleteDonor(String donorName) throws ClassNotFoundException, SQLException
     {
     	Connection connection=ConnectionUtil.getConnection();
-    	String sql="delete from donor_detail where donor_name=?";
+    	String sql=DELETE_DONOR_DATA_QUERY;
     
     	PreparedStatement pst=connection.prepareStatement(sql);
     	pst.setString(1, donorName);
@@ -129,7 +135,7 @@ public class DonorManagerDao {
     	
     	Connection connection=ConnectionUtil.getConnection();
     	
-    	String sql="select * from donor_detail where donor_number=?";
+    	String sql=DISPLAY_INDIVIDUAL_DATA_QUERY;
     	
     	PreparedStatement pst=connection.prepareStatement(sql);
     	pst.setString(1, donorNum);
@@ -138,11 +144,11 @@ public class DonorManagerDao {
     	ResultSet rs=pst.executeQuery();
     	
     	while(rs.next()) {
-    		String donorBlood=rs.getString("donor_blood");
-    		String donorName=rs.getString("donor_name");
-    		Long donorNumber=rs.getLong("donor_number");
-    		int donorAge=rs.getInt("donor_age");
-    		String donorPlace=rs.getString("donor_place");
+    		String donorBlood=rs.getString(DONOR_BLOOD);
+    		String donorName=rs.getString(DONOR_NAME);
+    		Long donorNumber=rs.getLong(DONOR_MOBILENUMBER);
+    		int donorAge=rs.getInt(DONOR_AGE);
+    		String donorPlace=rs.getString(DONOR_PLACE);
     		
     		DonorDetail detail=new DonorDetail(donorBlood,donorName,donorNumber,donorAge,donorPlace);
     		taskList.add(detail);

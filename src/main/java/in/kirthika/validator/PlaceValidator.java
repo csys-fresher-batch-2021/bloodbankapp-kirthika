@@ -7,7 +7,7 @@ public class PlaceValidator {
 	{
 		//default constructor
 	}
-	public static boolean DonorPlaceValidator(String place, String errorMessage) 
+	public static boolean donorPlaceValidator(String place, String errorMessage) 
 			throws InvalidPlaceException
 	{
 		if(place==null || place.trim().isEmpty()||place.trim().length()<=5)

@@ -25,12 +25,7 @@ public class ConnectionUtil {
 		
         Class.forName(driverClass);
 		
-		Connection connection= DriverManager.getConnection(url, username, password);
-		
-		return connection;
-		
-	
-		
+	    return DriverManager.getConnection(url, username, password);
 	}
 	public static void close(Connection con)  {
 		if(con!=null) {

@@ -31,7 +31,7 @@ public class AddDonorServlet extends HttpServlet {
 			BloodGroupValidator.donorBloodGroupValidator(donorBlood,"Blood Group cannot be Empty");
 			MobileNumberValidator.isValidMobileNumber(donorNumber);
 			AgeValidator.isEligibleDonor(donorAge,"Invalid Age for Donor");
-		    PlaceValidator.DonorPlaceValidator(donorPlace, "Invalid Place");
+		    PlaceValidator.donorPlaceValidator(donorPlace, "Invalid Place");
 	
 	        DonorManager manager=new DonorManager();
 		    boolean valid=manager.addDonor(donorBlood,donorName,donorNumber,donorAge,donorPlace);

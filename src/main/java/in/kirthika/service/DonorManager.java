@@ -4,8 +4,7 @@ import in.kirthika.dao.DonorManagerDao;
 import in.kirthika.model.*;
 
 import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.List;
+
 
 public class DonorManager {
 	
@@ -15,18 +14,14 @@ public class DonorManager {
 	   public boolean addDonor(String donorBlood,String donorName,Long donorNumber,int donorAge,String donorPlace)
 	   {   boolean isValid=false; 
 	      DonorDetail task=new DonorDetail(donorBlood,donorName,donorNumber,donorAge,donorPlace);
-		
-	      {
-	    	  try {
+	      try {
 				managerDao.save(task);
 				managerDao.displayIndividual(String.valueOf(donorNumber));
-				
-				
 			} catch (ClassNotFoundException | SQLException e) {
 				System.out.println(e.getMessage());
 				isValid=true;
 			}
-	      }return isValid;
+	      return isValid;
 	 }
 	   public void deleteDonor(String donorName) {
 		   try {
