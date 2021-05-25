@@ -37,11 +37,12 @@ public class DonorManagerDao {
     
     public  void save(DonorDetail detail) throws ClassNotFoundException, SQLException {
     	Connection connection=null;
+    	PreparedStatement pst=null;
     	try{connection=ConnectionUtil.getConnection();
     	String sql=INSERT_DONOR_DATA_QUERY;
     	
     	
-    	PreparedStatement pst=connection.prepareStatement(sql);
+    	pst=connection.prepareStatement(sql);
     	pst.setString(1,detail.getBloodGroup());
     	pst.setString(2,detail.getName());
     	pst.setLong(3,detail.getMobileNumber());
@@ -53,19 +54,20 @@ public class DonorManagerDao {
     		e.getMessage();}
     	finally {
     	
-    	ConnectionUtil.close(connection);
+    	ConnectionUtil.close(pst,connection);
     	}
     	
     }
    public static List<DonorDetail> displayAllList() throws ClassNotFoundException, SQLException
     {   
-	   Connection connection=null;
+	   Connection connection=null; 
+	   PreparedStatement pst=null;
 	   try {
     	   connection=ConnectionUtil.getConnection();
     	
     	String sql=DISPLAY_ALL_DATA_QUERY;
     	
-    	PreparedStatement pst=connection.prepareStatement(sql);
+    	 pst=connection.prepareStatement(sql);
     	
     	ResultSet rs=pst.executeQuery();
     	
@@ -86,7 +88,7 @@ public class DonorManagerDao {
    		e.getMessage();}
    	finally {
 	   
-    	ConnectionUtil.close(connection);}
+    	ConnectionUtil.close(pst,connection);}
     	return taskList;
     	
     	
@@ -94,11 +96,12 @@ public class DonorManagerDao {
     }
     public List<DonorDetail> searchList(String donorBlood,String donorPlace) throws ClassNotFoundException, SQLException{
     	Connection connection=null;
+    	PreparedStatement pst=null;
     	try{connection=ConnectionUtil.getConnection();
     	donorSearch.clear();
     	String sql=SEARCH_DONOR_DATA_QUERY;
     	
-    	PreparedStatement pst=connection.prepareStatement(sql);
+    	 pst=connection.prepareStatement(sql);
     	pst.setString(1, donorBlood);
     	pst.setString(2, donorPlace);
     	
@@ -119,7 +122,7 @@ public class DonorManagerDao {
     	catch (ClassNotFoundException | SQLException e){
     		e.getMessage();}
     	finally {
-          ConnectionUtil.close(connection);
+          ConnectionUtil.close(pst,connection);
     	        }
     	return donorSearch ;
     }
@@ -128,12 +131,13 @@ public class DonorManagerDao {
 	
 	public void deleteDonor(String donorName) throws ClassNotFoundException, SQLException
     {   Connection connection=null;
-      
+        PreparedStatement pst=null;
+        
     	try{
     	connection=ConnectionUtil.getConnection();
     	String sql=DELETE_DONOR_DATA_QUERY;
     
-        PreparedStatement pst=connection.prepareStatement(sql);
+         pst=connection.prepareStatement(sql);
     	pst.setString(1, donorName);
     	pst.executeUpdate();
     	
@@ -143,18 +147,19 @@ public class DonorManagerDao {
     	catch (ClassNotFoundException | SQLException e){
     		e.getMessage();}
     	
-    	ConnectionUtil.close(connection);
+    	ConnectionUtil.close(pst,connection);
     	
     }
     public List<DonorDetail> displayIndividual(String donorNum) throws ClassNotFoundException, SQLException
     {   Connection connection=null;
+         PreparedStatement pst=null;
     try {
     	
     	 connection=ConnectionUtil.getConnection();
     	
     	String sql=DISPLAY_INDIVIDUAL_DATA_QUERY;
     	
-    	PreparedStatement pst=connection.prepareStatement(sql);
+    	 pst=connection.prepareStatement(sql);
     	pst.setString(1, donorNum);
     	
     	
@@ -176,7 +181,7 @@ public class DonorManagerDao {
     	
     	finally {	
     	
-    	ConnectionUtil.close(connection);
+    	ConnectionUtil.close(pst,connection);
     	}
     	return taskList;
     	
