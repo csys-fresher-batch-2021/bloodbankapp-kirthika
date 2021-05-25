@@ -22,10 +22,9 @@ public class DeleteDonorServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 			
-			
+	        DonorManager manager=new DonorManager();
 			String donorName=request.getParameter("donorName");
-		 
-			   DonorManager.deleteDonor(donorName);
+		    manager.deleteDonor(donorName);
 			   try {
 				   response.sendRedirect("donordetails.jsp");
 				   }

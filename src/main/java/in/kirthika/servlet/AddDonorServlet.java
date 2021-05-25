@@ -33,8 +33,8 @@ public class AddDonorServlet extends HttpServlet {
 			AgeValidator.isEligibleDonor(donorAge,"Invalid Age for Donor");
 		    PlaceValidator.DonorPlaceValidator(donorPlace, "Invalid Place");
 	
-	
-		boolean valid=DonorManager.addDonor(donorBlood,donorName,donorNumber,donorAge,donorPlace);
+	        DonorManager manager=new DonorManager();
+		    boolean valid=manager.addDonor(donorBlood,donorName,donorNumber,donorAge,donorPlace);
 		if(valid) 
 		{
 			String errorMessage="Donor already exist";

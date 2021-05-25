@@ -1,5 +1,6 @@
 <!DOCTYPE>
 <%@page import="in.kirthika.model.DonorDetail"%>
+<%@page import="in.kirthika.dao.DonorManagerDao"%>
 <html lang="en" xml:lang="en">
 <%@page import="java.util.List"%>
 <%@page import="java.util.ArrayList"%>
@@ -27,7 +28,8 @@
 		</thead>
 	    <tbody>
 	    <%
-	      List<DonorDetail> taskList=DonorManager.displaySearchDonor();
+	      DonorManagerDao manager=new DonorManagerDao();
+	      List<DonorDetail> taskList=manager.allSearchDonorList();
 	      int i=0;
 	      for(DonorDetail detail:taskList)
 	      {

@@ -11,8 +11,8 @@ public class NameValidator {
 	}
   
 
-public static boolean isStringNotNullOrEmpty(String stringToValidate) 
-		throws EmptyStringException {
+public static boolean isStringNotNullOrEmpty(String stringToValidate) throws EmptyStringException 
+		 {
 
 		
 		if (stringToValidate == null || stringToValidate.trim().isEmpty()) {
@@ -42,7 +42,7 @@ public static boolean isValidName(String donorName)throws InvalidNameException
 		invalidName(donorName);
 		return true;
 	}
-	catch(Exception e)
+	catch(EmptyStringException | InvalidNameFormatException e)//multi catch exception
 	{
 		throw new InvalidNameException(e.getMessage());
 	}

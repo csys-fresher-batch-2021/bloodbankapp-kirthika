@@ -54,6 +54,10 @@ public class DonorDetail {
 		this.age=age;
 		this.place=place;		
 	}
+	public DonorDetail(String bloodGroup) 
+	{   this.bloodGroup=bloodGroup;
+				
+	}
 
 	@Override
 	public String toString() {

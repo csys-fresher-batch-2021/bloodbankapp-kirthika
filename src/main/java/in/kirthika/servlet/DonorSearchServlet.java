@@ -19,7 +19,8 @@ public class DonorSearchServlet extends HttpServlet {
      protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
     	 String donorBlood=request.getParameter("bloodGroup");
     	 String donorPlace=request.getParameter("place");
-    	 DonorManager.donorSearch(donorBlood, donorPlace);
+    	 DonorManager manager=new DonorManager();
+    	 manager.donorSearch(donorBlood, donorPlace);
     	 response.sendRedirect("searchdonor.jsp");
 	
 	}
