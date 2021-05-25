@@ -36,8 +36,8 @@ public class DonorManagerDao {
     
     
     public  void save(DonorDetail detail) throws ClassNotFoundException, SQLException {
-    	
-    	Connection connection=ConnectionUtil.getConnection();
+    	Connection connection=null;
+    	try{connection=ConnectionUtil.getConnection();
     	String sql=INSERT_DONOR_DATA_QUERY;
     	
     	
@@ -48,17 +48,20 @@ public class DonorManagerDao {
     	pst.setInt(4,detail.getAge());
     	pst.setString(5,detail.getPlace());
     	pst.executeUpdate();
-    	
-    	
+    	}
+    	catch (ClassNotFoundException | SQLException e){
+    		e.getMessage();}
+    	finally {
     	
     	ConnectionUtil.close(connection);
-    	
+    	}
     	
     }
    public static List<DonorDetail> displayAllList() throws ClassNotFoundException, SQLException
     {   
-    	
-    	Connection connection=ConnectionUtil.getConnection();
+	   Connection connection=null;
+	   try {
+    	   connection=ConnectionUtil.getConnection();
     	
     	String sql=DISPLAY_ALL_DATA_QUERY;
     	
@@ -78,7 +81,12 @@ public class DonorManagerDao {
     		
     		
     	}
-    	ConnectionUtil.close(connection);
+	   }
+	   catch (ClassNotFoundException | SQLException e){
+   		e.getMessage();}
+   	finally {
+	   
+    	ConnectionUtil.close(connection);}
     	return taskList;
     	
     	
