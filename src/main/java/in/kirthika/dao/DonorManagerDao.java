@@ -85,7 +85,8 @@ public class DonorManagerDao {
     	
     }
     public List<DonorDetail> searchList(String donorBlood,String donorPlace) throws ClassNotFoundException, SQLException{
-    	Connection connection=ConnectionUtil.getConnection();
+    	Connection connection=null;
+    	try{connection=ConnectionUtil.getConnection();
     	donorSearch.clear();
     	String sql=SEARCH_DONOR_DATA_QUERY;
     	
@@ -105,36 +106,43 @@ public class DonorManagerDao {
     		
 
     		DonorDetail detail=new DonorDetail(donorBlood1,donorName,donorNumber,donorAge, donorPlace1);
-    		donorSearch.add(detail);
-    		
-    		
+    		donorSearch.add(detail);}
     	}
-    	ConnectionUtil.close(connection);
+    	catch (ClassNotFoundException | SQLException e){
+    		e.getMessage();}
+    	finally {
+          ConnectionUtil.close(connection);
+    	        }
     	return donorSearch ;
-    	
     }
 
     	
 	
 	public void deleteDonor(String donorName) throws ClassNotFoundException, SQLException
-    {
-    	Connection connection=ConnectionUtil.getConnection();
+    {   Connection connection=null;
+      
+    	try{
+    	connection=ConnectionUtil.getConnection();
     	String sql=DELETE_DONOR_DATA_QUERY;
     
-    	PreparedStatement pst=connection.prepareStatement(sql);
+        PreparedStatement pst=connection.prepareStatement(sql);
     	pst.setString(1, donorName);
     	pst.executeUpdate();
     	
     	taskList.clear();
     	displayAllList();
+    	}
+    	catch (ClassNotFoundException | SQLException e){
+    		e.getMessage();}
     	
     	ConnectionUtil.close(connection);
     	
     }
     public List<DonorDetail> displayIndividual(String donorNum) throws ClassNotFoundException, SQLException
-    {   
+    {   Connection connection=null;
+    try {
     	
-    	Connection connection=ConnectionUtil.getConnection();
+    	 connection=ConnectionUtil.getConnection();
     	
     	String sql=DISPLAY_INDIVIDUAL_DATA_QUERY;
     	
@@ -153,9 +161,15 @@ public class DonorManagerDao {
     		
     		DonorDetail detail=new DonorDetail(donorBlood,donorName,donorNumber,donorAge,donorPlace);
     		taskList.add(detail);
-    		
     	}
+    }
+    	catch(ClassNotFoundException | SQLException e){
+    		e.getMessage();}
+    	
+    	finally {	
+    	
     	ConnectionUtil.close(connection);
+    	}
     	return taskList;
     	
     }
