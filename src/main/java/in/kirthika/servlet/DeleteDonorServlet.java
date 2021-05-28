@@ -29,7 +29,7 @@ public class DeleteDonorServlet extends HttpServlet {
 				    manager.deleteDonor(donorNum);
 				   response.sendRedirect("deletedonordetail.jsp");
 				   }
-			   catch(IOException e)
+			   catch(Exception e )
 			   {
 				   logger.info(e.getMessage());
 			   }

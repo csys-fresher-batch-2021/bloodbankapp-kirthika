@@ -19,7 +19,7 @@ import in.kirthika.validator.PlaceValidator;
 public class AddDonorServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 @Override
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException,NumberFormatException {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	    
 		
 		try {
