@@ -1,13 +1,10 @@
 package in.kirthika.dao;
-
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.HashMap;
 import java.util.Map;
-
-import in.kirthika.model.DonorDetail;
 import in.kirthika.model.UserDetail;
 import in.kirthika.util.ConnectionUtil;
 
@@ -36,7 +33,7 @@ public class UserManagerDao {
     	pst.executeUpdate();
     	}
     	catch(Exception e) {
-    		System.out.println(e.getMessage());
+    		
     		isValid=false;
     		e.getMessage();
     	}
@@ -53,7 +50,6 @@ public class UserManagerDao {
     	Connection connection=null;
     	PreparedStatement pst=null;
     	try{connection=ConnectionUtil.getConnection();
-    	System.out.println("hi");
     	String sql=SEARCH_DONOR_DATA_QUERY;
     	
     	pst=connection.prepareStatement(sql);
@@ -68,7 +64,7 @@ public class UserManagerDao {
     		String name=rs.getString(USER_NAME);
     		String password=rs.getString(USER_PASSWORD);
     		userCredential.put(name,password);
-    		System.out.println(userCredential);
+    	
             
     	}
     	}

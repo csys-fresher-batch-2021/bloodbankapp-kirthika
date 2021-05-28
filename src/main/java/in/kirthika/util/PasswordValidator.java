@@ -4,9 +4,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import in.kirthika.exception.EmptyPasswordException;
-import in.kirthika.exception.EmptyStringException;
-import in.kirthika.exception.InvalidNameException;
-import in.kirthika.exception.InvalidNameFormatException;
+
 import in.kirthika.exception.InvalidPasswordException;
 import in.kirthika.exception.InvalidPasswordFormatException;
 
@@ -31,7 +29,7 @@ public static boolean isStringNotNullOrEmpty(String passwordToValidate) throws E
 
 public static boolean invalidPassword(String passwordToValidate) 
 		throws InvalidPasswordFormatException{
-	String regex="^(?=.*[0-9])" + "(?=.*[a-z])(?=.*[A-Z])" + "(?=.*[@#$%^&+=])" + "(?=\\S+$).{8,15}$";;
+	String regex="^(?=.*[0-9])" + "(?=.*[a-z])(?=.*[A-Z])" + "(?=.*[@#$%^&+=])" + "(?=\\S+$).{8,15}$";
 	Pattern regexPattern=Pattern.compile(regex);
 	Matcher matchCheck=regexPattern.matcher(passwordToValidate);
 	boolean isValidFormat = matchCheck.matches();

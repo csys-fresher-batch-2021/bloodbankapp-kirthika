@@ -1,13 +1,10 @@
 package in.kirthika.servlet;
-
 import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
-import in.kirthika.exception.InvalidNameException;
 import in.kirthika.model.UserDetail;
 import in.kirthika.service.UserManager;
 import in.kirthika.util.MobileNumberValidator;
@@ -24,7 +21,7 @@ import in.kirthika.validator.PlaceValidator;
 public class UserRegistration extends HttpServlet {
 	private static final long serialVersionUID = 1L;
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-	   
+	    
     	String userName=request.getParameter("userName");
     	String userPassword=request.getParameter("password");
     	String userBlood=request.getParameter("bloodGroup");
@@ -42,12 +39,12 @@ public class UserRegistration extends HttpServlet {
 	    PlaceValidator.donorPlaceValidator(userPlace, "Invalid Place");
 	    UserDetail user=new UserDetail(userName,userPassword,userBlood,userNumber,userAge,userPlace);
 	    boolean valid=UserManager.addUser(user);
-	    if(valid==true)
+	    if(valid)
 	    {  
 	    	String message="Registration Successful";
 	    	response.sendRedirect("register.jsp?message=" +message);
 	    }
-	    else {System.out.println(valid);
+	    else {
 	    	String message="Registration Invalid";
 	    	response.sendRedirect("register.jsp?message=" +message);
 	    }
