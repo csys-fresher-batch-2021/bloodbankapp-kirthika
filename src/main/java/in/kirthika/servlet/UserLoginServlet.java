@@ -18,7 +18,7 @@ public class UserLoginServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 @Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String userName=request.getParameter("userName");
+		try{String userName=request.getParameter("userName");
 		String userPassword=request.getParameter("password");
 		boolean isValid=UserManager.userCheck(userName,userPassword);
 	    if(isValid)
@@ -33,6 +33,10 @@ public class UserLoginServlet extends HttpServlet {
 				response.sendRedirect("userregistration.jsp?message="+errorMessage);
 			}
 		
-		
+		}
+		catch(Exception e)
+		{
+			e.getMessage();
+		}
 }
 }
