@@ -20,8 +20,7 @@ public class UserLoginServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String userName=request.getParameter("userName");
 		String userPassword=request.getParameter("password");
-		{
-			boolean isValid=UserManager.userCheck(userName,userPassword);
+		boolean isValid=UserManager.userCheck(userName,userPassword);
 			if(isValid)
 			{  
 				HttpSession session=request.getSession();
@@ -33,7 +32,7 @@ public class UserLoginServlet extends HttpServlet {
 				String errorMessage="Invalid Credentials";
 				response.sendRedirect("userregistration.jsp?message="+errorMessage);
 			}
-		}
+		
 		
 }
 }
