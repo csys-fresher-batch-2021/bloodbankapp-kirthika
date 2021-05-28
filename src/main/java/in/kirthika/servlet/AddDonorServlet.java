@@ -19,14 +19,15 @@ import in.kirthika.validator.PlaceValidator;
 public class AddDonorServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 @Override
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException,NumberFormatException {
 	    
-		String donorName=request.getParameter("donorName");
-		String donorBlood=request.getParameter("bloodGroup");
-		Long donorNumber=Long.parseLong(request.getParameter("mobileNumber"));
-		Integer donorAge=Integer.parseInt(request.getParameter("age"));
-		String donorPlace=request.getParameter("place");
+		
 		try {
+			String donorName=request.getParameter("donorName");
+			String donorBlood=request.getParameter("bloodGroup");
+			Long donorNumber=Long.parseLong(request.getParameter("mobileNumber"));
+			Integer donorAge=Integer.parseInt(request.getParameter("age"));
+			String donorPlace=request.getParameter("place");
 			
 			NameValidator.isValidName(donorName);
 			BloodGroupValidator.donorBloodGroupValidator(donorBlood,"Blood Group cannot be Empty");

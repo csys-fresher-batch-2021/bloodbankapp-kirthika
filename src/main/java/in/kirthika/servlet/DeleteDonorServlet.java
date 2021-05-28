@@ -19,13 +19,14 @@ public class DeleteDonorServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
 @Override
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException,NumberFormatException {
 		
 			
-	        DonorManager manager=new DonorManager();
-			Long donorNum=Long.parseLong(request.getParameter("mobileNumber"));
-		    manager.deleteDonor(donorNum);
+	     
 			   try {
+				   DonorManager manager=new DonorManager();
+					Long donorNum=Long.parseLong(request.getParameter("mobileNumber"));
+				    manager.deleteDonor(donorNum);
 				   response.sendRedirect("deletedonordetail.jsp");
 				   }
 			   catch(IOException e)
