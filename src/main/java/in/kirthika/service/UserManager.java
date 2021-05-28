@@ -20,12 +20,13 @@ public class UserManager {
 	public static boolean userCheck(String userName,String userPassword)
 	{   boolean isValid=false;
 		Map<String,String> userCredentials=user.checkUserCredential(userName, userPassword);
-		if(!userCredentials.isEmpty()) {
+		
 		if(userCredentials.containsKey(userName) && userPassword.equals(userCredentials.get(userName)))
 		{
 			isValid=true;
 		}
-		}
+		
+		
 		return isValid;
 	}
 

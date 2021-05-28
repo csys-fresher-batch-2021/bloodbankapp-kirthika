@@ -57,7 +57,7 @@ public class UserManagerDao {
     	pst.setString(2, userPassword );
     	
     	ResultSet rs=pst.executeQuery();
-    	userCredential.clear();
+    	
     	
     	while(rs.next()) {
     		
