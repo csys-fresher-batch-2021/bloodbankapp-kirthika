@@ -1,6 +1,6 @@
 <!DOCTYPE>
-<%@page import="in.kirthika.model.DonorDetail"%>
 <%@page import="in.kirthika.dao.DonorManagerDao"%>
+<%@page import="in.kirthika.model.DonorDetail"%>
 <html lang="en" xml:lang="en">
 <%@page import="java.util.List"%>
 <%@page import="java.util.ArrayList"%>
@@ -12,6 +12,7 @@
 	<jsp:include page="header.jsp"></jsp:include>
 	<main class="container-fluid">
 		<h3>Donor Details</h3>
+	
 		<table class="table table-bordered">
 		<caption>Donor Details</caption>
 		<thead>
@@ -22,41 +23,41 @@
 				<th scope="col">Blood Group</th>
 				<th scope="col">Age</th>
 				<th scope="col">Place</th>
-				
+				<th scope="col">Delete</th>
 		</tr>
 				
 		</thead>
-	    <tbody>
-	    <%
-	      DonorManagerDao manager=new DonorManagerDao();
-	      List<DonorDetail> taskList=manager.allSearchDonorList();
-	      int i=0;
-	      for(DonorDetail detail:taskList)
-	      {
-	      
-	    	  i++;
-	      
-	    %>
-			    <tr>
-			    <td><%=i %></td>
-			    <td><%=detail.getName() %></td>
-			    <td><%=detail.getMobileNumber() %></td>
-			    <td><%=detail.getBloodGroup()%></td>
-			    <td><%=detail.getAge() %></td>
-			    <td><%=detail.getPlace()%></td>
-			 
-			</tr>
-	     <%}
-	     %>
-	    
+	
+	    <tbody id="donor-tbl">
+
 	   </tbody>
 	  </table>
+	  <script>
+	  function getDonorDetail()
+	  { console.log("donorDetail");
+	  let url="AddDonorServlet1";
+	  fetch(url).then(res=>res.json()).then(res=>{
+	  	   let details=res;
+	       console.log(details);
+	       let content="";
+	       
+	       for(let detail of details){
+	    	   content +=
+	    		   <tr><td>${detail.bloodGroup}</td><td>${detail.name}</td><td>${detail.mobileNumber}
+	    	   <td></td>${detail.age}<td></td>${detail.place}</td></tr>;
+	       }
+	       console.log(content);
+	       document.querySelector("#donor-tbl").innerHTML=content;
+
+	  });
+	  }
+	  getDonorDetail();
+	  </script>
 		
-	    <a href="donorsearchpage.jsp">search donor</a>
+		<a href="adddonor.jsp">Add Donor</a>
 		<br/>
 		<br/>
 		<a href="adminmanager.jsp">Back to homepage</a>
-		
 
 </main>
 </body>

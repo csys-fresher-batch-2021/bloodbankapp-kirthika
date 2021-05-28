@@ -21,7 +21,7 @@ public class DonorManagerDao {
 	private static final String INSERT_DONOR_DATA_QUERY ="insert into donor_detail (donor_blood,donor_name,donor_number,donor_age,donor_place) values (?,?,?,?,?)";
 	private static final String DISPLAY_ALL_DATA_QUERY="select * from donor_detail";
 	private static final String SEARCH_DONOR_DATA_QUERY="select * from donor_detail where donor_blood=? and donor_place=?";
-	private static final String DELETE_DONOR_DATA_QUERY="delete from donor_detail where donor_name=?";
+	private static final String DELETE_DONOR_DATA_QUERY="delete from donor_detail where donor_number=?";
 	private static final String DISPLAY_INDIVIDUAL_DATA_QUERY="select * from donor_detail where donor_number=?";
     static {
     	try {
@@ -33,7 +33,8 @@ public class DonorManagerDao {
     }
     
     
-    public  void save(DonorDetail detail) throws ClassNotFoundException, SQLException {
+    public boolean save(DonorDetail detail) throws ClassNotFoundException, SQLException {
+    	boolean isValid=false;
     	Connection connection=null;
     	PreparedStatement pst=null;
     	try{connection=ConnectionUtil.getConnection();
@@ -49,12 +50,13 @@ public class DonorManagerDao {
     	pst.executeUpdate();
     	}
     	catch (ClassNotFoundException | SQLException e){
+    		isValid=true;
     		e.getMessage();}
     	finally {
     	
     	ConnectionUtil.close(pst,connection);
     	}
-    	
+    	return isValid;
     }
    public static List<DonorDetail> displayAllList() throws ClassNotFoundException, SQLException
     {   
@@ -127,16 +129,18 @@ public class DonorManagerDao {
 
     	
 	
-	public void deleteDonor(String donorName) throws ClassNotFoundException, SQLException
+	public void deleteDonor(Long donorNum) throws ClassNotFoundException, SQLException
     {   Connection connection=null;
         PreparedStatement pst=null;
         
     	try{
+    		
     	connection=ConnectionUtil.getConnection();
     	String sql=DELETE_DONOR_DATA_QUERY;
     
          pst=connection.prepareStatement(sql);
-    	pst.setString(1, donorName);
+         String num=String.valueOf(donorNum);
+    	pst.setString(1, num);
     	pst.executeUpdate();
     	
     	taskList.clear();

@@ -11,7 +11,7 @@ public class BloodGroupValidator {
 	public static boolean donorBloodGroupValidator(String bloodGroup, String errorMessage)
 	     throws EmptyBloodGroupException
 	{
-		if(bloodGroup.length()!=2)
+		if(bloodGroup.length()>3)
 		{
 			throw new EmptyBloodGroupException(errorMessage);
 		}
