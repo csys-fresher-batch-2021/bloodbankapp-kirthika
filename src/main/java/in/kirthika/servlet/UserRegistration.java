@@ -23,7 +23,9 @@ public class UserRegistration extends HttpServlet {
 @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	 
-	    final String ACTION="register.jsp?message=";
+	final String ACTION="register.jsp?message=";
+	try {
+	    
     	String userName=request.getParameter("userName");
     	String userPassword=request.getParameter("password");
     	String userBlood=request.getParameter("bloodGroup");
@@ -31,7 +33,6 @@ public class UserRegistration extends HttpServlet {
         int userAge=Integer.parseInt(request.getParameter("age"));
 		String userPlace=request.getParameter("place");
 		
-	try {
 		
 		NameValidator.isValidName(userName);
 		PasswordValidator.isValidFormat(userPassword);
