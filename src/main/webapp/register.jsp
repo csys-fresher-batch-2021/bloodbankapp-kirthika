@@ -14,7 +14,7 @@
 
 			<div class="d-flex justify-content-center">
 				<label for="userName"></label> <input type="text" name="userName"
-					placeholder="Enter donor name" required autofocus />
+					placeholder="Enter User name" required autofocus />
 			</div>
 			<br/>
 			<div class="d-flex justify-content-center">
