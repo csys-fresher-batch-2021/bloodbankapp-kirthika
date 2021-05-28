@@ -22,7 +22,8 @@ public class UserRegistration extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-	    
+	 
+	    final String ACTION="register.jsp?message=";
     	String userName=request.getParameter("userName");
     	String userPassword=request.getParameter("password");
     	String userBlood=request.getParameter("bloodGroup");
@@ -43,15 +44,15 @@ public class UserRegistration extends HttpServlet {
 	    if(valid)
 	    {  
 	    	String message="Registration Successful";
-	    	response.sendRedirect("register.jsp?message=" +message);
+	    	response.sendRedirect(ACTION +message);
 	    }
 	    else {
 	    	String message="Registration Invalid";
-	    	response.sendRedirect("register.jsp?message=" +message);
+	    	response.sendRedirect(ACTION +message);
 	    }
 	}
 	catch(Exception e) {
-		response.sendRedirect("register.jsp?message=" + e.getMessage());
+		response.sendRedirect(ACTION + e.getMessage());
 		
 	}
 }

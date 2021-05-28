@@ -21,13 +21,13 @@ public class UserLoginServlet extends HttpServlet {
 		String userName=request.getParameter("userName");
 		String userPassword=request.getParameter("password");
 		boolean isValid=UserManager.userCheck(userName,userPassword);
-			if(isValid)
+	    if(isValid)
 			{  
 				HttpSession session=request.getSession();
 				session.setAttribute("LOGIN_USER", userName);
 				response.sendRedirect("adminmanager.jsp");
 			}
-			else
+	    else
 			{
 				String errorMessage="Invalid Credentials";
 				response.sendRedirect("userregistration.jsp?message="+errorMessage);
