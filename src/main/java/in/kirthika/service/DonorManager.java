@@ -5,28 +5,30 @@ import in.kirthika.model.*;
 
 import java.sql.SQLException;
 
+import java.util.List;
+
+
+
 
 public class DonorManager {
 	
 	
 	private DonorManagerDao managerDao=new DonorManagerDao();
 	   
-	   public boolean addDonor(String donorBlood,String donorName,Long donorNumber,int donorAge,String donorPlace)
-	   {   boolean isValid=false; 
-	      DonorDetail task=new DonorDetail(donorBlood,donorName,donorNumber,donorAge,donorPlace);
-	      try {
-				managerDao.save(task);
-				managerDao.displayIndividual(String.valueOf(donorNumber));
-			} catch (ClassNotFoundException | SQLException e) {
-				e.getMessage();
-				isValid=true;
-			}
-	      return isValid;
+	   public boolean addDonor(String donorBlood,String donorName,Long donorNumber,int donorAge,String donorPlace) throws ClassNotFoundException, SQLException
+	   {    DonorDetail task=new DonorDetail(donorBlood,donorName,donorNumber,donorAge,donorPlace);
+	      
+	      
+				boolean isValid=managerDao.save(task);
+				if(!isValid) {
+				managerDao.displayIndividual(String.valueOf(donorNumber));}
+			    return isValid;
+			
 	 }
-	   public void deleteDonor(String donorName) {
+	   public void deleteDonor(Long donorNum) {
 		   try {
 			  
-			    managerDao.deleteDonor(donorName);
+			    managerDao.deleteDonor(donorNum);
 		} catch (ClassNotFoundException | SQLException e) {
 			
 			e.getMessage();
@@ -42,6 +44,17 @@ public class DonorManager {
 			e.getMessage();
 		} 
 	   }
+	
+	  public List<DonorDetail> displayDonorList()
+	  {
+		  return(managerDao.allDonorList());
+	  }
+	  
+	  public List<DonorDetail> displaySearchDonorList()
+	  {
+		  return(managerDao.allSearchDonorList());
+	  }
+	
 	
 }
 

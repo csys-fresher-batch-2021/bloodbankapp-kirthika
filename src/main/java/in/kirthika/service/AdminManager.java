@@ -7,7 +7,7 @@ public class AdminManager {
 	}
 	
 	
-	public static boolean userCheck(String userName,String userPassword)
+	public static boolean adminCheck(String userName,String userPassword)
 	{    boolean isValid=false;
 		if(userName.equalsIgnoreCase("admin")&& userPassword.equalsIgnoreCase("welcome"))
           {

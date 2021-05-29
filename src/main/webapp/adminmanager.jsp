@@ -3,6 +3,11 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Blood Bank</title>
+<%
+String loggedInUsername=(String)session.getAttribute("LOGIN_USER");
+
+%>
+
 
 </head>
 <body>
@@ -12,18 +17,33 @@
 		<h3>Features</h3>
 	</div>
 		<br/>
-		<div class="d-flex justify-content-center">
-		  <a href="adddonor.jsp">Add donor</a>
-		</div>
-		   
-		   
+		
+		   <%
+				if (!loggedInUsername.equals("admin")) {
+				%>
+	
 		    <div class="d-flex justify-content-center">
 		    <a href="donorsearchpage.jsp">Search Donor</a>
 		    </div>
+		    <%} else {%>
+		    <div class="d-flex justify-content-center">
+		  <a href="adddonor.jsp">Add donor</a>
+		    </div>
 		    
 		     <div class="d-flex justify-content-center">
-		    <a href="donordetails.jsp">Delete donor</a>
+		    <a href="donorsearchpage.jsp">Search Donor</a>
+		    </div>
+		   
+		     <div class="d-flex justify-content-center">
+		    <a href="deletedonordetail.jsp">Delete donor</a>
 	        </div>
+	        
+	         <div class="d-flex justify-content-center">
+		    <a href="displaydonor.jsp">Display donor</a>
+	        </div>
+	        <%} %>
+	        
+		    
 </main>
 </body>
 </html>
