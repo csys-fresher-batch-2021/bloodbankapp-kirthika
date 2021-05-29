@@ -15,12 +15,18 @@ import in.kirthika.service.DonorManager;
 @WebServlet("/FilterServlet")
 public class FilterServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+	@Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-    	 DonorManager manager=new DonorManager();
+    	try { DonorManager manager=new DonorManager();
           String filterBlood=request.getParameter("donorBlood");
          
           manager.filterBlood(filterBlood);
           response.sendRedirect("displayfilterlist.jsp");
+	}
+    	catch(Exception e)
+    	{
+    		e.getMessage();
+    	}
 	}
 
 	
