@@ -44,7 +44,16 @@ public class DonorManager {
 			e.getMessage();
 		} 
 	   }
+	  public void filterBlood(String blood)
+	  {
+		  try {
+			managerDao.filterBlood(blood);
 	
+		} catch (ClassNotFoundException | SQLException e) {
+		
+			e.getMessage();
+		}
+	  }
 	  public List<DonorDetail> displayDonorList()
 	  {
 		  return(managerDao.allDonorList());
@@ -53,6 +62,10 @@ public class DonorManager {
 	  public List<DonorDetail> displaySearchDonorList()
 	  {
 		  return(managerDao.allSearchDonorList());
+	  }
+	  public List<DonorDetail>  filterList()
+	  {   
+		  return(managerDao.displayFilterList());
 	  }
 	
 	

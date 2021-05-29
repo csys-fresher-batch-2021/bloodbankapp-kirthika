@@ -12,6 +12,8 @@
 	<jsp:include page="header.jsp"></jsp:include>
 	<main class="container-fluid">
 		<h3>Donor Details</h3>
+		<form action="FilterServlet">
+	
 		<table class="table table-bordered">
 		<caption>Donor Details</caption>
 		<thead>
@@ -29,7 +31,7 @@
 	    <tbody>
 	    <%
 	      DonorManagerDao manager=new DonorManagerDao();
-	      List<DonorDetail> taskList=manager.allDonorList();
+	      List<DonorDetail> taskList=manager.displayFilterList();
 	      int i=0;
 	      for(DonorDetail detail:taskList)
 	      {
@@ -46,17 +48,13 @@
 			    <td><%=detail.getPlace()%></td>
 			   
 			</tr>
-	     <%}
+	     <%  }
 	     %>
 	    
 	   </tbody>
 	  </table>
 		
-		<a href="adddonor.jsp">Add Donor</a>
-		<br/>
-		<br/>
-		<a href="adminmanager.jsp">Back to homepage</a>
-
+</form>
 </main>
 </body>
 </html>

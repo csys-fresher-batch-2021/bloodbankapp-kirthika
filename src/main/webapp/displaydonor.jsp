@@ -12,6 +12,12 @@
 	<jsp:include page="header.jsp"></jsp:include>
 	<main class="container-fluid">
 		<h3>Donor Details</h3>
+		<form action="FilterServlet">
+	<label for="searchblood"></label>
+	<input type="text" name="donorBlood" placeholder="Search donor blood" autofocus/>
+	 <button type="submit" class="btn btn-success">Search</button> 
+	<br/>
+	<br/>
 		<table class="table table-bordered">
 		<caption>Donor Details</caption>
 		<thead>
@@ -51,8 +57,9 @@
 	    
 	   </tbody>
 	  </table>
-		
-		
+		</form>
+		<a href="adddonor.jsp">Add Donor</a>
+		<br/>
 		<br/>
 		<a href="adminmanager.jsp">Back to homepage</a>
 

@@ -22,7 +22,7 @@
 	<option value="B-">B-</option>
 	<option value="O+">O+</option>
 	<option value="O-">O-</option>
-	<option value="A1B">A1B</option>
+	
 	</select>
 	</div>
 	</div>
