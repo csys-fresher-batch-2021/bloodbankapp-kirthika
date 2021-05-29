@@ -3,6 +3,10 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Add Donor</title>
+<%
+String loggedInUsername=(String)session.getAttribute("LOGIN_USER");
+
+%>
 </head>
 <body>
 <jsp:include page="header.jsp"></jsp:include>
@@ -28,7 +32,7 @@
 	<option value="B-">B-</option>
 	<option value="O+">O+</option>
 	<option value="O-">O-</option>
-	<option value="A1B">A1B</option>
+	
 	</select>
 	</div>
 	

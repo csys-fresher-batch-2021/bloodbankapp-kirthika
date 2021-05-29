@@ -25,6 +25,12 @@ String loggedInUsername=(String)session.getAttribute("LOGIN_USER");
 		    <div class="d-flex justify-content-center">
 		    <a href="donorsearchpage.jsp">Search Donor</a>
 		    </div>
+		    
+		     <div class="d-flex justify-content-center">
+		    <a href="registrationform.jsp">registration form</a>
+		    </div>
+		    
+		    
 		    <%} else {%>
 		    <div class="d-flex justify-content-center">
 		  <a href="adddonor.jsp">Add donor</a>

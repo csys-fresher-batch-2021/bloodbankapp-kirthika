@@ -13,6 +13,7 @@ public class DonorManagerDao {
 
 	private static final List<DonorDetail> taskList = new ArrayList<>();
     private static final List<DonorDetail> donorSearch= new ArrayList<>();
+    private static final List<DonorDetail> filterList= new ArrayList<>();
     private static final String DONOR_BLOOD ="donor_blood";
 	private static final String DONOR_NAME ="donor_name";
 	private static final String DONOR_MOBILENUMBER ="donor_number";
@@ -23,6 +24,7 @@ public class DonorManagerDao {
 	private static final String SEARCH_DONOR_DATA_QUERY="select * from donor_detail where donor_blood=? and donor_place=?";
 	private static final String DELETE_DONOR_DATA_QUERY="delete from donor_detail where donor_number=?";
 	private static final String DISPLAY_INDIVIDUAL_DATA_QUERY="select * from donor_detail where donor_number=?";
+	private static final String FILTER_DONOR_NAME="select * from donor_detail where donor_blood like ?";
     static {
     	try {
 			displayAllList();
@@ -82,6 +84,7 @@ public class DonorManagerDao {
     		taskList.add(detail);
     		
     		
+    		
     	}
 	   }
 	   catch (ClassNotFoundException | SQLException e){
@@ -138,8 +141,8 @@ public class DonorManagerDao {
     	connection=ConnectionUtil.getConnection();
     	String sql=DELETE_DONOR_DATA_QUERY;
     
-         pst=connection.prepareStatement(sql);
-         String num=String.valueOf(donorNum);
+        pst=connection.prepareStatement(sql);
+        String num=String.valueOf(donorNum);
     	pst.setString(1, num);
     	pst.executeUpdate();
     	
@@ -152,6 +155,8 @@ public class DonorManagerDao {
     	ConnectionUtil.close(pst,connection);
     	
     }
+	
+	 
     public List<DonorDetail> displayIndividual(String donorNum) throws ClassNotFoundException, SQLException
     {   Connection connection=null;
          PreparedStatement pst=null;
@@ -176,6 +181,8 @@ public class DonorManagerDao {
     		
     		DonorDetail detail=new DonorDetail(donorBlood,donorName,donorNumber,donorAge,donorPlace);
     		taskList.add(detail);
+    		
+    		
     	}
     }
     	catch(ClassNotFoundException | SQLException e){
@@ -189,6 +196,45 @@ public class DonorManagerDao {
     	
     }
     
+    
+    public void filterBlood(String filterDonorBlood) throws ClassNotFoundException, SQLException
+    {   Connection connection=null;
+        PreparedStatement pst=null;
+        filterList.clear();
+    	try{
+    		
+    	connection=ConnectionUtil.getConnection();
+    	
+    	String sql=FILTER_DONOR_NAME;
+    	
+    
+        pst=connection.prepareStatement(sql);
+        
+    	pst.setString(1,filterDonorBlood + "%");
+    	
+    	ResultSet rs=pst.executeQuery();
+        while(rs.next()) {
+    		
+    		String donorBlood1=rs.getString(DONOR_BLOOD);
+    		String donorName=rs.getString(DONOR_NAME);
+            Long donorNumber=rs.getLong(DONOR_MOBILENUMBER);
+    		int donorAge=rs.getInt(DONOR_AGE);
+    		String donorPlace1=rs.getString(DONOR_PLACE);
+    		
+    		DonorDetail detail=new DonorDetail(donorBlood1,donorName,donorNumber,donorAge, donorPlace1);
+    		filterList.add(detail);
+    		
+    	
+    	
+    	}
+    	}
+    	catch (ClassNotFoundException | SQLException e){
+    		e.getMessage();}
+    	
+    	ConnectionUtil.close(pst,connection);
+    	
+    }
+    
     public List<DonorDetail> allDonorList()
     {
     	return taskList;
@@ -196,6 +242,10 @@ public class DonorManagerDao {
     public List<DonorDetail> allSearchDonorList()
     {
     	return donorSearch;
+    }
+    public List<DonorDetail> displayFilterList()
+    {
+    	return filterList;
     }
     
    
