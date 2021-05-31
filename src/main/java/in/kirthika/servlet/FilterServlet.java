@@ -20,7 +20,7 @@ public class FilterServlet extends HttpServlet {
     	try { DonorManager manager=new DonorManager();
           String filterBlood=request.getParameter("donorBlood");
          
-          manager.filterBlood(filterBlood);
+          manager.filterBlood(filterBlood.toUpperCase());
           response.sendRedirect("displayfilterlist.jsp");
 	}
     	catch(Exception e)

@@ -25,9 +25,10 @@ String loggedInUsername=(String)session.getAttribute("LOGIN_USER");
 		    <div class="d-flex justify-content-center">
 		    <a href="donorsearchpage.jsp">Search Donor</a>
 		    </div>
+		  
 		    
 		     <div class="d-flex justify-content-center">
-		    <a href="registrationform.jsp">registration form</a>
+		    <a href="registrationform.jsp">Seeker registration form</a>
 		    </div>
 		    
 		    
@@ -46,6 +47,10 @@ String loggedInUsername=(String)session.getAttribute("LOGIN_USER");
 	        
 	         <div class="d-flex justify-content-center">
 		    <a href="displaydonor.jsp">Display donor</a>
+	        </div>
+	        
+	        <div class="d-flex justify-content-center">
+		    <a href="seekerrequest.jsp">Seeker Request</a>
 	        </div>
 	        <%} %>
 	        

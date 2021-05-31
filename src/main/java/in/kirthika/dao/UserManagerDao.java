@@ -9,7 +9,7 @@ import in.kirthika.model.UserDetail;
 import in.kirthika.util.ConnectionUtil;
 
 public class UserManagerDao {
-	private static final String INSERT_DONOR_DATA_QUERY ="insert into user_credential(username,userpassword,userbloodgroup,usermobilenumber,userage,userplace) values (?,?,?,?,?,?)";
+	private static final String INSERT_DONOR_DATA_QUERY ="insert into user_credential(username,userpassword,usermobilenumber) values (?,?,?)";
 	private static final String SEARCH_DONOR_DATA_QUERY="select * from user_credential where username=? and userpassword=?";
 	private static final String USER_NAME ="username";
 	private static final String USER_PASSWORD ="userpassword";
@@ -26,10 +26,8 @@ public class UserManagerDao {
     	pst=connection.prepareStatement(sql);
     	pst.setString(1,user.getUserName());
     	pst.setString(2,user.getUserPassword());
-    	pst.setString(3,user.getUserBloodGroup());
-    	pst.setLong(4,user.getUserMobileNum());
-    	pst.setInt(5,user.getUserAge());
-    	pst.setString(6,user.getUserPlace());
+    	pst.setLong(3,user.getUserMobileNum());
+    	
     	pst.executeUpdate();
     	}
     	catch(Exception e) {

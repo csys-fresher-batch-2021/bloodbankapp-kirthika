@@ -28,19 +28,16 @@ public class UserRegistration extends HttpServlet {
 	    
     	String userName=request.getParameter("userName");
     	String userPassword=request.getParameter("password");
-    	String userBlood=request.getParameter("bloodGroup");
+    	
     	Long userNumber=Long.parseLong(request.getParameter("mobileNumber"));
-        int userAge=Integer.parseInt(request.getParameter("age"));
-		String userPlace=request.getParameter("place");
-		
+       
 		
 		NameValidator.isValidName(userName);
 		PasswordValidator.isValidFormat(userPassword);
-		BloodGroupValidator.donorBloodGroupValidator(userBlood,"Blood Group cannot be Empty");
+		
 		MobileNumberValidator.isValidMobileNumber(userNumber);
-		AgeValidator.isEligibleDonor(userAge,"Invalid Age for Donor");
-	    PlaceValidator.donorPlaceValidator(userPlace, "Invalid Place");
-	    UserDetail user=new UserDetail(userName,userPassword,userBlood,userNumber,userAge,userPlace);
+	   
+	    UserDetail user=new UserDetail(userName,userPassword,userNumber);
 	    boolean valid=UserManager.addUser(user);
 	    if(valid)
 	    {  

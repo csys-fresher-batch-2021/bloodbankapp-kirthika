@@ -29,6 +29,7 @@ public class AddDonorServlet extends HttpServlet {
 			Integer donorAge=Integer.parseInt(request.getParameter("age"));
 			String donorPlace=request.getParameter("place");
 			
+			
 			NameValidator.isValidName(donorName);
 			BloodGroupValidator.donorBloodGroupValidator(donorBlood,"Blood Group cannot be Empty");
 			MobileNumberValidator.isValidMobileNumber(donorNumber);
