@@ -23,8 +23,8 @@ public class ApproveServlet extends HttpServlet {
 
 	   try {
 		    SeekerManager manager=new SeekerManager();
-			Long SeekerNum=Long.parseLong(request.getParameter("mobileNumber"));
-		    manager.approveSeeker(SeekerNum);
+			Long seekerNum=Long.parseLong(request.getParameter("mobileNumber"));
+		    manager.approveSeeker(seekerNum);
 		    response.sendRedirect("seekerrequest.jsp");
 		   
 		   }

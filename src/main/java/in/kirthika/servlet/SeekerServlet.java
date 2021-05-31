@@ -1,19 +1,15 @@
 package in.kirthika.servlet;
-
 import java.io.IOException;
 import java.time.LocalDate;
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
 import in.kirthika.model.SeekerDetail;
 import in.kirthika.service.SeekerManager;
 import in.kirthika.util.MobileNumberValidator;
 import in.kirthika.util.NameValidator;
-import in.kirthika.validator.AgeValidator;
 import in.kirthika.validator.BloodGroupValidator;
 import in.kirthika.validator.DateValidator;
 import in.kirthika.validator.PlaceValidator;
