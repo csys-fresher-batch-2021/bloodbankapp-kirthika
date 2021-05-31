@@ -10,7 +10,7 @@
 		<div class="d-flex justify-content-center">
 			<h3>Search Donor</h3>
 		</div>
-		<form action="DonorSearchServlet">
+		<form action="DonorSearchServlet" method="post">
 			<div class="d-flex justify-content-center">
 				<div class="col-4">
 					<label for="bloodGroup"></label> <select name="bloodGroup" required

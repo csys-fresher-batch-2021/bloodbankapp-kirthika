@@ -10,7 +10,7 @@
 		<div class="d-flex justify-content-center">
 			<h3>User Sign up</h3>
 		</div>
-		<form action="UserRegistration">
+		<form action="UserRegistration" method="post">
 
 			<div class="d-flex justify-content-center">
 				<label for="userName"></label> <input type="text" name="userName"

@@ -16,7 +16,7 @@ import in.kirthika.validator.PlaceValidator;
 public class DonorSearchServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 @Override
-     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	 String donorBlood=request.getParameter("bloodGroup");
 	 String donorPlace=request.getParameter("place");
 	 try {

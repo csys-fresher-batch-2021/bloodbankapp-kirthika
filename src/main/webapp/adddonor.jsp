@@ -13,7 +13,7 @@ String loggedInUsername = (String) session.getAttribute("LOGIN_USER");
 		<div class="d-flex justify-content-center">
 			<h3>Add Donor</h3>
 		</div>
-		<form action="AddDonorServlet">
+		<form action="AddDonorServlet" method="post">
 
 			<div class="d-flex justify-content-center">
 				<label for="donorName"></label> <input type="text" name="donorName"

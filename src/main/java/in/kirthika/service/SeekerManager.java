@@ -14,7 +14,7 @@ public class SeekerManager {
 			valid = detail.save(seeker);
 		} catch (ClassNotFoundException | SQLException e) {
 			
-			e.printStackTrace();
+			e.getMessage();
 		}
 	    
 	    return valid;

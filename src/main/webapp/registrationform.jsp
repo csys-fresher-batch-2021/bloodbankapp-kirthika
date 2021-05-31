@@ -16,7 +16,7 @@
 		</div>
 
 
-		<form action="SeekerServlet">
+		<form action="SeekerServlet" method="post">
 			<div class="row">
 				<div class="col">
 					<label>Donor Name</label><input type="text" name="receiverName"
