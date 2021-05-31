@@ -49,12 +49,12 @@ public class SeekerServlet extends HttpServlet {
 		   
 		if(valid) {
 			String message="Registration is Unsuccessful";
-			response.sendRedirect("registrationform.jsp?message=" +message);
+			response.sendRedirect(ACTION +message);
 			
 		}
 		else {
 			String message="Registration Successful";
-			response.sendRedirect("registrationform.jsp?message=" +message);
+			response.sendRedirect(ACTION +message);
 			
 		}
 	}

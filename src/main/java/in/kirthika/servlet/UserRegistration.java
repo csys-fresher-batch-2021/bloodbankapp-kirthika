@@ -10,9 +10,7 @@ import in.kirthika.service.UserManager;
 import in.kirthika.util.MobileNumberValidator;
 import in.kirthika.util.NameValidator;
 import in.kirthika.util.PasswordValidator;
-import in.kirthika.validator.AgeValidator;
-import in.kirthika.validator.BloodGroupValidator;
-import in.kirthika.validator.PlaceValidator;
+
 
 /**
  * Servlet implementation class UserRegistration

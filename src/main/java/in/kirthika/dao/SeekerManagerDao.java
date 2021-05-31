@@ -79,7 +79,7 @@ public class SeekerManagerDao {
 	    		
 	    		SeekerDetail detail=new SeekerDetail(seekerBlood,seekerName,seekerNumber,seekerAge,seekerPlace,seekerDate,seekerGender,seekerStatus);
 	    		seekerList.add(detail);
-	    		System.out.println(seekerList);
+	    		
 	    		
 	    		
 	    		

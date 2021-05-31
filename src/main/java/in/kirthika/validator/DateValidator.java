@@ -6,7 +6,11 @@ import in.kirthika.exception.InvalidDateException;
 
 public class DateValidator {
 
-	
+	private DateValidator()
+	{
+		//default constructor
+	}
+  
 	
 	public static boolean isValidDate(LocalDate date, String errorMessage) 
 			throws InvalidDateException
