@@ -44,8 +44,16 @@
 					</select>
 				</div>
 			</div>
-			<br /> <br />
-
+			<br />
+			<%
+			String message = request.getParameter("errorMessage");
+			if (message == null) {
+				out.print("");
+			} else {
+				out.print("<font color='red'><center>" + message + "</font>");
+			}
+			%>
+             <br />
 			<div class="d-flex justify-content-center">
 				<button type="submit" class="btn btn-primary">Search Donor</button>
 			</div>
