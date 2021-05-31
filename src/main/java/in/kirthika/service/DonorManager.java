@@ -35,14 +35,16 @@ public class DonorManager {
 		}
 	   }
 	   
-	   public void donorSearch(String donorBlood,String donorPlace)
-	   {
+	   public boolean donorSearch(String donorBlood,String donorPlace)
+	   {   boolean isValid=true;
 		   try {
 			managerDao.searchList(donorBlood, donorPlace);
 		} catch (ClassNotFoundException | SQLException e) {
 		
 			e.getMessage();
+			isValid=false;
 		} 
+		   return isValid;
 	   }
 	  public void filterBlood(String blood)
 	  {

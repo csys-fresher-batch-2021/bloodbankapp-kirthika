@@ -13,6 +13,12 @@ public class UserDetail {
 				+ userBloodGroup + ", userMobileNum=" + userMobileNum + ", userAge=" + userAge + ", userPlace="
 				+ userPlace + "]";
 	}
+	public UserDetail(String userName, String userPassword, Long userMobileNum) {
+		super();
+		this.userName = userName;
+		this.userPassword = userPassword;
+		this.userMobileNum = userMobileNum;
+	}
 	public String getUserName() {
 		return userName;
 	}

@@ -12,7 +12,7 @@
 	<jsp:include page="header.jsp"></jsp:include>
 	<main class="container-fluid">
 		<h3>Donor Details</h3>
-		<form action="FilterServlet">
+		<form action="FilterServlet" method="post">
 	<label for="searchblood"></label>
 	<input type="text" name="donorBlood" placeholder="Search donor blood" autofocus/>
 	 <button type="submit" class="btn btn-success">Search</button> 

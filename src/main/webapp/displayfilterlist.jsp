@@ -12,7 +12,7 @@
 	<jsp:include page="header.jsp"></jsp:include>
 	<main class="container-fluid">
 		<h3>Donor Details</h3>
-		<form action="FilterServlet">
+		<form action="FilterServlet" method="post">
 	
 		<table class="table table-bordered">
 		<caption>Donor Details</caption>

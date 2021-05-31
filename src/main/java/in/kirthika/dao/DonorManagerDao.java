@@ -61,7 +61,7 @@ public class DonorManagerDao {
     	return isValid;
     }
    public static List<DonorDetail> displayAllList() throws ClassNotFoundException, SQLException
-    {   
+    {  
 	   Connection connection=null; 
 	   PreparedStatement pst=null;
 	   try {

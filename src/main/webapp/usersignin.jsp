@@ -12,7 +12,7 @@
 		<div class="d-flex justify-content-center">
 			<h3>User Sign in</h3>
 		</div>
-		<form action="UserLoginServlet" method="get">
+		<form action="UserLoginServlet" method="Post">
 			<div class="d-flex justify-content-center">
 			<div class="col-4">
 				<label for="userName"></label> 
