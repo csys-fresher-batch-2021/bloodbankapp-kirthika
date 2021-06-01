@@ -41,6 +41,11 @@ public class SeekerDetail {
 		this.status = status;
 	}
 
+	public SeekerDetail() {
+		super();
+	}
+
+	
 	public String getStatus() {
 		return status;
 	}

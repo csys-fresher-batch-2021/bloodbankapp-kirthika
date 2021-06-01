@@ -6,11 +6,19 @@ import java.sql.SQLException;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
+
 import in.kirthika.model.SeekerDetail;
+import in.kirthika.model.SeekerStatusDetail;
 import in.kirthika.util.ConnectionUtil;
 
 public class SeekerManagerDao {
 	private static final List<SeekerDetail> seekerList = new ArrayList<>();
+	private static final List<SeekerStatusDetail> seekerStatusList = new ArrayList<>();
+	private static final List<Long> seekerNumberList=new ArrayList<>();
+	private static final String DONOR_NAME="donor_name";
+	private static final String DONOR_PLACE="donor_place";
+	private static final String DONOR_NUMBER="donor_number";
+	private static final String DONOR_BLOOD="donor_blood";
     private static final String SEEKER_BLOOD ="seeker_blood";
 	private static final String SEEKER_NAME ="seeker_name";
 	private static final String SEEKER_MOBILENUMBER ="seeker_number";
@@ -22,7 +30,9 @@ public class SeekerManagerDao {
 	private static final String INSERT_SEEKER_DATA_QUERY ="insert into seeker_detail (seeker_blood,seeker_name,seeker_number,seeker_age,seeker_place,seeker_date,seeker_gender,seeker_status) values (?,?,?,?,?,?,?,?)";
 	private static final String DISPLAY_ALL_DATA_QUERY="select * from seeker_detail where seeker_status='Pending'";
 	private static final String UPDATE_SEEKER_DATA_QUERY="update seeker_detail set seeker_status='Approved' where seeker_number=?"; 
-	
+	private static final String SEEKER_RESULT="select d.donor_name,d.donor_place,d.donor_number,d.donor_blood from donor_detail d,seeker_detail s\r\n"
+			+ "where  seeker_number=? and seeker_status='Approved' and d.donor_blood=s.seeker_blood";
+	private static final String SEEKER_NUMBER="select seeker_number from seeker_detail";
 	 public boolean save(SeekerDetail detail) throws ClassNotFoundException, SQLException {
 	    	boolean isValid=false;
 	    	Connection connection=null;
@@ -52,7 +62,7 @@ public class SeekerManagerDao {
 	    	}
 	    	return isValid;
 	    }
-	 public static  List<SeekerDetail> displayAllList() throws ClassNotFoundException, SQLException
+	 public  List<SeekerDetail> displayAllList() throws ClassNotFoundException, SQLException
 	    {  
 		   seekerList.clear();
 		   Connection connection=null; 
@@ -119,7 +129,68 @@ public class SeekerManagerDao {
 	    	ConnectionUtil.close(pst,connection);
 	    	
 	    }
-
+	 
+	 
+	 
+	 public boolean seekerStatus(SeekerDetail detail)throws ClassNotFoundException, SQLException {
+		 
+		    boolean isValid=false;
+		    Connection connection=null;
+	        PreparedStatement pst=null;
+	        try {
+	        connection=ConnectionUtil.getConnection();
+	    	String sql=SEEKER_RESULT;
+	        pst=connection.prepareStatement(sql);
+	        String num=String.valueOf(detail.getMobileNumber());
+	    	pst.setString(1, num);
+	    	ResultSet rs=pst.executeQuery();
+	    	seekerStatusList.clear();
+			while(rs.next()) {
+				String donorName=rs.getString(DONOR_NAME);
+				String donorPlace=rs.getString(DONOR_PLACE);
+				Long donorNumber=rs.getLong(DONOR_NUMBER);
+				String seekerBlood=rs.getString(DONOR_BLOOD);
+				
+				SeekerStatusDetail status=new SeekerStatusDetail(donorName,donorPlace,donorNumber,seekerBlood);
+				seekerStatusList.add(status);
+	        	isValid=true;
+	            }
+	        }
+	        catch(Exception e) {
+	        	e.getMessage();
+	        }
+		   ConnectionUtil.close(pst,connection);
+	    return isValid;
+				}
+	 
+	 
+	 
+	 
+	 public List<Long> seekerNumber() throws ClassNotFoundException, SQLException{
+		 Connection connection=null;
+	    	PreparedStatement pst=null;
+	    	try {
+	    	connection=ConnectionUtil.getConnection();
+    	    String sql=SEEKER_NUMBER;
+            pst=connection.prepareStatement(sql);
+	        ResultSet rs=pst.executeQuery();
+	    	while(rs.next()) {
+	    		Long seekerNumber=rs.getLong(SEEKER_MOBILENUMBER);
+	    		seekerNumberList.add(seekerNumber);
+	    	}
+	    	}
+	    	catch(Exception e){
+	    		e.getMessage();
+	    	}
+	    	ConnectionUtil.close(pst,connection);
+	    	return seekerNumberList;
+	 }
+	 public List<SeekerStatusDetail> display()
+	 {
+		 return seekerStatusList;
+	 }
+	 
 }
+
 
 
