@@ -36,8 +36,7 @@ public class SeekerManager {
 			e.getMessage();
 		}
 	   }
-	  public boolean seekerStatus(SeekerDetail detail) throws ClassNotFoundException, SQLException, NotRegisteredException  
-	  {   
+	  public boolean seekerStatus(SeekerDetail detail) throws ClassNotFoundException, SQLException	  {   
 		  return(managerDao.seekerStatus(detail));
 	  }
 	  public List<SeekerStatusDetail> displayDonor(){

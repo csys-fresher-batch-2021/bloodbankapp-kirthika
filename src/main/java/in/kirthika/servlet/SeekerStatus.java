@@ -7,10 +7,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import in.kirthika.exception.InvalidNameException;
+
 import in.kirthika.model.SeekerDetail;
 import in.kirthika.service.SeekerManager;
-import in.kirthika.util.MobileNumberValidator;
+
 import in.kirthika.util.NameValidator;
 import in.kirthika.validator.SeekerValidator;
 
@@ -21,14 +21,14 @@ import in.kirthika.validator.SeekerValidator;
 public class SeekerStatus extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-  
+  @Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		String name=request.getParameter("seekerName");
-		Long donorNumber=Long.parseLong(request.getParameter("mobileNumber"));
+		
 		try {
+			Long donorNumber=Long.parseLong(request.getParameter("mobileNumber"));
 			NameValidator.isValidName(name);
-			MobileNumberValidator.isValidMobileNumber(donorNumber);
 			SeekerValidator.seekerNumberValidator(donorNumber,"Seeker not Registered");
 		    SeekerDetail detail=new SeekerDetail();
 		    detail.setName(name);

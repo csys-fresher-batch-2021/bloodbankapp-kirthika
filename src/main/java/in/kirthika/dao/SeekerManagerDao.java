@@ -7,7 +7,6 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
-import in.kirthika.exception.NotRegisteredException;
 import in.kirthika.model.SeekerDetail;
 import in.kirthika.model.SeekerStatusDetail;
 import in.kirthika.util.ConnectionUtil;
@@ -138,7 +137,7 @@ public class SeekerManagerDao {
 		    boolean isValid=false;
 		    Connection connection=null;
 	        PreparedStatement pst=null;
-	        
+	        try {
 	        connection=ConnectionUtil.getConnection();
 	    	String sql=SEEKER_RESULT;
 	        pst=connection.prepareStatement(sql);
@@ -156,7 +155,10 @@ public class SeekerManagerDao {
 				seekerStatusList.add(status);
 	        	isValid=true;
 	            }
-			
+	        }
+	        catch(Exception e) {
+	        	e.getMessage();
+	        }
 		   ConnectionUtil.close(pst,connection);
 	    return isValid;
 				}
@@ -167,7 +169,7 @@ public class SeekerManagerDao {
 	 public List<Long> seekerNumber() throws ClassNotFoundException, SQLException{
 		 Connection connection=null;
 	    	PreparedStatement pst=null;
-	    	
+	    	try {
 	    	connection=ConnectionUtil.getConnection();
     	    String sql=SEEKER_NUMBER;
             pst=connection.prepareStatement(sql);
@@ -177,7 +179,10 @@ public class SeekerManagerDao {
 	    		Long seekerNumber=rs.getLong(SEEKER_MOBILENUMBER);
 	    		seekerNumberList.add(seekerNumber);
 	    	}
-	    
+	    	}
+	    	catch(Exception e){
+	    		e.getMessage();
+	    	}
 	    	return seekerNumberList;
 	 }
 	 public List<SeekerStatusDetail> display()
