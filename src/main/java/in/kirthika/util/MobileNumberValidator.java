@@ -1,8 +1,13 @@
 package in.kirthika.util;
 
+
+
+
 import in.kirthika.exception.InvalidMobileNumberException;
 import in.kirthika.exception.InvalidNumberLengthException;
+
 import in.kirthika.exception.NumberCannotBeNegativeException;
+
 
 public class MobileNumberValidator {
 	private MobileNumberValidator ()
@@ -10,6 +15,7 @@ public class MobileNumberValidator {
 		//default constructor
 	}
   
+	
 	
 
 	/**
@@ -42,6 +48,11 @@ public class MobileNumberValidator {
 		}
 		return isValidNumber;
 	}
+	
+	
+
+		
+
 
 	/**
 	 * This method checks whether a given mobile number is a 10 digit number and the
@@ -56,13 +67,14 @@ public class MobileNumberValidator {
 
 			MobileNumberValidator.isNumberValidLength(mobileNumber);
 			MobileNumberValidator.isNumberPositive(mobileNumber);
-			return true;
+		    return true;
 
 		} catch (Exception e) {
 			throw new InvalidMobileNumberException(e.getMessage());
 		}
 
 	}
+	
 }
 
 

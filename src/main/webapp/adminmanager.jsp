@@ -30,6 +30,9 @@ String loggedInUsername=(String)session.getAttribute("LOGIN_USER");
 		     <div class="d-flex justify-content-center">
 		    <a href="registrationform.jsp">Seeker registration form</a>
 		    </div>
+		     <div class="d-flex justify-content-center">
+		    <a href="seekerstatus.jsp">Seeker status</a>
+		    </div>
 		    
 		    
 		    <%} else {%>
