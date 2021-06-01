@@ -173,8 +173,7 @@ public class SeekerManagerDao {
 	    	connection=ConnectionUtil.getConnection();
     	    String sql=SEEKER_NUMBER;
             pst=connection.prepareStatement(sql);
-	    	
-	    	ResultSet rs=pst.executeQuery();
+	        ResultSet rs=pst.executeQuery();
 	    	while(rs.next()) {
 	    		Long seekerNumber=rs.getLong(SEEKER_MOBILENUMBER);
 	    		seekerNumberList.add(seekerNumber);
@@ -183,6 +182,7 @@ public class SeekerManagerDao {
 	    	catch(Exception e){
 	    		e.getMessage();
 	    	}
+	    	ConnectionUtil.close(pst,connection);
 	    	return seekerNumberList;
 	 }
 	 public List<SeekerStatusDetail> display()

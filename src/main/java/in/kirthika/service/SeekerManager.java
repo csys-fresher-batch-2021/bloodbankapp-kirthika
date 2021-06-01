@@ -2,7 +2,7 @@ package in.kirthika.service;
 import java.sql.SQLException;
 import java.util.List;
 import in.kirthika.dao.SeekerManagerDao;
-import in.kirthika.exception.NotRegisteredException;
+
 import in.kirthika.model.SeekerDetail;
 import in.kirthika.model.SeekerStatusDetail;
 

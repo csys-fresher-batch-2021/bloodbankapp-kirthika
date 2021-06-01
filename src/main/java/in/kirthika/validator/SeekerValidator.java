@@ -9,12 +9,12 @@ import in.kirthika.exception.NotRegisteredException;
 
 public class SeekerValidator {
 
-
+	static List<Long> numberList=new ArrayList<>();
 	private SeekerValidator() {
 		
 	}
 	public static boolean seekerNumberValidator(Long number, String errorMessage)throws NotRegisteredException, ClassNotFoundException, SQLException {
-		List<Long> numberList=new ArrayList<>();
+		
 		boolean isValidNumber = false;
 		SeekerManagerDao manager=new SeekerManagerDao();
 		numberList=manager.seekerNumber();
