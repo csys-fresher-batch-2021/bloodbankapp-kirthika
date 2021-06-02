@@ -146,6 +146,7 @@ public class SeekerManagerDao {
 	    	ResultSet rs=pst.executeQuery();
 	    	seekerStatusList.clear();
 			while(rs.next()) {
+				
 				String donorName=rs.getString(DONOR_NAME);
 				String donorPlace=rs.getString(DONOR_PLACE);
 				Long donorNumber=rs.getLong(DONOR_NUMBER);
@@ -153,7 +154,8 @@ public class SeekerManagerDao {
 				
 				SeekerStatusDetail status=new SeekerStatusDetail(donorName,donorPlace,donorNumber,seekerBlood);
 				seekerStatusList.add(status);
-	        	isValid=true;
+				isValid=true;
+	        	
 	            }
 	        }
 	        catch(Exception e) {

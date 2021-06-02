@@ -39,11 +39,11 @@ public class UserRegistration extends HttpServlet {
 	    boolean valid=UserManager.addUser(user);
 	    if(valid)
 	    {  
-	    	String message="Registration Successful";
-	    	response.sendRedirect(ACTION +message);
+	    	
+	    	response.sendRedirect("usersignin.jsp");
 	    }
 	    else {
-	    	String message="Registration Invalid";
+	    	String message="Already Registered";
 	    	response.sendRedirect(ACTION +message);
 	    }
 	}

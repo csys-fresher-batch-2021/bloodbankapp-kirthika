@@ -11,7 +11,7 @@ String loggedInUsername = (String) session.getAttribute("LOGIN_USER");
 	<jsp:include page="header.jsp"></jsp:include>
 	<main class="container-fluid">
 		<div class="d-flex justify-content-center">
-			<h3>Add Donor</h3>
+			<h3>Donor Form</h3>
 		</div>
 		<form action="AddDonorServlet" method="post">
 
@@ -72,7 +72,13 @@ String loggedInUsername = (String) session.getAttribute("LOGIN_USER");
 			String message = request.getParameter("errorMessage");
 			if (message == null) {
 				out.print("");
-			} else {
+			} 
+			else if(message.equals("Donor added"))
+			{   
+				out.print("<font color='green'><center>" + message + "</font>");
+				
+			}
+			else {
 				out.print("<font color='red'><center>" + message + "</font>");
 			}
 			%>
@@ -80,7 +86,7 @@ String loggedInUsername = (String) session.getAttribute("LOGIN_USER");
 			<div class="d-flex justify-content-center">
 				<button type="submit" class="btn btn-primary">add donor</button>
 			</div>
-			<br /> <br /> <a href="adminmanager.jsp">Back to homepage</a>
+		
 
 		</form>
 

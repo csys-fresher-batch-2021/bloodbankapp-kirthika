@@ -38,12 +38,12 @@ public class SeekerStatus extends HttpServlet {
 		   
 		    	if(isValid)
 		    	{
-		    		String status="Approved";
+		    		String status="Donor Available";
 		    		response.sendRedirect("statusdisplay.jsp?name="+name+"&number="+donorNumber+"&status="+status);
 		    	}
 		    	else
 		    	{
-		    		String status="Pending";
+		    		String status="Donor unavailable";
 		    		response.sendRedirect("statusdisplay.jsp?name="+name+"&number="+donorNumber+"&status="+status);
 		    	}
 			}

@@ -42,8 +42,9 @@
 				out.print("");
 			} 
 			else if(message.equals("Registration Successful"))
-			{
+			{   
 				out.print("<font color='green'><center>" + message + "</font>");
+				
 			}
 			else {
 				out.print("<font color='red'><center>" + message + "</font>");

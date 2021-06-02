@@ -16,7 +16,7 @@
 			<div class="d-flex justify-content-center">
 			<div class="col-4">
 				<label for="UserName"></label>
-				userName: admin 
+				
 				<input type="text" name="userName" placeholder="Enter User name" class="form-control form-control-sm" required autofocus />
 				
 				</div>
@@ -25,7 +25,7 @@
 			<div class="d-flex justify-content-center">
 			<div class="col-4">
 				<label for="Password"></label> 
-				Password: welcome
+			
 				<input type="password" name="password" placeholder="Enter password" class="form-control form-control-sm" required autofocus />
                 </div>
 			</div>
@@ -43,6 +43,13 @@
 
 
 			<br />
+			
+			Note: 
+			    Admin credentials are hard coded
+			    <br/>
+			    * User Name:admin
+			    <br/>
+			    * Password: welcome
 
 		</form>
 		<%

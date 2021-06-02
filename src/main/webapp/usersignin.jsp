@@ -46,7 +46,8 @@
 		String message = request.getParameter("message");
 		if (message == null) {
 			out.print("");
-		} else {
+		} 
+		else {
 
 			out.print("<font color='red'><center>" + message + "</font>");
 		}

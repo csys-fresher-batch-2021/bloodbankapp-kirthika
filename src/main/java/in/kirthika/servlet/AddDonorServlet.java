@@ -50,7 +50,8 @@ public class AddDonorServlet extends HttpServlet {
 		}
 		else
 		{   
-			response.sendRedirect("displaydonor.jsp");
+			String errorMessage="Donor added";
+			response.sendRedirect("adddonor.jsp?errorMessage=" +errorMessage);
 		}
 	}
 		catch (Exception e) 
