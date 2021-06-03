@@ -29,7 +29,7 @@ public class SeekerManagerDao {
 	private static final String SEEKER_STATUS="seeker_status";
 	private static final String INSERT_SEEKER_DATA_QUERY ="insert into seeker_detail (seeker_blood,seeker_name,seeker_number,seeker_age,seeker_place,seeker_date,seeker_gender,seeker_status) values (?,?,?,?,?,?,?,?)";
 	private static final String DISPLAY_ALL_DATA_QUERY="select * from seeker_detail where seeker_status='Pending'";
-	private static final String UPDATE_SEEKER_DATA_QUERY="update seeker_detail set seeker_status='Approved' where seeker_number=?"; 
+	private static final String UPDATE_SEEKER_DATA_QUERY="update seeker_detail set seeker_status='Approved' where seeker_number=? and seeker_name=?"; 
 	private static final String SEEKER_RESULT="select d.donor_name,d.donor_place,d.donor_number,d.donor_blood from donor_detail d,seeker_detail s\r\n"
 			+ "where  seeker_number=? and seeker_status='Approved' and d.donor_blood=s.seeker_blood";
 	private static final String SEEKER_NUMBER="select seeker_number from seeker_detail";
@@ -106,7 +106,7 @@ public class SeekerManagerDao {
 	    	
 	    }
 	 
-	 public void approveSeeker(Long seekerNum) throws ClassNotFoundException, SQLException
+	 public void approveSeeker(Long seekerNum,String name) throws ClassNotFoundException, SQLException
 	    {   Connection connection=null;
 	        PreparedStatement pst=null;
 	        
@@ -118,6 +118,7 @@ public class SeekerManagerDao {
 	        pst=connection.prepareStatement(sql);
 	        String num=String.valueOf(seekerNum);
 	    	pst.setString(1, num);
+	    	pst.setString(2, name);
 	    	pst.executeUpdate();
 	    	
 	    	seekerList.clear();
@@ -193,6 +194,3 @@ public class SeekerManagerDao {
 	 }
 	 
 }
-
-
-

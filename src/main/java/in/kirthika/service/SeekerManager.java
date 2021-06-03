@@ -27,10 +27,10 @@ public class SeekerManager {
 		  return(managerDao.displayAllList());
 	  }
 	  
-	  public void approveSeeker(Long donorNum) {
+	  public void approveSeeker(Long donorNum,String name) {
 		   try {
 			  
-			    managerDao.approveSeeker(donorNum);
+			    managerDao.approveSeeker(donorNum,name);
 		} catch (ClassNotFoundException | SQLException e) {
 			
 			e.getMessage();

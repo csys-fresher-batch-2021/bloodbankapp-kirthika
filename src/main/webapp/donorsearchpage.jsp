@@ -31,16 +31,16 @@
 				<div class="col-4">
 					<select name="place" class="form-control form-control-sm" required>
 						<option>Select a District</option>
-						<option value="ariyalur">Ariyalur</option>
-						<option value="chennai">Chennai</option>
-						<option value="coimbatore">Coimbatore</option>
-						<option value="erode">Erode</option>
-						<option value="salem">Salem</option>
-						<option value="thanjavur">Thanjavur</option>
-						<option value="trichy">Trichy</option>
-						<option value="vellore">Vellore</option>
-						<option value="villupuram">Villupuram</option>
-						<option value="virudhunagar">Virudhunagar</option>
+						<option value="Ariyalur">Ariyalur</option>
+						<option value="Chennai">Chennai</option>
+						<option value="Coimbatore">Coimbatore</option>
+						<option value="Erode">Erode</option>
+						<option value="Salem">Salem</option>
+						<option value="Thanjavur">Thanjavur</option>
+						<option value="Trichy">Trichy</option>
+						<option value="Vellore">Vellore</option>
+						<option value="Villupuram">Villupuram</option>
+						<option value="Virudhunagar">Virudhunagar</option>
 					</select>
 				</div>
 			</div>

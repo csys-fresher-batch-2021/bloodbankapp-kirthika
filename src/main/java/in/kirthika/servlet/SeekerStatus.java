@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import in.kirthika.model.SeekerDetail;
 import in.kirthika.service.SeekerManager;
-
+import in.kirthika.util.MobileNumberValidator;
 import in.kirthika.util.NameValidator;
 import in.kirthika.validator.SeekerValidator;
 
@@ -29,6 +29,7 @@ public class SeekerStatus extends HttpServlet {
 		try {
 			Long donorNumber=Long.parseLong(request.getParameter("mobileNumber"));
 			NameValidator.isValidName(name);
+			MobileNumberValidator.isValidMobileNumber(donorNumber);
 			SeekerValidator.seekerNumberValidator(donorNumber,"Seeker not Registered");
 		    SeekerDetail detail=new SeekerDetail();
 		    detail.setName(name);

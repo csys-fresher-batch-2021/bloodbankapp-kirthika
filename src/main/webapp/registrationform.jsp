@@ -61,15 +61,15 @@
 						class="form-control form-control-sm" required>
 						<option>Select a District</option>
 						<option value="Ariyalur">Ariyalur</option>
-						<option value="chennai">chennai</option>
+						<option value="Chennai">Chennai</option>
 						<option value="Coimbatore">Coimbatore</option>
 						<option value="Erode">Erode</option>
 						<option value="Salem">Salem</option>
-						<option value="Trichy">Thanjavur</option>
+						<option value="Thanjavur">Thanjavur</option>
 						<option value="Trichy">Trichy</option>
-						<option value="Trichy">Vellore</option>
-						<option value="Trichy">Villupuram</option>
-						<option value="Trichy">Virudhunagar</option>
+						<option value="Vellore">Vellore</option>
+						<option value="Villupuram">Villupuram</option>
+						<option value="Virudhunagar">Virudhunagar</option>
 					</select>
 				</div>
 				<div class="col">

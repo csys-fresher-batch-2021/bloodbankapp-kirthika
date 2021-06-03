@@ -53,7 +53,7 @@
 			    <td><%=detail.getDate() %></td>
 			    <td><%=detail.getGender() %></td>
 			    <td><%=detail.getStatus() %>
-			      <td><a href="ApproveServlet?mobileNumber=<%=detail.getMobileNumber()%>"
+			      <td><a href="ApproveServlet?mobileNumber=<%=detail.getMobileNumber()%>&receiverName=<%=detail.getName()%>"
 			      class="btn btn-success">Approve</a></td>
 			   
 			</tr>

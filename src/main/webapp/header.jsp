@@ -34,11 +34,34 @@ String loggedInUsername = (String) session.getAttribute("LOGIN_USER");
 				<li class="nav-item active"><a class="nav-link"
 					href="index.jsp">Home <span class="sr-only">(current)</span></a></li>
 					<%
-					if (loggedInUsername!=null){
+					if (loggedInUsername!=null && loggedInUsername.equals("admin")){
 					%>
 					<li class="nav-item active"><a class="nav-link"
-					href="adminmanager.jsp">Feature <span class="sr-only">(current)</span></a></li>
-               <%} %>
+					href="adddonor.jsp">Add Donor<span class="sr-only">(current)</span></a></li>
+					
+					<li class="nav-item active"><a class="nav-link"
+					href="donorsearchpage.jsp">Search Donor<span class="sr-only">(current)</span></a></li>
+					
+					<li class="nav-item active"><a class="nav-link"
+					href="deletedonordetail.jsp">Delete Donor<span class="sr-only">(current)</span></a></li>
+					
+					<li class="nav-item active"><a class="nav-link"
+					href="displaydonor.jsp">Display Donor<span class="sr-only">(current)</span></a></li>
+					
+							<li class="nav-item active"><a class="nav-link"
+					href="seekerrequest.jsp">Seeker Request<span class="sr-only">(current)</span></a></li>
+					
+               <%}else if(loggedInUsername!=null && !loggedInUsername.equals("admin")){%>
+                    <li class="nav-item active"><a class="nav-link"
+					href="adddonor.jsp">Donor Registration form<span class="sr-only">(current)</span></a></li>
+					
+					<li class="nav-item active"><a class="nav-link"
+					href="registrationform.jsp">Seeker Registration form<span class="sr-only">(current)</span></a></li>
+					
+					<li class="nav-item active"><a class="nav-link"
+					href="seekerstatus.jsp">Seeker Status<span class="sr-only">(current)</span></a></li>
+					
+					<%} %>
 			</ul>
 		</div>
 		<%

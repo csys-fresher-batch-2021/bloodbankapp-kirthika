@@ -14,52 +14,17 @@ String loggedInUsername=(String)session.getAttribute("LOGIN_USER");
 <jsp:include page="header.jsp"></jsp:include>
 	<main class="container-fluid">
 	<div class="d-flex justify-content-center">
-		<h3>Features</h3>
+	 <%
+				if (!loggedInUsername.equals("admin")) {
+				%>
+	    <h3>Welcome <%=" " + loggedInUsername%> to the Blood Bank</h3>
+	       <%}else{ %>
+	       <h3>Welcome <%=" " + loggedInUsername%> to the Blood Bank</h3>
+	       <%} %>
 	</div>
 		<br/>
 		
-		   <%
-				if (!loggedInUsername.equals("admin")) {
-				%>
-	
-		    <div class="d-flex justify-content-center">
-		    <a href="donorsearchpage.jsp">Search Donor</a>
-		    </div>
-		  
-		     <div class="d-flex justify-content-center">
-		  <a href="adddonor.jsp">Add donor</a>
-		    </div>
-		    
-		     <div class="d-flex justify-content-center">
-		    <a href="registrationform.jsp">Seeker registration form</a>
-		    </div>
-		     <div class="d-flex justify-content-center">
-		    <a href="seekerstatus.jsp">Seeker status</a>
-		    </div>
-		    
-		    
-		    <%} else {%>
-		    <div class="d-flex justify-content-center">
-		  <a href="adddonor.jsp">Add donor</a>
-		    </div>
-		    
-		     <div class="d-flex justify-content-center">
-		    <a href="donorsearchpage.jsp">Search Donor</a>
-		    </div>
 		   
-		     <div class="d-flex justify-content-center">
-		    <a href="deletedonordetail.jsp">Delete donor</a>
-	        </div>
-	        
-	         <div class="d-flex justify-content-center">
-		    <a href="displaydonor.jsp">Display donor</a>
-	        </div>
-	        
-	        <div class="d-flex justify-content-center">
-		    <a href="seekerrequest.jsp">Seeker Request</a>
-	        </div>
-	        <%} %>
-	        
 		    
 </main>
 </body>
