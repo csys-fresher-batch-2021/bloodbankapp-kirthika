@@ -24,16 +24,21 @@ public class SeekerStatus extends HttpServlet {
   @Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		String name=request.getParameter("seekerName");
+		
 		
 		try {
+			String name=request.getParameter("seekerName");
 			Long donorNumber=Long.parseLong(request.getParameter("mobileNumber"));
 			NameValidator.isValidName(name);
 			MobileNumberValidator.isValidMobileNumber(donorNumber);
-			SeekerValidator.seekerNumberValidator(donorNumber,"Seeker not Registered");
+			
+			SeekerValidator.seekerNumberValidator(donorNumber,name,"Seeker not registered");
 		    SeekerDetail detail=new SeekerDetail();
-		    detail.setName(name);
 		    detail.setMobileNumber(donorNumber);
+		    detail.setName(name);
+		   
+		    
+		   
 		    SeekerManager manager=new SeekerManager();
 		    boolean isValid=manager.seekerStatus(detail);
 		   
@@ -44,7 +49,7 @@ public class SeekerStatus extends HttpServlet {
 		    	}
 		    	else
 		    	{
-		    		String status="Donor unavailable";
+		    		String status="Donor unavailable-Check after sometimes";
 		    		response.sendRedirect("statusdisplay.jsp?name="+name+"&number="+donorNumber+"&status="+status);
 		    	}
 			}

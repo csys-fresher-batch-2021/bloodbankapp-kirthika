@@ -10,6 +10,7 @@ import in.kirthika.util.MobileNumberValidator;
 import in.kirthika.util.NameValidator;
 import in.kirthika.validator.AgeValidator;
 import in.kirthika.validator.BloodGroupValidator;
+import in.kirthika.validator.DonorValidator;
 import in.kirthika.validator.PlaceValidator;
 
 /**
@@ -31,6 +32,7 @@ public class AddDonorServlet extends HttpServlet {
 			
 			
 			NameValidator.isValidName(donorName);
+			DonorValidator.isAlreadyExist(donorName, donorNumber,"Donor Already Exist");
 			BloodGroupValidator.donorBloodGroupValidator(donorBlood,"Blood Group cannot be Empty");
 			MobileNumberValidator.isValidMobileNumber(donorNumber);
 			AgeValidator.isEligibleDonor(donorAge,"Invalid Age for Donor");

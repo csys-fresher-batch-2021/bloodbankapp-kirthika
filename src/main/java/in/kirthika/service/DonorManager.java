@@ -14,21 +14,23 @@ public class DonorManager {
 	
 	
 	private DonorManagerDao managerDao=new DonorManagerDao();
-	   
+	 
 	   public boolean addDonor(String donorBlood,String donorName,Long donorNumber,int donorAge,String donorPlace) throws ClassNotFoundException, SQLException
 	   {    DonorDetail task=new DonorDetail(donorBlood,donorName,donorNumber,donorAge,donorPlace);
 	      
 	      
 				boolean isValid=managerDao.save(task);
+				
 				if(!isValid) {
-				managerDao.displayIndividual(String.valueOf(donorNumber));}
+				managerDao.displayIndividual(String.valueOf(donorNumber),donorName);}
 			    return isValid;
 			
 	 }
-	   public void deleteDonor(Long donorNum) {
+	  
+	   public void deleteDonor(Long donorNum,String donorName) {
 		   try {
 			  
-			    managerDao.deleteDonor(donorNum);
+			    managerDao.deleteDonor(donorNum,donorName);
 		} catch (ClassNotFoundException | SQLException e) {
 			
 			e.getMessage();

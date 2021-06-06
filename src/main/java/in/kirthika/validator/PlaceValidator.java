@@ -10,7 +10,7 @@ public class PlaceValidator {
 	public static boolean donorPlaceValidator(String place, String errorMessage) 
 			throws InvalidPlaceException
 	{
-		if(place==null || place.trim().isEmpty()||place.trim().length()>10)
+		if(place==null || place.trim().isEmpty()||place.equalsIgnoreCase("Enter district"))
 		{
 			throw new InvalidPlaceException(errorMessage);
 		}
