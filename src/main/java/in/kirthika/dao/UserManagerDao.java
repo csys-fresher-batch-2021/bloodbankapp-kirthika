@@ -15,7 +15,9 @@ public class UserManagerDao {
 	private static final String USER_PASSWORD ="userpassword";
 	private static final Map<String,String> userCredential=new HashMap<>();
 	public boolean addUser(UserDetail user) throws ClassNotFoundException, SQLException {
-	
+	/*
+	 * function to add user credential to the database
+	 */
 		boolean isValid=true;
     	Connection connection=null;
     	PreparedStatement pst=null;
@@ -40,7 +42,9 @@ public class UserManagerDao {
     	}
     	return isValid;
 	}
-	
+	/*
+	 * function to check valid credentials
+	 */
 	
 	public Map<String,String> checkUserCredential(String userName,String userPassword) {
 		

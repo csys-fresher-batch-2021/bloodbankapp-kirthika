@@ -44,7 +44,7 @@
 			    <td><%=detail.getBloodGroup()%></td>
 			    <td><%=detail.getAge() %></td>
 			    <td><%=detail.getPlace()%></td>
-			    <td><a href="DeleteDonorServlet?mobileNumber=<%=detail.getMobileNumber() %>"
+			    <td><a href="DeleteDonorServlet?mobileNumber=<%=detail.getMobileNumber() %>&donorName=<%=detail.getName() %>"
 			      class="btn btn-danger">Delete</a></td>
 			          
 			</tr>

@@ -8,7 +8,7 @@ import in.kirthika.model.SeekerStatusDetail;
 
 public class SeekerManager {
 
-	private SeekerManagerDao managerDao=new SeekerManagerDao();
+	private static SeekerManagerDao managerDao=new SeekerManagerDao();
 	public boolean addSeeker(SeekerDetail seeker)
 	{
 	   
@@ -36,6 +36,9 @@ public class SeekerManager {
 			e.getMessage();
 		}
 	   }
+	  
+
+	  
 	  public boolean seekerStatus(SeekerDetail detail) throws ClassNotFoundException, SQLException	  {   
 		  return(managerDao.seekerStatus(detail));
 	  }

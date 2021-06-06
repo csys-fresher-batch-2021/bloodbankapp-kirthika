@@ -5,7 +5,9 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import in.kirthika.model.SeekerDetail;
 import in.kirthika.model.SeekerStatusDetail;
@@ -14,7 +16,7 @@ import in.kirthika.util.ConnectionUtil;
 public class SeekerManagerDao {
 	private static final List<SeekerDetail> seekerList = new ArrayList<>();
 	private static final List<SeekerStatusDetail> seekerStatusList = new ArrayList<>();
-	private static final List<Long> seekerNumberList=new ArrayList<>();
+	private static final Map<String,String> seekerNumberList=new HashMap<>();
 	private static final String DONOR_NAME="donor_name";
 	private static final String DONOR_PLACE="donor_place";
 	private static final String DONOR_NUMBER="donor_number";
@@ -31,9 +33,12 @@ public class SeekerManagerDao {
 	private static final String DISPLAY_ALL_DATA_QUERY="select * from seeker_detail where seeker_status='Pending'";
 	private static final String UPDATE_SEEKER_DATA_QUERY="update seeker_detail set seeker_status='Approved' where seeker_number=? and seeker_name=?"; 
 	private static final String SEEKER_RESULT="select d.donor_name,d.donor_place,d.donor_number,d.donor_blood from donor_detail d,seeker_detail s\r\n"
-			+ "where  seeker_number=? and seeker_status='Approved' and d.donor_blood=s.seeker_blood";
-	private static final String SEEKER_NUMBER="select seeker_number from seeker_detail";
-	 public boolean save(SeekerDetail detail) throws ClassNotFoundException, SQLException {
+			+ "where  seeker_number=? and seeker_name=? and seeker_status='Approved' and (d.donor_blood=s.seeker_blood)";
+	private static final String SEEKER_NUMBER="select * from seeker_detail where seeker_number=? and seeker_name=?";
+	/*
+	 * function to add seeker detail
+	 */
+	public boolean save(SeekerDetail detail) throws ClassNotFoundException, SQLException {
 	    	boolean isValid=false;
 	    	Connection connection=null;
 	    	PreparedStatement pst=null;
@@ -62,6 +67,9 @@ public class SeekerManagerDao {
 	    	}
 	    	return isValid;
 	    }
+	/*
+	 * function to display seeker list
+	 */
 	 public  List<SeekerDetail> displayAllList() throws ClassNotFoundException, SQLException
 	    {  
 		   seekerList.clear();
@@ -105,7 +113,9 @@ public class SeekerManagerDao {
 	    	
 	    	
 	    }
-	 
+	 /*
+	  * function to display seeker request list
+	  */
 	 public void approveSeeker(Long seekerNum,String name) throws ClassNotFoundException, SQLException
 	    {   Connection connection=null;
 	        PreparedStatement pst=null;
@@ -131,7 +141,9 @@ public class SeekerManagerDao {
 	    	
 	    }
 	 
-	 
+	 /*
+	  * function to display the approved seeker list
+	  */
 	 
 	 public boolean seekerStatus(SeekerDetail detail)throws ClassNotFoundException, SQLException {
 		 
@@ -144,7 +156,9 @@ public class SeekerManagerDao {
 	        pst=connection.prepareStatement(sql);
 	        String num=String.valueOf(detail.getMobileNumber());
 	    	pst.setString(1, num);
-	    	ResultSet rs=pst.executeQuery();
+	    	pst.setString(2,detail.getName());
+	        ResultSet rs=pst.executeQuery();
+	      
 	    	seekerStatusList.clear();
 			while(rs.next()) {
 				
@@ -163,23 +177,33 @@ public class SeekerManagerDao {
 	        	e.getMessage();
 	        }
 		   ConnectionUtil.close(pst,connection);
+		
 	    return isValid;
 				}
 	 
+	 /*
+	  * function to display seeker status
+	  */
 	 
 	 
-	 
-	 public List<Long> seekerNumber() throws ClassNotFoundException, SQLException{
+	 public Map<String,String> seekerNumber(Long number,String name) throws ClassNotFoundException, SQLException{
 		 Connection connection=null;
 	    	PreparedStatement pst=null;
 	    	try {
+	    		
 	    	connection=ConnectionUtil.getConnection();
     	    String sql=SEEKER_NUMBER;
             pst=connection.prepareStatement(sql);
-	        ResultSet rs=pst.executeQuery();
+            String num=String.valueOf(number);
+            pst.setString(1, num);
+            pst.setString(2, name);
+            ResultSet rs=pst.executeQuery();
+	        
 	    	while(rs.next()) {
-	    		Long seekerNumber=rs.getLong(SEEKER_MOBILENUMBER);
-	    		seekerNumberList.add(seekerNumber);
+	    		String seekerNumber=rs.getString(SEEKER_MOBILENUMBER);
+	    		String seekerName=rs.getString(SEEKER_NAME);
+	    		seekerNumberList.put(seekerNumber,seekerName);
+	    	
 	    	}
 	    	}
 	    	catch(Exception e){
@@ -188,9 +212,13 @@ public class SeekerManagerDao {
 	    	ConnectionUtil.close(pst,connection);
 	    	return seekerNumberList;
 	 }
-	 public List<SeekerStatusDetail> display()
-	 {
-		 return seekerStatusList;
-	 }
 	 
+	 public Map<String,String> seeker_detail(){
+		 return seekerNumberList;
+	 }
+	public List<SeekerStatusDetail> display()
+		{
+			 return seekerStatusList;
+		}
+		 
 }
