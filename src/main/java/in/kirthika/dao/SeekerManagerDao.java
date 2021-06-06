@@ -213,7 +213,7 @@ public class SeekerManagerDao {
 	    	return seekerNumberList;
 	 }
 	 
-	 public Map<String,String> seeker_detail(){
+	 public Map<String,String> seekerDetail(){
 		 return seekerNumberList;
 	 }
 	public List<SeekerStatusDetail> display()
