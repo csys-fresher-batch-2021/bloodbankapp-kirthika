@@ -22,12 +22,14 @@ import in.kirthika.validator.PlaceValidator;
  */
 @WebServlet("/AddDonorJson")
 public class AddDonorJson extends HttpServlet {
+	
 	private static final long serialVersionUID = 1L;
-
+	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		PrintWriter out = response.getWriter();
 		try {
+			
 			DonorDetail detail = new DonorDetail();
 			String donorName = request.getParameter("donorName");
 			String donorBlood = request.getParameter("donorBlood");
@@ -50,7 +52,7 @@ public class AddDonorJson extends HttpServlet {
 
 			DonorManager manager = new DonorManager();
 			boolean valid = manager.addDonor(detail);
-			// List<DonorDetail> donorList=manager.displayDonorList();
+			
 			JsonObject object = new JsonObject();
 			if (valid) {
 				object.addProperty("infoMessage", "Donor exist");
@@ -62,13 +64,10 @@ public class AddDonorJson extends HttpServlet {
 				out.println(object);
 			}
 
-			// Gson gson=new Gson();
-			// String json=gson.toJson(donorList);
-			// out.print(json);
-			// out.flush();
+			
 
 		} catch (Exception e) {
-			e.printStackTrace();
+			
 			JsonObject object = new JsonObject();
 			object.addProperty("errorMessage", e.getMessage());
 			out.println(object);
