@@ -13,16 +13,17 @@ String loggedInUsername = (String) session.getAttribute("LOGIN_USER");
 		<div class="d-flex justify-content-center">
 			<h3>Donor Form</h3>
 		</div>
-		<form onsubmit="addDonor()" >
+		<form onsubmit="addDonor()">
 
 			<div class="d-flex justify-content-center">
-				<label for="donorName"></label> <input type="text" name="donorName" id="donorName"
-					placeholder="Enter donor name" required autofocus />
+				<label for="donorName"></label> <input type="text" name="donorName"
+					id="donorName" placeholder="Enter donor name" required autofocus />
 			</div>
 
 			<br />
 			<div class="d-flex justify-content-center">
-				<label for="bloodGroup"></label> <select name="bloodGroup" id="bloodGroup" required>
+				<label for="bloodGroup"></label> <select name="bloodGroup"
+					id="bloodGroup" required>
 					<option>----Blood type----</option>
 					<option value="A+">A+</option>
 					<option value="A-">A-</option>
@@ -35,11 +36,11 @@ String loggedInUsername = (String) session.getAttribute("LOGIN_USER");
 			</div>
 
 			<br />
-			
+
 			<div class="d-flex justify-content-center">
-				<label for="mobileNumber"></label> <input type="number" id="mobileNumber"
-					name="mobileNumber" placeholder="Enter mobile number" required
-					autofocus />
+				<label for="mobileNumber"></label> <input type="number"
+					id="mobileNumber" name="mobileNumber"
+					placeholder="Enter mobile number" required autofocus />
 			</div>
 
 			<br />
@@ -53,7 +54,7 @@ String loggedInUsername = (String) session.getAttribute("LOGIN_USER");
 
 
 
-				<select name="place"  id="place" required>
+				<select name="place" id="place" required>
 					<option>Enter district</option>
 					<option value="Ariyalur">Ariyalur</option>
 					<option value="Chennai">Chennai</option>
@@ -70,10 +71,9 @@ String loggedInUsername = (String) session.getAttribute("LOGIN_USER");
 			<br />
 			<div class="d-flex justify-content-center">
 				<button type="submit" class="btn btn-primary">Add donor</button>
-			 </div>
-			 
-			 <label for="display" id="display"></label>
-			<br/>
+			</div>
+
+			<label for="display" id="display"></label> <br />
 
 		</form>
 		<script>

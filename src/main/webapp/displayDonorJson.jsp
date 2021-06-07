@@ -12,27 +12,26 @@
 	<jsp:include page="header.jsp"></jsp:include>
 	<main class="container-fluid">
 		<h3>Donor Details</h3>
-	
-	
-	<br/>
-	<br/>
+
+
+		<br /> <br />
 		<table class="table table-bordered">
-		<caption>Donor Details</caption>
-		<thead>
-		<tr>
-				<th scope="col">S.No</th>
-				<th scope="col">Donor Name</th>
-				<th scope="col">Mobile Number</th>
-				<th scope="col">Blood Group</th>
-				<th scope="col">Age</th>
-				<th scope="col">Place</th>
-				
-		</tr>
-	   </thead>
-	    <tbody id="donorDetail">
-	    </tbody>
-	    </table>
-	    <script>
+			<caption>Donor Details</caption>
+			<thead>
+				<tr>
+					<th scope="col">S.No</th>
+					<th scope="col">Donor Name</th>
+					<th scope="col">Mobile Number</th>
+					<th scope="col">Blood Group</th>
+					<th scope="col">Age</th>
+					<th scope="col">Place</th>
+
+				</tr>
+			</thead>
+			<tbody id="donorDetail">
+			</tbody>
+		</table>
+		<script>
 	    function getAllDonor(){
 	    	console.log("Fetching all Details");
 	    	
@@ -54,10 +53,9 @@
 	    }
 	    getAllDonor();
 	    </script>
-	    </main>
-	    </body>
-	    </html>
-	    
-	    
-	    
-	    
+	</main>
+</body>
+</html>
+
+
+

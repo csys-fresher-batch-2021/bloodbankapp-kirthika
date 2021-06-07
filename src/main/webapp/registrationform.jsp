@@ -92,7 +92,7 @@
 					</div>
 				</div>
 			</div>
-				
+
 			<%
 			String message = request.getParameter("message");
 			if (message == null) {
