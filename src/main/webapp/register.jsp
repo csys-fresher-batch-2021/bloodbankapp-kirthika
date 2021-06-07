@@ -16,26 +16,26 @@
 				<label for="userName"></label> <input type="text" name="userName"
 					placeholder="Enter User name" required autofocus />
 			</div>
-			<br/>
+			<br />
 			<div class="d-flex justify-content-center">
 				<label for="password"></label> <input type="password"
 					name="password" placeholder="Create password" required autofocus />
 			</div>
 			<br />
-			
 
-		
+
+
 			<div class="d-flex justify-content-center">
 				<label for="mobileNumber"></label> <input type="number"
 					name="mobileNumber" placeholder="Enter mobile number" required
 					autofocus />
 			</div>
-			
+
 
 			<br />
-		
 
-			
+
+
 			<%
 			String message = request.getParameter("message");
 			if (message == null) {
@@ -50,8 +50,7 @@
 				out.print("<font color='red'><center>" + message + "</font>");
 			}
 			%>
-			<br />
-			<br/>
+			<br /> <br />
 
 			<div class=" row =2 d-flex justify-content-center ">
 				<div class="col-1">

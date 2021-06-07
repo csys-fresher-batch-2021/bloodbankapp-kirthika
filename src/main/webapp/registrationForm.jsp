@@ -113,8 +113,9 @@
 					<br>
 				</div>
 				<div class="form-group col-md-2">
-					<a href="registerEmployee.jsp" class="btn btn-danger">Reset</a>
+					<button type="reset" class="btn btn-danger">Reset</button>
 				</div>
+
 
 
 			</div>

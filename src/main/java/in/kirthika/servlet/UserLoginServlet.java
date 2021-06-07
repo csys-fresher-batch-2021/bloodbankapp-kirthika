@@ -27,10 +27,10 @@ public class UserLoginServlet extends HttpServlet {
 			if (isValid) {
 				HttpSession session = request.getSession();
 				session.setAttribute("LOGIN_USER", userName);
-				response.sendRedirect("adminmanager.jsp");
+				response.sendRedirect("adminManager.jsp");
 			} else {
 				String errorMessage = "Invalid Credentials";
-				response.sendRedirect("usersignin.jsp?message=" + errorMessage);
+				response.sendRedirect("userSignin.jsp?message=" + errorMessage);
 			}
 		} catch (Exception e) {
 			e.getMessage();

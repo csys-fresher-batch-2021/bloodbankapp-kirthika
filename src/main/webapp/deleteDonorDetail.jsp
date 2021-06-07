@@ -1,6 +1,6 @@
 <!DOCTYPE>
-<%@page import="in.kirthika.model.DonorDetail"%>
 <%@page import="in.kirthika.dao.DonorManagerDao"%>
+<%@page import="in.kirthika.model.DonorDetail"%>
 <html lang="en" xml:lang="en">
 <%@page import="java.util.List"%>
 <%@page import="java.util.ArrayList"%>
@@ -22,14 +22,14 @@
 				<th scope="col">Blood Group</th>
 				<th scope="col">Age</th>
 				<th scope="col">Place</th>
-				
+				<th scope="col">Delete</th>
 		</tr>
 				
 		</thead>
 	    <tbody>
 	    <%
 	      DonorManagerDao manager=new DonorManagerDao();
-	      List<DonorDetail> taskList=manager.allSearchDonorList();
+	      List<DonorDetail> taskList=manager.allDonorList();
 	      int i=0;
 	      for(DonorDetail detail:taskList)
 	      {
@@ -44,7 +44,9 @@
 			    <td><%=detail.getBloodGroup()%></td>
 			    <td><%=detail.getAge() %></td>
 			    <td><%=detail.getPlace()%></td>
-			 
+			    <td><a href="DeleteDonorServlet?mobileNumber=<%=detail.getMobileNumber() %>&donorName=<%=detail.getName() %>"
+			      class="btn btn-danger">Delete</a></td>
+			          
 			</tr>
 	     <%}
 	     %>
@@ -52,11 +54,10 @@
 	   </tbody>
 	  </table>
 		
-	    <a href="donorsearchpage.jsp">search donor</a>
+		<a href="addDonor.jsp">Add Donor</a>
 		<br/>
 		<br/>
-		<a href="adminmanager.jsp">Back to homepage</a>
-		
+		<a href="adminManager.jsp">Back to homepage</a>
 
 </main>
 </body>

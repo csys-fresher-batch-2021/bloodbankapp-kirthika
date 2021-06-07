@@ -25,7 +25,7 @@ public class DeleteDonorServlet extends HttpServlet {
 			Long donorNum = Long.parseLong(request.getParameter("mobileNumber"));
 			String donorName = request.getParameter("donorName");
 			manager.deleteDonor(donorNum, donorName);
-			response.sendRedirect("deletedonordetail.jsp");
+			response.sendRedirect("deleteDonorDetail.jsp");
 		} catch (Exception e) {
 			logger.info(e.getMessage());
 		}

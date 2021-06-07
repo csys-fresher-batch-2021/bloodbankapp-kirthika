@@ -40,7 +40,7 @@ public class UserRegistration extends HttpServlet {
 			boolean valid = UserManager.addUser(user);
 			if (valid) {
 
-				response.sendRedirect("usersignin.jsp");
+				response.sendRedirect("userSignIn.jsp");
 			} else {
 				String message = "Already Registered";
 				response.sendRedirect(ACTION + message);

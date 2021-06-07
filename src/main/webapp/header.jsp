@@ -33,35 +33,37 @@ String loggedInUsername = (String) session.getAttribute("LOGIN_USER");
 			<ul class="navbar-nav mr-auto mt-2 mt-lg-0">
 				<li class="nav-item active"><a class="nav-link"
 					href="index.jsp">Home <span class="sr-only">(current)</span></a></li>
-					<%
+				<%
 					if (loggedInUsername!=null && loggedInUsername.equals("admin")){
 					%>
-					<li class="nav-item active"><a class="nav-link"
-					href="adddonor.jsp">Add Donor<span class="sr-only">(current)</span></a></li>
-					
-					<li class="nav-item active"><a class="nav-link"
-					href="donorsearchpage.jsp">Search Donor<span class="sr-only">(current)</span></a></li>
-					
-					<li class="nav-item active"><a class="nav-link"
-					href="deletedonordetail.jsp">Delete Donor<span class="sr-only">(current)</span></a></li>
-					
-					<li class="nav-item active"><a class="nav-link"
-					href="displaydonor.jsp">Display Donor<span class="sr-only">(current)</span></a></li>
-					
-							<li class="nav-item active"><a class="nav-link"
-					href="seekerrequest.jsp">Seeker Request<span class="sr-only">(current)</span></a></li>
-					
-               <%}else if(loggedInUsername!=null && !loggedInUsername.equals("admin")){%>
-                    <li class="nav-item active"><a class="nav-link"
-					href="adddonor.jsp">Donor Registration form<span class="sr-only">(current)</span></a></li>
-					
-					<li class="nav-item active"><a class="nav-link"
-					href="registrationform.jsp">Seeker Registration form<span class="sr-only">(current)</span></a></li>
-					
-					<li class="nav-item active"><a class="nav-link"
-					href="seekerstatus.jsp">Seeker Status<span class="sr-only">(current)</span></a></li>
-					
-					<%} %>
+				<li class="nav-item active"><a class="nav-link"
+					href="addDonor.jsp">Add Donor<span class="sr-only">(current)</span></a></li>
+
+				<li class="nav-item active"><a class="nav-link"
+					href="donorSearchPage.jsp">Search Donor<span class="sr-only">(current)</span></a></li>
+
+				<li class="nav-item active"><a class="nav-link"
+					href="deleteDonorDetail.jsp">Delete Donor<span class="sr-only">(current)</span></a></li>
+
+				<li class="nav-item active"><a class="nav-link"
+					href="displayDonor.jsp">Display Donor<span class="sr-only">(current)</span></a></li>
+
+				<li class="nav-item active"><a class="nav-link"
+					href="seekerRequest.jsp">Seeker Request<span class="sr-only">(current)</span></a></li>
+
+				<%}else if(loggedInUsername!=null && !loggedInUsername.equals("admin")){%>
+				<li class="nav-item active"><a class="nav-link"
+					href="addDonor.jsp">Donor Registration form<span
+						class="sr-only">(current)</span></a></li>
+
+				<li class="nav-item active"><a class="nav-link"
+					href="registrationForm.jsp">Seeker Registration form<span
+						class="sr-only">(current)</span></a></li>
+
+				<li class="nav-item active"><a class="nav-link"
+					href="seekerStatus.jsp">Seeker Status<span class="sr-only">(current)</span></a></li>
+
+				<%} %>
 			</ul>
 		</div>
 		<%
@@ -72,10 +74,9 @@ String loggedInUsername = (String) session.getAttribute("LOGIN_USER");
 				class="nav-link dropdown-toggle" href="#" id="dropdownId"
 				data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">SignIn</a>
 				<div class="dropdown-menu" aria-labelledby="dropdownId">
-					<a class="dropdown-item" href="usersignin.jsp">User Login</a>
-				    <a class="dropdown-item" href="login.jsp">Admin Login</a>
-				</div>
-			</li>
+					<a class="dropdown-item" href="userSignIn.jsp">User Login</a> <a
+						class="dropdown-item" href="login.jsp">Admin Login</a>
+				</div></li>
 
 			<li class="nav-item active"><a class="nav-link"
 				href="register.jsp">Register</a></li>
@@ -85,7 +86,7 @@ String loggedInUsername = (String) session.getAttribute("LOGIN_USER");
 		} else {
 		%>
 
-		
+
 
 		<ul class="navbar-nav ml-auto mt-2 mt-lg-0">
 			<li class="nav-item"><a class="nav-link" href="#">Welcome<%=" " + loggedInUsername%></a>

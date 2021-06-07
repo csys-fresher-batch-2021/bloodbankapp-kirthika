@@ -24,7 +24,7 @@ public class AddDonorServlet extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-
+		final String ACTION = "addDonor.jsp?errorMessage=";
 		try {
 			DonorDetail detail = new DonorDetail();
 			String donorName = request.getParameter("donorName");
@@ -51,14 +51,14 @@ public class AddDonorServlet extends HttpServlet {
 
 			if (valid) {
 				String errorMessage = "Donor already exist";
-				response.sendRedirect("adddonor.jsp?errorMessage=" + errorMessage);
+				response.sendRedirect(ACTION + errorMessage);
 
 			} else {
 				String errorMessage = "Donor added";
-				response.sendRedirect("adddonor.jsp?errorMessage=" + errorMessage);
+				response.sendRedirect(ACTION + errorMessage);
 			}
 		} catch (Exception e) {
-			response.sendRedirect("adddonor.jsp?errorMessage=" + e.getMessage());
+			response.sendRedirect(ACTION + e.getMessage());
 		}
 	}
 
