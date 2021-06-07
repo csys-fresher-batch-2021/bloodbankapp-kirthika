@@ -40,7 +40,7 @@ public class SeekerServlet extends HttpServlet {
 			BloodGroupValidator.donorBloodGroupValidator(seekerBlood, "Blood Group cannot be Empty");
 			MobileNumberValidator.isValidMobileNumber(seekerNumber);
 			DateValidator.isValidDate(date, "Enter future date");
-			System.out.println(PlaceValidator.donorPlaceValidator(seekerPlace, "Invalid Place"));
+			PlaceValidator.donorPlaceValidator(seekerPlace, "Invalid Place");
 
 			SeekerDetail detail = new SeekerDetail();
 

@@ -2,7 +2,7 @@ package in.kirthika.util;
 import in.kirthika.exception.InvalidMobileNumberException;
 import in.kirthika.exception.InvalidNumberLengthException;
 import in.kirthika.exception.NumberCannotBeNegativeException;
-import in.kirthika.exception.isValidStartingNumberException;
+import in.kirthika.exception.IsValidStartingNumberException;
 
 public class MobileNumberValidator {
 	private MobileNumberValidator() {
@@ -37,13 +37,13 @@ public class MobileNumberValidator {
 		return isValidNumber;
 	}
 
-	public static boolean isValidNumber(Long number) throws isValidStartingNumberException {
+	public static boolean isValidNumber(Long number) throws IsValidStartingNumberException {
 		boolean isValidNumber = false;
 		String num = String.valueOf(number);
 		if (num.startsWith("6") || num.startsWith("7") || num.startsWith("8") || num.startsWith("9")) {
 			isValidNumber = true;
 		} else {
-			throw new isValidStartingNumberException("Invalid Mobile Number");
+			throw new IsValidStartingNumberException("Invalid Mobile Number");
 		}
 		return isValidNumber;
 	}

@@ -1,13 +1,13 @@
 package in.kirthika.exception;
 
-public class isValidStartingNumberException extends Exception {
+public class IsValidStartingNumberException extends Exception {
 
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
 
-	public isValidStartingNumberException(String message) {
+	public IsValidStartingNumberException(String message) {
 		super(message);
 
 	}
