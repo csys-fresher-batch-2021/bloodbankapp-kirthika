@@ -14,13 +14,14 @@ import javax.servlet.http.HttpSession;
 @WebServlet("/LogoutServlet")
 public class LogoutServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+
 	@Override
-     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-    	HttpSession session=request.getSession();
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+
+		HttpSession session = request.getSession();
 		session.removeAttribute("LOGIN_USER");
-        response.sendRedirect("login.jsp");
+		response.sendRedirect("login.jsp");
 	}
 
-	
 }

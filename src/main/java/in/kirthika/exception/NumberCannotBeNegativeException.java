@@ -9,7 +9,7 @@ public class NumberCannotBeNegativeException extends Exception {
 
 	public NumberCannotBeNegativeException(String message) {
 		super(message);
-		
+
 	}
 
 }

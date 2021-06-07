@@ -9,7 +9,7 @@ public class EmptyBloodGroupException extends Exception {
 
 	public EmptyBloodGroupException(String message) {
 		super(message);
-		
+
 	}
 
 }

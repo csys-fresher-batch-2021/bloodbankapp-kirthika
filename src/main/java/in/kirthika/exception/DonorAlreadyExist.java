@@ -9,9 +9,7 @@ public class DonorAlreadyExist extends Exception {
 
 	public DonorAlreadyExist(String message) {
 		super(message);
-	
+
 	}
-	
-	
 
 }

@@ -1,4 +1,5 @@
 package in.kirthika.servlet;
+
 import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -15,30 +16,27 @@ import in.kirthika.validator.PlaceValidator;
 @WebServlet("/DonorSearchServlet")
 public class DonorSearchServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-@Override
-     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-	 String donorBlood=request.getParameter("bloodGroup");
-	 String donorPlace=request.getParameter("place");
-	 try {
-		BloodGroupValidator.donorBloodGroupValidator(donorBlood,"Blood Group cannot be Empty");
-		 PlaceValidator.donorPlaceValidator(donorPlace, "Invalid Place");
-		 DonorManager manager=new DonorManager();
-		 boolean valid=manager.donorSearch(donorBlood, donorPlace);
-		 if(valid) {
-			
-		     response.sendRedirect("searchdonor.jsp");
-		 }
-		
-		 
-	} catch (Exception e) {
-		response.sendRedirect("donorsearchpage.jsp?errorMessage=" + e.getMessage());
-	}
-	 
-	
-	 
-    	
-	
-}
 
+	@Override
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+
+		try {
+			String donorBlood = request.getParameter("bloodGroup");
+			String donorPlace = request.getParameter("place");
+			BloodGroupValidator.donorBloodGroupValidator(donorBlood, "Blood Group cannot be Empty");
+			PlaceValidator.donorPlaceValidator(donorPlace, "Invalid Place");
+			DonorManager manager = new DonorManager();
+			boolean valid = manager.donorSearch(donorBlood, donorPlace);
+			if (valid) {
+
+				response.sendRedirect("searchdonor.jsp");
+			}
+
+		} catch (Exception e) {
+			response.sendRedirect("donorsearchpage.jsp?errorMessage=" + e.getMessage());
+		}
+
+	}
 
 }

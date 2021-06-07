@@ -6,7 +6,7 @@ public class DonorDetail {
 	private Long mobileNumber;
 	private int age;
 	private String place;
-	
+
 	public String getPlace() {
 		return place;
 	}
@@ -47,16 +47,17 @@ public class DonorDetail {
 		this.age = age;
 	}
 
-	public DonorDetail(String bloodGroup,String name, Long mobileNumber,int age,String place) 
-	{   this.bloodGroup=bloodGroup;
-		this.name=name;
-		this. mobileNumber=mobileNumber;
-		this.age=age;
-		this.place=place;		
+	public DonorDetail(String bloodGroup, String name, Long mobileNumber, int age, String place) {
+		this.bloodGroup = bloodGroup;
+		this.name = name;
+		this.mobileNumber = mobileNumber;
+		this.age = age;
+		this.place = place;
 	}
-	public DonorDetail(String bloodGroup) 
-	{   this.bloodGroup=bloodGroup;
-				
+
+	public DonorDetail(String bloodGroup) {
+		this.bloodGroup = bloodGroup;
+
 	}
 
 	@Override
@@ -65,8 +66,8 @@ public class DonorDetail {
 				+ age + ",Place=" + place + "]";
 	}
 
-	
+	public DonorDetail() {
+		super();
+	}
 
 }
-	
-

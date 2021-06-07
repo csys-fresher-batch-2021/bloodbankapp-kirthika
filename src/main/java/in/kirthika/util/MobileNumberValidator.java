@@ -1,22 +1,16 @@
 package in.kirthika.util;
 
-
-
-
 import in.kirthika.exception.InvalidMobileNumberException;
 import in.kirthika.exception.InvalidNumberLengthException;
 
 import in.kirthika.exception.NumberCannotBeNegativeException;
-
+import in.kirthika.exception.isValidStartingNumber;
+import in.kirthika.exception.isValidStartingNumberException;
 
 public class MobileNumberValidator {
-	private MobileNumberValidator ()
-	{
-		//default constructor
+	private MobileNumberValidator() {
+		// default constructor
 	}
-  
-	
-	
 
 	/**
 	 * This method checks whether the length of mobile number is 10 digits
@@ -26,16 +20,13 @@ public class MobileNumberValidator {
 	 * @throws InvalidNumberLengthException
 	 */
 	public static boolean isNumberValidLength(Long number) throws InvalidNumberLengthException {
-            int numberString=String.valueOf(number).trim().length();
-		    if ((numberString == 10) && number != 0) {
-				return true;
-			} 
-		    else {
-				throw new InvalidNumberLengthException("Invalid Mobile Number");
-			}
+		int numberString = String.valueOf(number).trim().length();
+		if ((numberString == 10) && number != 0) {
+			return true;
+		} else {
+			throw new InvalidNumberLengthException("Invalid Mobile Number");
 		}
-		
-
+	}
 
 	public static boolean isNumberPositive(Long number) throws NumberCannotBeNegativeException {
 		boolean isValidNumber = false;
@@ -48,11 +39,17 @@ public class MobileNumberValidator {
 		}
 		return isValidNumber;
 	}
-	
-	
 
-		
-
+	public static boolean isValidNumber(Long number) throws isValidStartingNumberException {
+		boolean isValidNumber = false;
+		String num = String.valueOf(number);
+		if (num.startsWith("6") || num.startsWith("7") || num.startsWith("8") || num.startsWith("9")) {
+			isValidNumber = true;
+		} else {
+			throw new isValidStartingNumberException("Invalid Mobile Number");
+		}
+		return isValidNumber;
+	}
 
 	/**
 	 * This method checks whether a given mobile number is a 10 digit number and the
@@ -67,14 +64,13 @@ public class MobileNumberValidator {
 
 			MobileNumberValidator.isNumberValidLength(mobileNumber);
 			MobileNumberValidator.isNumberPositive(mobileNumber);
-		    return true;
+			MobileNumberValidator.isValidNumber(mobileNumber);
+			return true;
 
 		} catch (Exception e) {
 			throw new InvalidMobileNumberException(e.getMessage());
 		}
 
 	}
-	
+
 }
-
-
