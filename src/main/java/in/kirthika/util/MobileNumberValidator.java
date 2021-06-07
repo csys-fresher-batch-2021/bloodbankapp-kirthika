@@ -1,10 +1,7 @@
 package in.kirthika.util;
-
 import in.kirthika.exception.InvalidMobileNumberException;
 import in.kirthika.exception.InvalidNumberLengthException;
-
 import in.kirthika.exception.NumberCannotBeNegativeException;
-import in.kirthika.exception.isValidStartingNumber;
 import in.kirthika.exception.isValidStartingNumberException;
 
 public class MobileNumberValidator {
