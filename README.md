@@ -12,6 +12,7 @@ Login access for the admin is to
 * Filter donor based upon their blood group
 
 Users can register their name and login to the app for
-*donor registration
-*seeker registration
-*seeker status
+* donor Registration
+* seeker Registration
+* seeker status
+
