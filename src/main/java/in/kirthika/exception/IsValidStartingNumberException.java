@@ -1,13 +1,13 @@
 package in.kirthika.exception;
 
-public class InvalidNameFormatException extends Exception {
+public class IsValidStartingNumberException extends Exception {
 
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
 
-	public InvalidNameFormatException(String message) {
+	public IsValidStartingNumberException(String message) {
 		super(message);
 
 	}

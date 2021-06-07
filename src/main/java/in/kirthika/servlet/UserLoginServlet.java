@@ -7,7 +7,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-
 import in.kirthika.service.UserManager;
 
 /**
@@ -16,27 +15,25 @@ import in.kirthika.service.UserManager;
 @WebServlet("/UserLoginServlet")
 public class UserLoginServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-@Override
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		try{String userName=request.getParameter("userName");
-		String userPassword=request.getParameter("password");
-		boolean isValid=UserManager.userCheck(userName,userPassword);
-	    if(isValid)
-			{  
-				HttpSession session=request.getSession();
+
+	@Override
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		try {
+			String userName = request.getParameter("userName");
+			String userPassword = request.getParameter("password");
+
+			boolean isValid = UserManager.userCheck(userName, userPassword);
+			if (isValid) {
+				HttpSession session = request.getSession();
 				session.setAttribute("LOGIN_USER", userName);
 				response.sendRedirect("adminmanager.jsp");
+			} else {
+				String errorMessage = "Invalid Credentials";
+				response.sendRedirect("usersignin.jsp?message=" + errorMessage);
 			}
-	    else
-			{
-				String errorMessage="Invalid Credentials";
-				response.sendRedirect("usersignin.jsp?message="+errorMessage);
-			}
-		
-		}
-		catch(Exception e)
-		{
+		} catch (Exception e) {
 			e.getMessage();
 		}
-}
+	}
 }

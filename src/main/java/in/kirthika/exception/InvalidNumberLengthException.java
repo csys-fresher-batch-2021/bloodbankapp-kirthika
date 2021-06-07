@@ -9,7 +9,7 @@ public class InvalidNumberLengthException extends Exception {
 
 	public InvalidNumberLengthException(String message) {
 		super(message);
-		
+
 	}
 
 }

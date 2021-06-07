@@ -7,7 +7,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-
 import in.kirthika.model.SeekerDetail;
 import in.kirthika.service.SeekerManager;
 import in.kirthika.util.MobileNumberValidator;
@@ -20,42 +19,36 @@ import in.kirthika.validator.SeekerValidator;
 @WebServlet("/SeekerStatus")
 public class SeekerStatus extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-  @Override
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-		
-		
+
+	@Override
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		try {
-			String name=request.getParameter("seekerName");
-			Long donorNumber=Long.parseLong(request.getParameter("mobileNumber"));
+			String name = request.getParameter("seekerName");
+			Long donorNumber = Long.parseLong(request.getParameter("mobileNumber"));
 			NameValidator.isValidName(name);
 			MobileNumberValidator.isValidMobileNumber(donorNumber);
-			
-			SeekerValidator.seekerNumberValidator(donorNumber,name,"Seeker not registered");
-		    SeekerDetail detail=new SeekerDetail();
-		    detail.setMobileNumber(donorNumber);
-		    detail.setName(name);
-		   
-		    
-		   
-		    SeekerManager manager=new SeekerManager();
-		    boolean isValid=manager.seekerStatus(detail);
-		   
-		    	if(isValid)
-		    	{
-		    		String status="Donor Available";
-		    		response.sendRedirect("statusdisplay.jsp?name="+name+"&number="+donorNumber+"&status="+status);
-		    	}
-		    	else
-		    	{
-		    		String status="Donor unavailable-Check after sometimes";
-		    		response.sendRedirect("statusdisplay.jsp?name="+name+"&number="+donorNumber+"&status="+status);
-		    	}
+
+			SeekerValidator.seekerNumberValidator(donorNumber, name, "Seeker not registered");
+			SeekerDetail detail = new SeekerDetail();
+			detail.setMobileNumber(donorNumber);
+			detail.setName(name);
+
+			SeekerManager manager = new SeekerManager();
+			boolean isValid = manager.seekerStatus(detail);
+
+			if (isValid) {
+				String status = "Donor Available";
+				response.sendRedirect(
+						"statusdisplay.jsp?name=" + name + "&number=" + donorNumber + "&status=" + status);
+			} else {
+				String status = "Donor unavailable-Check after sometimes";
+				response.sendRedirect(
+						"statusdisplay.jsp?name=" + name + "&number=" + donorNumber + "&status=" + status);
 			}
-		catch(Exception e) {
+		} catch (Exception e) {
 			response.sendRedirect("seekerstatus.jsp?errorMessage=" + e.getMessage());
-			
+
 		}
 
 	}

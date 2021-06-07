@@ -5,15 +5,15 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-
 public class ConnectionUtil {
-	
+
 	private ConnectionUtil() {
-		//Default constructor
+		// Default constructor
 	}
-	
+
 	/**
 	 * This method creates a database connection.
+	 * 
 	 * @return
 	 * @throws ClassNotFoundException
 	 * @throws SQLException
@@ -22,13 +22,14 @@ public class ConnectionUtil {
 	private static String url = System.getenv("spring.datasource.url");
 	private static String username = System.getenv("spring.datasource.username");
 	private static String password = System.getenv("spring.datasource.password");
-	
-	public static Connection getConnection()throws ClassNotFoundException, SQLException {
-		
-        Class.forName(driverClass);
-		
-	    return DriverManager.getConnection(url, username, password);
+
+	public static Connection getConnection() throws ClassNotFoundException, SQLException {
+
+		Class.forName(driverClass);
+
+		return DriverManager.getConnection(url, username, password);
 	}
+
 	public static void close(Statement statement, Connection con) {
 		try {
 			if (statement != null) {
@@ -41,6 +42,5 @@ public class ConnectionUtil {
 			e.getMessage();
 		}
 	}
-	
-	
+
 }

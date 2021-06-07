@@ -59,7 +59,7 @@
 				<div class="col">
 					<label>District</label><select name="place"
 						class="form-control form-control-sm" required>
-						<option>Select a District</option>
+						<option>Enter district</option>
 						<option value="Ariyalur">Ariyalur</option>
 						<option value="Chennai">Chennai</option>
 						<option value="Coimbatore">Coimbatore</option>
@@ -92,7 +92,7 @@
 					</div>
 				</div>
 			</div>
-				
+
 			<%
 			String message = request.getParameter("message");
 			if (message == null) {
