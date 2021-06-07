@@ -40,14 +40,14 @@ public class SeekerStatus extends HttpServlet {
 			if (isValid) {
 				String status = "Donor Available";
 				response.sendRedirect(
-						"statusdisplay.jsp?name=" + name + "&number=" + donorNumber + "&status=" + status);
+						"statusDisplay.jsp?name=" + name + "&number=" + donorNumber + "&status=" + status);
 			} else {
 				String status = "Donor unavailable-Check after sometimes";
 				response.sendRedirect(
-						"statusdisplay.jsp?name=" + name + "&number=" + donorNumber + "&status=" + status);
+						"statusDisplay.jsp?name=" + name + "&number=" + donorNumber + "&status=" + status);
 			}
 		} catch (Exception e) {
-			response.sendRedirect("seekerstatus.jsp?errorMessage=" + e.getMessage());
+			response.sendRedirect("seekerStatus.jsp?errorMessage=" + e.getMessage());
 
 		}
 

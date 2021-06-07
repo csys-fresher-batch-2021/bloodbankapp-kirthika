@@ -15,31 +15,28 @@
 	<jsp:include page="header.jsp"></jsp:include>
 	<main class="container-fluid">
 		<h3>Donor Details</h3>
-	
-	<br/>
-	<form>
-	<label for="display" id="name"></label>
-	<br/>
-	<label for="display"  id="number"></label>
-	<br/>
-	<label for="display" id="status"></label>
-	<br/>
-	
-		<table class="table table-bordered">
-		<caption>Donor Details</caption>
-		<thead>
-		<tr>
-				<th scope="col">S.No</th>
-				<th scope="col">Donor name</th>
-				<th scope="col">Donor Place</th>
-				<th scope="col">Mobile Number</th>
-				<th scope="col">Donor Blood</th>
-				
-		</tr>
-				
-		</thead>
-	    <tbody>
-	    <%
+
+		<br />
+		<form>
+			<label for="display" id="name"></label> <br /> <label for="display"
+				id="number"></label> <br /> <label for="display" id="status"></label>
+			<br />
+
+			<table class="table table-bordered">
+				<caption>Donor Details</caption>
+				<thead>
+					<tr>
+						<th scope="col">S.No</th>
+						<th scope="col">Donor name</th>
+						<th scope="col">Donor Place</th>
+						<th scope="col">Mobile Number</th>
+						<th scope="col">Donor Blood</th>
+
+					</tr>
+
+				</thead>
+				<tbody>
+					<%
 	      SeekerManager manager=new SeekerManager();
 	      List<SeekerStatusDetail> taskList=manager.displayDonor();
 	      int i=0;
@@ -49,21 +46,21 @@
 	    	  i++;
 	      
 	    %>
-			    <tr>
-			    <td><%=i %></td>
-			    <td><%=detail.getName() %></td>
-			    <td><%=detail.getPlace() %></td>
-			    <td><%=detail.getMobileNumber()%></td>
-			    <td><%=detail.getBlood() %></td>
-			    
-			   
-			</tr>
-	     <%}
+					<tr>
+						<td><%=i %></td>
+						<td><%=detail.getName() %></td>
+						<td><%=detail.getPlace() %></td>
+						<td><%=detail.getMobileNumber()%></td>
+						<td><%=detail.getBlood() %></td>
+
+
+					</tr>
+					<%}
 	     %>
-	    
-	   </tbody>
-	  </table>
-	  <script>
+
+				</tbody>
+			</table>
+			<script>
 	     {
 	        let params=new URLSearchParams(window.location.search);
 	        let name=params.get('name');
@@ -76,8 +73,8 @@
 	  
 	  </script>
 		</form>
-	
 
-</main>
+
+	</main>
 </body>
 </html>

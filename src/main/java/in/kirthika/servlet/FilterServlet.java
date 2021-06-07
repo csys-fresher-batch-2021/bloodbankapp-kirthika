@@ -24,7 +24,7 @@ public class FilterServlet extends HttpServlet {
 			String filterBlood = request.getParameter("donorBlood");
 
 			manager.filterBlood(filterBlood.toUpperCase());
-			response.sendRedirect("displayfilterlist.jsp");
+			response.sendRedirect("displayFilterList.jsp");
 		} catch (Exception e) {
 			e.getMessage();
 		}

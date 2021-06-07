@@ -52,7 +52,7 @@ String loggedInUsername = (String) session.getAttribute("LOGIN_USER");
 
 
 
-				<select name="place"  required>
+				<select name="place" required>
 					<option>Enter district</option>
 					<option value="Ariyalur">Ariyalur</option>
 					<option value="Chennai">Chennai</option>
@@ -83,17 +83,18 @@ String loggedInUsername = (String) session.getAttribute("LOGIN_USER");
 			}
 			%>
 			<br /> <br />
-		       <%
+			<%
 				if (loggedInUsername.equalsIgnoreCase("admin")) {
 				%>
-				<div class="d-flex justify-content-center">
+			<div class="d-flex justify-content-center">
 				<button type="submit" class="btn btn-primary">Add donor</button>
-			    </div>
-	             <%} else {%>
-	             <div class="d-flex justify-content-center">
-				<button type="submit" class="btn btn-primary">Register Donor</button>
-			    </div>
-			     <%} %>
+			</div>
+			<%} else {%>
+			<div class="d-flex justify-content-center">
+				<button type="submit" class="btn btn-primary">Register
+					Donor</button>
+			</div>
+			<%} %>
 		</form>
 
 	</main>

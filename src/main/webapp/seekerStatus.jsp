@@ -13,7 +13,7 @@ String loggedInUsername = (String) session.getAttribute("LOGIN_USER");
 		<div class="d-flex justify-content-center">
 			<h3>Seeker Status</h3>
 		</div>
-		<form action="SeekerStatus" >
+		<form action="SeekerStatus">
 
 			<div class="d-flex justify-content-center">
 				<label for="donorName"></label> <input type="text" name="seekerName"
@@ -21,16 +21,16 @@ String loggedInUsername = (String) session.getAttribute("LOGIN_USER");
 			</div>
 
 			<br />
-			
-			
-			
+
+
+
 			<div class="d-flex justify-content-center">
 				<label for="mobileNumber"></label> <input type="number"
 					name="mobileNumber" placeholder="Enter mobile number" required
 					autofocus />
 			</div>
-			<br/>
-				<%
+			<br />
+			<%
 			String message = request.getParameter("errorMessage");
 			if (message == null) {
 				out.print("");
@@ -38,8 +38,7 @@ String loggedInUsername = (String) session.getAttribute("LOGIN_USER");
 				out.print("<font color='red'><center>" + message + "</font>");
 			}
 			%>
-          <br/>
-          <br/>
+			<br /> <br />
 			<div class="d-flex justify-content-center">
 				<button type="submit" class="btn btn-primary">Status</button>
 			</div>

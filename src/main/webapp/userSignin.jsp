@@ -10,15 +10,14 @@
 			<h3>Blood Bank</h3>
 		</div>
 		<div class="d-flex justify-content-center">
-			<h3>Admin Sign in</h3>
+			<h3>User Sign in</h3>
 		</div>
-		<form action="AdminLoginServlet" method="post">
+		<form action="UserLoginServlet" method="Post">
 			<div class="d-flex justify-content-center">
 				<div class="col-4">
-					<label for="UserName"></label> <input type="text" name="userName"
-						placeholder="Enter User name" class="form-control form-control-sm"
+					<label for="userName"></label> <input type="text" name="userName"
+						placeholder="Enter User Name" class="form-control form-control-sm"
 						required autofocus />
-
 				</div>
 			</div>
 			<br />
@@ -42,15 +41,15 @@
 
 
 
-			<br /> Note: Admin credentials are hard coded <br /> * User
-			Name:admin <br /> * Password: welcome
+			<br />
 
 		</form>
 		<%
 		String message = request.getParameter("message");
 		if (message == null) {
 			out.print("");
-		} else {
+		} 
+		else {
 
 			out.print("<font color='red'><center>" + message + "</font>");
 		}
@@ -58,7 +57,6 @@
 
 
 	</main>
-
 
 </body>
 </html>

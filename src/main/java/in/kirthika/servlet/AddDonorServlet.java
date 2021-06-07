@@ -51,14 +51,14 @@ public class AddDonorServlet extends HttpServlet {
 
 			if (valid) {
 				String errorMessage = "Donor already exist";
-				response.sendRedirect("adddonor.jsp?errorMessage=" + errorMessage);
+				response.sendRedirect("addDonor.jsp?errorMessage=" + errorMessage);
 
 			} else {
 				String errorMessage = "Donor added";
-				response.sendRedirect("adddonor.jsp?errorMessage=" + errorMessage);
+				response.sendRedirect("addDonor.jsp?errorMessage=" + errorMessage);
 			}
 		} catch (Exception e) {
-			response.sendRedirect("adddonor.jsp?errorMessage=" + e.getMessage());
+			response.sendRedirect("addDonor.jsp?errorMessage=" + e.getMessage());
 		}
 	}
 
