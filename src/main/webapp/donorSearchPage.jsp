@@ -53,11 +53,11 @@
 				out.print("<font color='red'><center>" + message + "</font>");
 			}
 			%>
-             <br />
+			<br />
 			<div class="d-flex justify-content-center">
 				<button type="submit" class="btn btn-primary">Search Donor</button>
 			</div>
-			<br /> <br /> <a href="adminmanager.jsp">Back to homepage</a>
+			<br /> <br /> <a href="adminManager.jsp">Back to homepage</a>
 
 		</form>
 

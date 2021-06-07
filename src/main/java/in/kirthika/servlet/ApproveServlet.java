@@ -26,7 +26,7 @@ public class ApproveServlet extends HttpServlet {
 			Long seekerNum = Long.parseLong(request.getParameter("mobileNumber"));
 			String seekerName = request.getParameter("receiverName");
 			manager.approveSeeker(seekerNum, seekerName);
-			response.sendRedirect("seekerrequest.jsp");
+			response.sendRedirect("seekerRequest.jsp");
 
 		} catch (Exception e) {
 			e.getMessage();

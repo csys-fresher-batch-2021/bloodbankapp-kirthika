@@ -28,7 +28,7 @@ public class AdminLoginServlet extends HttpServlet {
 
 			HttpSession session = request.getSession();
 			session.setAttribute("LOGIN_USER", userName);
-			response.sendRedirect("adminmanager.jsp");
+			response.sendRedirect("adminManager.jsp");
 		} else {
 			String errorMessage = "Invalid Credentials";
 			response.sendRedirect("login.jsp?message=" + errorMessage);

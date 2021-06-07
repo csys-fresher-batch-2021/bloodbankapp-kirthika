@@ -26,7 +26,7 @@ public class SeekerServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-		final String ACTION = "registrationform.jsp?message=";
+		final String ACTION = "registrationForm.jsp?message=";
 		try {
 			String seekerName = request.getParameter("receiverName");
 			String seekerBlood = request.getParameter("bloodGroup");

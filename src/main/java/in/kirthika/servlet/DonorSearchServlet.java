@@ -30,11 +30,11 @@ public class DonorSearchServlet extends HttpServlet {
 			boolean valid = manager.donorSearch(donorBlood, donorPlace);
 			if (valid) {
 
-				response.sendRedirect("searchdonor.jsp");
+				response.sendRedirect("searchDonor.jsp");
 			}
 
 		} catch (Exception e) {
-			response.sendRedirect("donorsearchpage.jsp?errorMessage=" + e.getMessage());
+			response.sendRedirect("donorSearchPage.jsp?errorMessage=" + e.getMessage());
 		}
 
 	}
