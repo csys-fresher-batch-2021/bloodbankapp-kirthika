@@ -64,9 +64,7 @@
 				</tbody>
 			</table>
 		</form>
-		<script>
-			
-		</script>
+
 
 	</main>
 </body>
