@@ -30,7 +30,7 @@ public class UserLoginServlet extends HttpServlet {
 				response.sendRedirect("adminManager.jsp");
 			} else {
 				String errorMessage = "Invalid Credentials";
-				response.sendRedirect("userSignin.jsp?message=" + errorMessage);
+				response.sendRedirect("userSignIn.jsp?message=" + errorMessage);
 			}
 		} catch (Exception e) {
 			e.getMessage();
