@@ -11,7 +11,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import com.google.gson.Gson;
-import com.google.gson.JsonObject;
 
 import in.kirthika.dto.StockDetail;
 import in.kirthika.model.DonorDetail;
@@ -23,11 +22,12 @@ import in.kirthika.service.DonorManager;
 @WebServlet("/StockManagementServlet")
 public class StockManagementServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+
 	@Override
      protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		try{
 		String place=request.getParameter("stockPlace");
-		
-		Map<String,Integer> stockCount=new HashMap<>();
+		Map<String,Integer> stockCount;
 		DonorDetail detail = new DonorDetail();
 		detail.setPlace(place);
 	    DonorManager manager = new DonorManager();
@@ -38,14 +38,12 @@ public class StockManagementServlet extends HttpServlet {
 			PrintWriter out = response.getWriter();
 			out.println(json);
 			out.flush();
-		
-
-	
-		
-		//response.sendRedirect("stockManagement.jsp");
-		
+			
 	}
-
+		catch(Exception e) {
+			e.getMessage();
+		}
+	}		
 	
 
 }
