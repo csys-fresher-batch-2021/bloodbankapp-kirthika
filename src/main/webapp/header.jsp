@@ -50,6 +50,9 @@ String loggedInUsername = (String) session.getAttribute("LOGIN_USER");
 
 				<li class="nav-item active"><a class="nav-link"
 					href="seekerRequest.jsp">Seeker Request<span class="sr-only">(current)</span></a></li>
+					
+				<li class="nav-item active"><a class="nav-link"
+					href="stockManagement.jsp">Stock Records<span class="sr-only">(current)</span></a></li>
 
 				<%}else if(loggedInUsername!=null && !loggedInUsername.equals("admin")){%>
 				<li class="nav-item active"><a class="nav-link"

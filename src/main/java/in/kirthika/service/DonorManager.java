@@ -4,6 +4,7 @@ import in.kirthika.dao.DonorManagerDao;
 import in.kirthika.model.*;
 import java.sql.SQLException;
 import java.util.List;
+import java.util.Map;
 
 public class DonorManager {
 
@@ -48,6 +49,11 @@ public class DonorManager {
 			e.getMessage();
 		}
 	}
+	
+	public Map<String,Integer> stockCount(DonorDetail detail) {
+		return(managerDao.stockCount(detail));
+		
+	}
 
 	public List<DonorDetail> displayDonorList() {
 		return (managerDao.allDonorList());
@@ -60,5 +66,9 @@ public class DonorManager {
 	public List<DonorDetail> filterList() {
 		return (managerDao.displayFilterList());
 	}
+	public Map<String,Integer> stockList(){
+		return(managerDao.stockList());
+	}
+
 
 }
