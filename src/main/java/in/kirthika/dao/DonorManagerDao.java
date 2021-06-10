@@ -17,6 +17,7 @@ public class DonorManagerDao {
 	private static final List<DonorDetail> taskList = new ArrayList<>();
 	private static final List<DonorDetail> donorSearch = new ArrayList<>();
 	private static final List<DonorDetail> filterList = new ArrayList<>();
+	private static final Map<String,Integer> stockList = new HashMap<>();
 	private static final Map<String, String> donorCheckList = new HashMap<>();
 	private static final String DONOR_BLOOD = "donor_blood";
 	private static final String DONOR_NAME = "donor_name";
@@ -30,6 +31,7 @@ public class DonorManagerDao {
 	private static final String DISPLAY_INDIVIDUAL_DATA_QUERY = "select * from donor_detail where donor_number=? and donor_name=?";
 	private static final String FILTER_DONOR_NAME = "select * from donor_detail where donor_blood like ?";
 	private static final String DONOR_CHECK = "select * from donor_detail where donor_number=? and donor_name=?";
+	private static final String STOCK_COUNT="select donor_blood,count(donor_blood) as count from donor_detail where donor_place=? group by donor_blood";
 	static {
 		try {
 			displayAllList();
@@ -270,6 +272,39 @@ public class DonorManagerDao {
 		ConnectionUtil.close(pst, connection);
 		return donorCheckList;
 	}
+	
+	public Map<String,Integer> stockCount(DonorDetail detail) {
+	
+		
+		Connection connection = null;
+		PreparedStatement pst = null;
+	    stockList.clear();
+		try {
+
+			connection = ConnectionUtil.getConnection();
+			String sql =STOCK_COUNT;
+			pst = connection.prepareStatement(sql);
+			pst.setString(1, detail.getPlace());
+			
+		    ResultSet rs= pst.executeQuery();
+
+			while (rs.next()) {
+				String blood = rs.getString(DONOR_BLOOD);
+				Integer number = rs.getInt("count");
+				stockList.put(blood,number);
+				
+			
+			}
+            
+		}
+		catch (Exception e) {
+			e.getMessage();
+		}
+		ConnectionUtil.close(pst, connection);
+		return stockList;
+		
+		
+	}
 
 	/*
 	 * function to return all donor List
@@ -295,5 +330,8 @@ public class DonorManagerDao {
 	public Map<String, String> donorCheckList() {
 		return donorCheckList;
 	}
-
+   
+	public Map<String,Integer> stockList() {
+		return stockList;
+	}
 }
