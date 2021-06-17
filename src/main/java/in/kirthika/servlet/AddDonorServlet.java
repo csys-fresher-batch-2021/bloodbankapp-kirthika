@@ -27,6 +27,7 @@ public class AddDonorServlet extends HttpServlet {
 		final String ACTION = "addDonor.jsp?errorMessage=";
 		try {
 			DonorDetail detail = new DonorDetail();
+			String userName=request.getParameter("userName");
 			String donorName = request.getParameter("donorName");
 			String donorBlood = request.getParameter("bloodGroup");
 			Long donorNumber = Long.parseLong(request.getParameter("mobileNumber"));
@@ -40,6 +41,7 @@ public class AddDonorServlet extends HttpServlet {
 			AgeValidator.isEligibleDonor(donorAge, "Invalid Age for Donor");
 			PlaceValidator.donorPlaceValidator(donorPlace, "Invalid Place");
 
+			detail.setUserName(userName);
 			detail.setName(donorName);
 			detail.setBloodGroup(donorBlood);
 			detail.setMobileNumber(donorNumber);
@@ -50,7 +52,7 @@ public class AddDonorServlet extends HttpServlet {
 			boolean valid = manager.addDonor(detail);
 
 			if (valid) {
-				String errorMessage = "Donor already exist";
+				String errorMessage = "User can register only one form";
 				response.sendRedirect(ACTION + errorMessage);
 
 			} else {

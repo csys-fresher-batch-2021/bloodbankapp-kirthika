@@ -33,7 +33,7 @@ public class SeekerManagerDao {
 	private static final String DISPLAY_ALL_DATA_QUERY = "select * from seeker_detail where seeker_status='Pending'";
 	private static final String UPDATE_SEEKER_DATA_QUERY = "update seeker_detail set seeker_status='Approved' where seeker_number=? and seeker_name=?";
 	private static final String SEEKER_RESULT = "select d.donor_name,d.donor_place,d.donor_number,d.donor_blood from donor_detail d,seeker_detail s\r\n"
-			+ "where  seeker_number=? and seeker_name=? and seeker_status='Approved' and (d.donor_blood=s.seeker_blood)";
+			+ "where  seeker_number=? and seeker_name=? and d.donor_status='false' and s.seeker_status='Approved' and (d.donor_blood=s.seeker_blood)";
 	private static final String SEEKER_NUMBER = "select * from seeker_detail where seeker_number=? and seeker_name=?";
 
 	/*

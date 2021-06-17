@@ -16,14 +16,14 @@ String loggedInUsername = (String) session.getAttribute("LOGIN_USER");
 			<h3>Blood Records</h3>
 			<br /> <br />
 		</div>
-		<form onsubmit="display()">
+		
 
 			<div class="d-flex justify-content-center">
 
 
 
-				<select name="stockPlace" id="stockPlace" required>
-					<option>Enter district</option>
+				<select name="stockPlace" onchange="display()" id="stockPlace" required>
+					<option>Select a District</option>
 					<option value="Ariyalur">Ariyalur</option>
 					<option value="Chennai">Chennai</option>
 					<option value="Coimbatore">Coimbatore</option>
@@ -34,14 +34,11 @@ String loggedInUsername = (String) session.getAttribute("LOGIN_USER");
 					<option value="Vellore">Vellore</option>
 					<option value="Villupuram">Villupuram</option>
 					<option value="Virudhunagar">Virudhunagar</option>
+					<option value="Madurai">Madurai</option>
 				</select>
 			</div>
 			<br /> <br />
-			<div class="d-flex justify-content-center">
-				<button type="submit" class="btn btn-primary">Check</button>
-			</div>
-
-			<br /> <br />
+			
 
 			<table class="table table-bordered">
 				<caption>Donor Details</caption>

@@ -31,8 +31,17 @@ String loggedInUsername = (String) session.getAttribute("LOGIN_USER");
 		</button>
 		<div class="collapse navbar-collapse" id="collapsibleNavId">
 			<ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-				<li class="nav-item active"><a class="nav-link"
+				
+		<%
+		if (loggedInUsername == null) {
+		%>
+		            <li class="nav-item active"><a class="nav-link"
 					href="index.jsp">Home <span class="sr-only">(current)</span></a></li>
+		<%}else{%>
+		
+				<li class="nav-item active"><a class="nav-link"
+					href="adminManager.jsp">Home <span class="sr-only">(current)</span></a></li>
+					<%} %>
 				<%
 					if (loggedInUsername!=null && loggedInUsername.equals("admin")){
 					%>

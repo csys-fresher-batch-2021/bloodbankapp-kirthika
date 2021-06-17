@@ -1,8 +1,12 @@
 package in.kirthika.util;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 import in.kirthika.exception.EmptyStringException;
 import in.kirthika.exception.InvalidNameException;
 import in.kirthika.exception.InvalidNameFormatException;
+import in.kirthika.exception.InvalidPasswordFormatException;
 
 public class NameValidator {
 	private NameValidator() {
@@ -18,12 +22,19 @@ public class NameValidator {
 	}
 
 	public static boolean invalidName(String stringToValidate) throws InvalidNameFormatException {
+		
+		String regex =("^([a-zA-Z])+([\\w]{2,})+$");
+		Pattern regexPattern = Pattern.compile(regex);
+		Matcher matchCheck = regexPattern.matcher(stringToValidate);
+		boolean isValidFormat = matchCheck.matches();
 
-		if (stringToValidate.trim().matches("^[a-zA-Z]*$")) {
+		if (isValidFormat) {
 			return true;
 		} else {
-			throw new InvalidNameFormatException("Invalid name format");
+			throw new InvalidNameFormatException(
+					"Invalid user name");
 		}
+		
 	}
 
 	public static boolean isValidName(String donorName) throws InvalidNameException {

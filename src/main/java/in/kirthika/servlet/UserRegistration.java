@@ -10,6 +10,7 @@ import in.kirthika.service.UserManager;
 import in.kirthika.util.MobileNumberValidator;
 import in.kirthika.util.NameValidator;
 import in.kirthika.util.PasswordValidator;
+import in.kirthika.validator.UserValidator;
 
 /**
  * Servlet implementation class UserRegistration
@@ -28,7 +29,8 @@ public class UserRegistration extends HttpServlet {
 			String userName = request.getParameter("userName");
 			String userPassword = request.getParameter("password");
 			Long userNumber = Long.parseLong(request.getParameter("mobileNumber"));
-
+            
+			UserValidator.nameAlreadyExist(userName,"Username is taken.Try another");
 			NameValidator.isValidName(userName);
 			PasswordValidator.isValidFormat(userPassword);
 			MobileNumberValidator.isValidMobileNumber(userNumber);
@@ -42,10 +44,12 @@ public class UserRegistration extends HttpServlet {
 
 				response.sendRedirect("userSignIn.jsp");
 			} else {
-				String message = "Already Registered";
+				
+				String message = "User Already Registered";
 				response.sendRedirect(ACTION + message);
 			}
 		} catch (Exception e) {
+	
 			response.sendRedirect(ACTION + e.getMessage());
 
 		}

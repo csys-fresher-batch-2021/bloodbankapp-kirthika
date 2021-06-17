@@ -4,6 +4,7 @@ import java.sql.SQLException;
 import java.util.Map;
 
 import in.kirthika.dao.UserManagerDao;
+
 import in.kirthika.model.UserDetail;
 
 public class UserManager {
@@ -18,7 +19,7 @@ public class UserManager {
 		return (user.addUser(detail));
 	}
 
-	public static boolean userCheck(String userName, String userPassword) {
+	public static boolean userCheck(String userName, String userPassword)  {
 		boolean isValid = false;
 		Map<String, String> userCredentials = user.checkUserCredential(userName, userPassword);
 

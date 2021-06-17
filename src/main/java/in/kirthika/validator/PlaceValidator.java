@@ -8,7 +8,7 @@ public class PlaceValidator {
 	}
 
 	public static boolean donorPlaceValidator(String place, String errorMessage) throws InvalidPlaceException {
-		if (place == null || place.trim().isEmpty() || place.equalsIgnoreCase("Enter district")) {
+		if (place == null || place.trim().isEmpty() || place.equalsIgnoreCase("Select a District")) {
 			throw new InvalidPlaceException(errorMessage);
 		}
 		return true;

@@ -32,7 +32,7 @@ public class PasswordValidator {
 			return true;
 		} else {
 			throw new InvalidPasswordFormatException(
-					"Invalid password format(include uppercase,lowercase,special character and number)");
+					"Invalid password format");
 		}
 	}
 

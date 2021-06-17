@@ -49,6 +49,14 @@ public class DonorManager {
 			e.getMessage();
 		}
 	}
+	public void sleepStatus(String name,String mode) {
+		
+		managerDao.setStatus(name,mode);
+	}
+	public String status(String name) {
+		String status=managerDao.getStatus(name);
+		return status;
+	}
 	
 	public Map<String,Integer> stockCount(DonorDetail detail) {
 		return(managerDao.stockCount(detail));
@@ -69,6 +77,8 @@ public class DonorManager {
 	public Map<String,Integer> stockList(){
 		return(managerDao.stockList());
 	}
+
+	
 
 
 }

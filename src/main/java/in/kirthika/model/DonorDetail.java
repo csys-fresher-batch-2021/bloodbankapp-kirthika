@@ -1,11 +1,30 @@
 package in.kirthika.model;
 
 public class DonorDetail {
+	private String userName;
 	private String bloodGroup;
 	private String name;
 	private Long mobileNumber;
 	private int age;
 	private String place;
+    private String status;
+    
+	public String getStatus() {
+		return status;
+	}
+
+	public void setStatus(String status) {
+		this.status = status;
+	}
+
+	public String getUserName() {
+		return userName;
+	}
+
+	public void setUserName(String userName) {
+		this.userName = userName;
+	}
+
 
 	public String getPlace() {
 		return place;
@@ -69,5 +88,6 @@ public class DonorDetail {
 	public DonorDetail() {
 		super();
 	}
+
 
 }

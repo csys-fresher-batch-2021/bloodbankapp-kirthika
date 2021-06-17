@@ -24,7 +24,8 @@ public class DonorManagerDao {
 	private static final String DONOR_MOBILENUMBER = "donor_number";
 	private static final String DONOR_AGE = "donor_age";
 	private static final String DONOR_PLACE = "donor_place";
-	private static final String INSERT_DONOR_DATA_QUERY = "insert into donor_detail (donor_blood,donor_name,donor_number,donor_age,donor_place) values (?,?,?,?,?)";
+	private static final String DONOR_STATUS ="donor_status";
+	private static final String INSERT_DONOR_DATA_QUERY = "insert into donor_detail (user_name,donor_blood,donor_name,donor_number,donor_age,donor_place,donor_status) values (?,?,?,?,?,?,?)";
 	private static final String DISPLAY_ALL_DATA_QUERY = "select * from donor_detail";
 	private static final String SEARCH_DONOR_DATA_QUERY = "select * from donor_detail where donor_blood=? and donor_place=?";
 	private static final String DELETE_DONOR_DATA_QUERY = "delete from donor_detail where donor_number=? and donor_name=?";
@@ -32,6 +33,8 @@ public class DonorManagerDao {
 	private static final String FILTER_DONOR_NAME = "select * from donor_detail where donor_blood like ?";
 	private static final String DONOR_CHECK = "select * from donor_detail where donor_number=? and donor_name=?";
 	private static final String STOCK_COUNT="select donor_blood,count(donor_blood) as count from donor_detail where donor_place=? group by donor_blood";
+	private static final String SLEEP_STATUS="update donor_detail set donor_status=? where user_name=?";
+	private static final String GET_SLEEP_STATUS="select donor_status from donor_detail where user_name=?";
 	static {
 		try {
 			displayAllList();
@@ -53,11 +56,13 @@ public class DonorManagerDao {
 			String sql = INSERT_DONOR_DATA_QUERY;
 
 			pst = connection.prepareStatement(sql);
-			pst.setString(1, detail.getBloodGroup());
-			pst.setString(2, detail.getName());
-			pst.setLong(3, detail.getMobileNumber());
-			pst.setInt(4, detail.getAge());
-			pst.setString(5, detail.getPlace());
+			pst.setString(1,detail.getUserName());
+			pst.setString(2, detail.getBloodGroup());
+			pst.setString(3, detail.getName());
+			pst.setLong(4, detail.getMobileNumber());
+			pst.setInt(5, detail.getAge());
+			pst.setString(6, detail.getPlace());
+			pst.setString(7,"false");
 			pst.executeUpdate();
 		} catch (ClassNotFoundException | SQLException e) {
 			isValid = true;
@@ -73,6 +78,7 @@ public class DonorManagerDao {
 	 * function to display all donor list
 	 */
 	public static List<DonorDetail> displayAllList() throws ClassNotFoundException, SQLException {
+	
 		Connection connection = null;
 		PreparedStatement pst = null;
 		try {
@@ -110,6 +116,7 @@ public class DonorManagerDao {
 	 */
 	public List<DonorDetail> searchList(String donorBlood, String donorPlace)
 			throws ClassNotFoundException, SQLException {
+		
 		Connection connection = null;
 		PreparedStatement pst = null;
 		try {
@@ -173,6 +180,7 @@ public class DonorManagerDao {
 
 	public List<DonorDetail> displayIndividual(String donorNum, String name)
 			throws ClassNotFoundException, SQLException {
+		
 		Connection connection = null;
 		PreparedStatement pst = null;
 
@@ -214,6 +222,7 @@ public class DonorManagerDao {
 	 */
 
 	public void filterBlood(String filterDonorBlood) throws ClassNotFoundException, SQLException {
+		
 		Connection connection = null;
 		PreparedStatement pst = null;
 		filterList.clear();
@@ -249,6 +258,8 @@ public class DonorManagerDao {
 	}
 
 	public Map<String, String> donorExistCheck(String number, String name) throws ClassNotFoundException, SQLException {
+		
+		
 		Connection connection = null;
 		PreparedStatement pst = null;
 		try {
@@ -304,6 +315,46 @@ public class DonorManagerDao {
 		return stockList;
 		
 		
+	}
+	public void setStatus(String name,String mode) {
+		Connection connection = null;
+		PreparedStatement pst = null;
+		try {
+			connection = ConnectionUtil.getConnection();
+			String sql = SLEEP_STATUS;
+			pst = connection.prepareStatement(sql);
+			pst.setString(1, mode);
+			pst.setString(2, name);
+			pst.executeUpdate();
+            
+			
+		}
+		catch (Exception e) {
+			e.getMessage();
+		}
+		ConnectionUtil.close(pst, connection);
+	}
+	public String getStatus(String name) {
+		String status = null;
+		Connection connection = null;
+		PreparedStatement pst = null;
+		try {
+			connection = ConnectionUtil.getConnection();
+			String sql=GET_SLEEP_STATUS;
+			pst = connection.prepareStatement(sql);
+			pst.setString(1,name );
+			ResultSet rs=pst.executeQuery();
+			while (rs.next()) {
+				 status = rs.getString(DONOR_STATUS);
+				
+			}
+			
+		}
+		catch (Exception e) {
+			e.getMessage();
+		}
+		ConnectionUtil.close(pst, connection);
+		return status;
 	}
 
 	/*

@@ -19,7 +19,7 @@
 		<form action="SeekerServlet" method="post">
 			<div class="row">
 				<div class="col">
-					<label>Donor Name</label><input type="text" name="receiverName"
+					<label>Receiver Name</label><input type="text" name="receiverName"
 						class="form-control form-control-sm"
 						placeholder="Enter receiver name" required>
 				</div>
@@ -59,7 +59,7 @@
 				<div class="col">
 					<label>District</label><select name="place"
 						class="form-control form-control-sm" required>
-						<option>Enter district</option>
+						<option>Select a District</option>
 						<option value="Ariyalur">Ariyalur</option>
 						<option value="Chennai">Chennai</option>
 						<option value="Coimbatore">Coimbatore</option>
@@ -70,6 +70,7 @@
 						<option value="Vellore">Vellore</option>
 						<option value="Villupuram">Villupuram</option>
 						<option value="Virudhunagar">Virudhunagar</option>
+						<option value="Madurai">Madurai</option>
 					</select>
 				</div>
 				<div class="col">

@@ -41,6 +41,7 @@
 						<option value="Vellore">Vellore</option>
 						<option value="Villupuram">Villupuram</option>
 						<option value="Virudhunagar">Virudhunagar</option>
+						<option value="Madurai">Madurai</option>
 					</select>
 				</div>
 			</div>

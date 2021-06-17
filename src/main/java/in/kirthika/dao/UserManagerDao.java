@@ -4,7 +4,9 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import in.kirthika.model.UserDetail;
 import in.kirthika.util.ConnectionUtil;
@@ -12,9 +14,11 @@ import in.kirthika.util.ConnectionUtil;
 public class UserManagerDao {
 	private static final String INSERT_DONOR_DATA_QUERY = "insert into user_credential(username,userpassword,usermobilenumber) values (?,?,?)";
 	private static final String SEARCH_DONOR_DATA_QUERY = "select * from user_credential where username=? and userpassword=?";
+	private static final String ALL_USER_NAME="select username from user_credential";
 	private static final String USER_NAME = "username";
 	private static final String USER_PASSWORD = "userpassword";
 	private static final Map<String, String> userCredential = new HashMap<>();
+	private static final List<String> userName=new ArrayList<>();
 
 	public boolean addUser(UserDetail user) throws ClassNotFoundException, SQLException {
 		/*
@@ -74,6 +78,34 @@ public class UserManagerDao {
 		}
 		return userCredential;
 	}
+	public List<String> displayName(){
+		Connection connection = null;
+		PreparedStatement pst = null;
+		userName.clear();
+		try {
+			
+		connection = ConnectionUtil.getConnection();
+		String sql = ALL_USER_NAME;
+		pst = connection.prepareStatement(sql);
+		
+		ResultSet rs=pst.executeQuery();
+		
+		while(rs.next()) {
+			String	name = rs.getString(USER_NAME);
+				userName.add(name);
+		} 
+		}catch (Exception e) {
+				
+				e.printStackTrace();
+			} 
+		finally {
+			ConnectionUtil.close(pst, connection);
+		}
+			return userName;
+			
+		}
+		
+
 
 	public Map<String, String> displayUserCredential() {
 		return userCredential;

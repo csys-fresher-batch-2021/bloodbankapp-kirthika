@@ -60,6 +60,12 @@
 					<button type="reset" class="btn btn-danger">Reset</button>
 				</div>
 			</div>
-
+			<br/>
+			
+	Note
+	<br/>
+      	UserName: Must start with the alphabet,Only Alphabet and _ (underscore) allowed,Minimum 3 chars are required
+      	<br/>
+      	Password: Use 8 or more characters with a mix of letters, numbers and symbols
 		</form>
 	</main>

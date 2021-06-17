@@ -55,7 +55,7 @@ String loggedInUsername = (String) session.getAttribute("LOGIN_USER");
 
 
 				<select name="place" id="place" required>
-					<option>Enter district</option>
+					<option>Select a District</option>
 					<option value="Ariyalur">Ariyalur</option>
 					<option value="Chennai">Chennai</option>
 					<option value="Coimbatore">Coimbatore</option>
@@ -66,15 +66,19 @@ String loggedInUsername = (String) session.getAttribute("LOGIN_USER");
 					<option value="Vellore">Vellore</option>
 					<option value="Villupuram">Villupuram</option>
 					<option value="Virudhunagar">Virudhunagar</option>
+					<option value="Madurai">Madurai</option>
 				</select>
 			</div>
 			<br />
+			 <div class="d-flex justify-content-center">
+			<label for="display" id="display"></label> <br />
+            </div>
+            <br/>
+          
 			<div class="d-flex justify-content-center">
 				<button type="submit" class="btn btn-primary">Add donor</button>
 			</div>
-
-			<label for="display" id="display"></label> <br />
-
+           
 		</form>
 		<script>
 		function addDonor(){
@@ -94,12 +98,13 @@ String loggedInUsername = (String) session.getAttribute("LOGIN_USER");
 			fetch(url).then(res=>res.json()).then(res=>{
 			
 				let result=res;
-				console.log(result);
+				//console.log(result);
 				
 				if(result.infoMessage !=null){
 					 message=result.infoMessage;
-					 let params=new URLSearchParams(window.location.search);
-				     let name=params.get('infoMessage');
+					// let params=new URLSearchParams(window.location.search);
+				     //let name=params.get('infoMessage');
+				     
 				     
 					 document.getElementById('display').innerHTML=message;
 					
@@ -107,8 +112,8 @@ String loggedInUsername = (String) session.getAttribute("LOGIN_USER");
 				}
 				else{
 					message=result.errorMessage;
-					 let params=new URLSearchParams(window.location.search);
-				     let name=params.get('errorMessage');
+					// let params=new URLSearchParams(window.location.search);
+				    // let name=params.get('errorMessage');
 				     document.getElementById('display').innerHTML=message;
 					
 				}

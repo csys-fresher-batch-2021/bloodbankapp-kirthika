@@ -13,7 +13,17 @@ String loggedInUsername = (String) session.getAttribute("LOGIN_USER");
 		<div class="d-flex justify-content-center">
 			<h3>Donor Form</h3>
 		</div>
-		<form action="AddDonorServlet" method="post">
+			<form action="AddDonorServlet" method="post">
+	<%
+				if (!loggedInUsername.equalsIgnoreCase("admin")) {
+				%>
+			<div class="d-flex justify-content-center">
+				<label for="userName"></label> <input type="text" name="userName"
+					value=<%=loggedInUsername %> readonly required autofocus />
+			</div>
+			
+			<%} %>
+	       <br/>
 
 			<div class="d-flex justify-content-center">
 				<label for="donorName"></label> <input type="text" name="donorName"
@@ -48,12 +58,13 @@ String loggedInUsername = (String) session.getAttribute("LOGIN_USER");
 			</div>
 
 			<br />
+
 			<div class="d-flex justify-content-center">
 
 
 
 				<select name="place" required>
-					<option>Enter district</option>
+					<option>Select a District</option>
 					<option value="Ariyalur">Ariyalur</option>
 					<option value="Chennai">Chennai</option>
 					<option value="Coimbatore">Coimbatore</option>
@@ -64,9 +75,12 @@ String loggedInUsername = (String) session.getAttribute("LOGIN_USER");
 					<option value="Vellore">Vellore</option>
 					<option value="Villupuram">Villupuram</option>
 					<option value="Virudhunagar">Virudhunagar</option>
+					<option value="Madurai">Madurai</option>
 				</select>
 			</div>
 			<br />
+			
+
 
 			<%
 			String message = request.getParameter("errorMessage");

@@ -61,7 +61,7 @@ public class AddDonorJson extends HttpServlet {
 
 			else {
 				object.addProperty("infoMessage", "Donor added");
-				out.println(object);
+			    out.println(object);
 			}
 
 			
