@@ -67,9 +67,9 @@ public class SeekerManagerDao {
 		return isValid;
 	}
 
-	/*
+	/**
 	 * function to display seeker list
-	 */
+    **/
 	public List<SeekerDetail> displayAllList() throws ClassNotFoundException, SQLException {
 		seekerList.clear();
 		Connection connection = null;
@@ -108,9 +108,9 @@ public class SeekerManagerDao {
 
 	}
 
-	/*
+	/**
 	 * function to display seeker request list
-	 */
+	 **/
 	public void approveSeeker(Long seekerNum, String name) throws ClassNotFoundException, SQLException {
 		Connection connection = null;
 		PreparedStatement pst = null;
@@ -136,9 +136,9 @@ public class SeekerManagerDao {
 
 	}
 
-	/*
+	/**
 	 * function to display the approved seeker list
-	 */
+	 **/
 
 	public boolean seekerStatus(SeekerDetail detail) throws ClassNotFoundException, SQLException {
 
@@ -175,9 +175,9 @@ public class SeekerManagerDao {
 		return isValid;
 	}
 
-	/*
+	/**
 	 * function to display seeker status
-	 */
+	 **/
 
 	public Map<String, String> seekerNumber(Long number, String name) throws ClassNotFoundException, SQLException {
 		Connection connection = null;

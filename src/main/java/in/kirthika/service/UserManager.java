@@ -11,14 +11,24 @@ public class UserManager {
 	private UserManager() {
 		// default constructor
 	}
-
 	private static UserManagerDao user = new UserManagerDao();
-
+	/**
+	 * 
+	 * @param detail
+	 * @return
+	 * @throws ClassNotFoundException
+	 * @throws SQLException
+	 */
 	public static boolean addUser(UserDetail detail) throws ClassNotFoundException, SQLException {
 
 		return (user.addUser(detail));
 	}
-
+	/**
+	 * 
+	 * @param userName
+	 * @param userPassword
+	 * @return
+	 */
 	public static boolean userCheck(String userName, String userPassword)  {
 		boolean isValid = false;
 		Map<String, String> userCredentials = user.checkUserCredential(userName, userPassword);

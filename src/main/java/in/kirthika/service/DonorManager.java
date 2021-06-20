@@ -9,6 +9,13 @@ import java.util.Map;
 public class DonorManager {
 
 	private DonorManagerDao managerDao = new DonorManagerDao();
+	/**
+	 * 
+	 * @param detail
+	 * @return
+	 * @throws ClassNotFoundException
+	 * @throws SQLException
+	 */
 
 	public boolean addDonor(DonorDetail detail) throws ClassNotFoundException, SQLException {
 
@@ -18,6 +25,11 @@ public class DonorManager {
 		}
 		return isValid;
 	}
+	/**
+	 * 
+	 * @param donorNum
+	 * @param donorName
+	 */
 
 	public void deleteDonor(Long donorNum, String donorName) {
 		try {
@@ -27,7 +39,12 @@ public class DonorManager {
 			e.getMessage();
 		}
 	}
-
+    /**
+     * 
+     * @param donorBlood
+     * @param donorPlace
+     * @return
+     */
 	public boolean donorSearch(String donorBlood, String donorPlace) {
 		boolean isValid = true;
 		try {
@@ -39,7 +56,10 @@ public class DonorManager {
 		}
 		return isValid;
 	}
-
+    /**
+     * 
+     * @param blood
+     */
 	public void filterBlood(String blood) {
 		try {
 			managerDao.filterBlood(blood);
@@ -49,31 +69,58 @@ public class DonorManager {
 			e.getMessage();
 		}
 	}
+	/**
+	 * 
+	 * @param name
+	 * @param mode
+	 */
 	public void sleepStatus(String name,String mode) {
 		
 		managerDao.setStatus(name,mode);
 	}
+	/**
+	 * 
+	 * @param name
+	 * @return
+	 */
 	public String status(String name) {
 		String status=managerDao.getStatus(name);
 		return status;
 	}
-	
+	/**
+	 * 
+	 * @param detail
+	 * @return
+	 */
 	public Map<String,Integer> stockCount(DonorDetail detail) {
 		return(managerDao.stockCount(detail));
 		
 	}
-
+    /**
+     * 
+     * @return
+     */
 	public List<DonorDetail> displayDonorList() {
 		return (managerDao.allDonorList());
 	}
-
+    /**
+     * 
+     * @return
+     */
 	public List<DonorDetail> displaySearchDonorList() {
 		return (managerDao.allSearchDonorList());
 	}
-
+    /**
+     * 
+     * @return
+     */
 	public List<DonorDetail> filterList() {
 		return (managerDao.displayFilterList());
 	}
+	/**
+	 * 
+	 * @return
+	 */
 	public Map<String,Integer> stockList(){
 		return(managerDao.stockList());
 	}

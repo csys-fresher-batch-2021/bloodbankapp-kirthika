@@ -89,7 +89,6 @@ String loggedInUsername = (String) session.getAttribute("LOGIN_USER");
 		</script>
 
 
-		</form>
 
 	</main>
 </body>

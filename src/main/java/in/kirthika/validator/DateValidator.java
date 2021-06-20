@@ -9,7 +9,13 @@ public class DateValidator {
 	private DateValidator() {
 		// default constructor
 	}
-
+/**
+ * method to validate date
+ * @param date
+ * @param errorMessage
+ * @return
+ * @throws InvalidDateException
+ */
 	public static boolean isValidDate(LocalDate date, String errorMessage) throws InvalidDateException
 
 	{

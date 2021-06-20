@@ -43,9 +43,9 @@ public class DonorManagerDao {
 			e.getMessage();
 		}
 	}
-	/*
+	/**
 	 * function to add donor in database
-	 */
+	 **/
 
 	public boolean save(DonorDetail detail) throws ClassNotFoundException, SQLException {
 		boolean isValid = false;
@@ -74,9 +74,9 @@ public class DonorManagerDao {
 		return isValid;
 	}
 
-	/*
+	/**
 	 * function to display all donor list
-	 */
+	 **/
 	public static List<DonorDetail> displayAllList() throws ClassNotFoundException, SQLException {
 	
 		Connection connection = null;
@@ -111,9 +111,9 @@ public class DonorManagerDao {
 
 	}
 
-	/*
+	/**
 	 * function to search donor based on blood and place
-	 */
+	 **/
 	public List<DonorDetail> searchList(String donorBlood, String donorPlace)
 			throws ClassNotFoundException, SQLException {
 		
@@ -149,9 +149,9 @@ public class DonorManagerDao {
 		return donorSearch;
 	}
 
-	/*
+	/**
 	 * function to delete donor from the list
-	 */
+	 **/
 
 	public void deleteDonor(Long donorNum, String donorName) throws ClassNotFoundException, SQLException {
 		Connection connection = null;
@@ -177,7 +177,14 @@ public class DonorManagerDao {
 		ConnectionUtil.close(pst, connection);
 
 	}
-
+   /**
+    * method to display individual details
+    * @param donorNum
+    * @param name
+    * @return
+    * @throws ClassNotFoundException
+    * @throws SQLException
+    */
 	public List<DonorDetail> displayIndividual(String donorNum, String name)
 			throws ClassNotFoundException, SQLException {
 		
@@ -217,9 +224,9 @@ public class DonorManagerDao {
 		return taskList;
 
 	}
-	/*
+	/**
 	 * function to filter donor based on blood group
-	 */
+	 **/
 
 	public void filterBlood(String filterDonorBlood) throws ClassNotFoundException, SQLException {
 		
@@ -256,6 +263,9 @@ public class DonorManagerDao {
 		ConnectionUtil.close(pst, connection);
 
 	}
+	/**
+	 * method to check donor already exist
+	 **/
 
 	public Map<String, String> donorExistCheck(String number, String name) throws ClassNotFoundException, SQLException {
 		
@@ -283,7 +293,10 @@ public class DonorManagerDao {
 		ConnectionUtil.close(pst, connection);
 		return donorCheckList;
 	}
-	
+	/**
+	 * method to record the number of 
+	 * donor available in each blood group
+	 **/
 	public Map<String,Integer> stockCount(DonorDetail detail) {
 	
 		
@@ -316,6 +329,9 @@ public class DonorManagerDao {
 		
 		
 	}
+	/**
+	 * method to set status of the donor
+	 **/
 	public void setStatus(String name,String mode) {
 		Connection connection = null;
 		PreparedStatement pst = null;
@@ -334,6 +350,9 @@ public class DonorManagerDao {
 		}
 		ConnectionUtil.close(pst, connection);
 	}
+	/**
+	 * method to set status of the donor
+	 **/
 	public String getStatus(String name) {
 		String status = null;
 		Connection connection = null;
@@ -357,31 +376,37 @@ public class DonorManagerDao {
 		return status;
 	}
 
-	/*
+	/**
 	 * function to return all donor List
-	 */
+	 **/
 	public List<DonorDetail> allDonorList() {
 		return taskList;
 	}
 
-	/*
+	/**
 	 * function to return donor search list
-	 */
+	 **/
 	public List<DonorDetail> allSearchDonorList() {
 		return donorSearch;
 	}
 
-	/*
+	/**
 	 * function to return donor filter list
-	 */
+	 **/
 	public List<DonorDetail> displayFilterList() {
 		return filterList;
 	}
-
+    /**
+     * method to return donor check list
+     * @return
+     */
 	public Map<String, String> donorCheckList() {
 		return donorCheckList;
 	}
-   
+   /**
+    * method to return stock list
+    * @return
+    */
 	public Map<String,Integer> stockList() {
 		return stockList;
 	}

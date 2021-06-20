@@ -24,7 +24,12 @@ public class MobileNumberValidator {
 			throw new InvalidNumberLengthException("Invalid Mobile Number");
 		}
 	}
-
+    /**
+     * 
+     * @param number
+     * @return
+     * @throws NumberCannotBeNegativeException
+     */
 	public static boolean isNumberPositive(Long number) throws NumberCannotBeNegativeException {
 		boolean isValidNumber = false;
 		if (number != null) {
@@ -36,7 +41,12 @@ public class MobileNumberValidator {
 		}
 		return isValidNumber;
 	}
-
+    /**
+     * Method to check the starting mobile number
+     * @param number
+     * @return
+     * @throws IsValidStartingNumberException
+     */
 	public static boolean isValidNumber(Long number) throws IsValidStartingNumberException {
 		boolean isValidNumber = false;
 		String num = String.valueOf(number);

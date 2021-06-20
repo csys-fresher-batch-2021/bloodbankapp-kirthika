@@ -16,7 +16,15 @@ public class UserValidator {
 	private UserValidator() {
 
 	}
-
+/**
+ * method to check user name already exist
+ * @param searchName
+ * @param errorMessage
+ * @return
+ * @throws NameAlreadyExistException
+ * @throws ClassNotFoundException
+ * @throws SQLException
+ */
 	public static boolean nameAlreadyExist(String searchName, String errorMessage)
 			throws NameAlreadyExistException, ClassNotFoundException, SQLException {
 

@@ -6,13 +6,18 @@ import java.util.regex.Pattern;
 import in.kirthika.exception.EmptyStringException;
 import in.kirthika.exception.InvalidNameException;
 import in.kirthika.exception.InvalidNameFormatException;
-import in.kirthika.exception.InvalidPasswordFormatException;
+
 
 public class NameValidator {
 	private NameValidator() {
 		// default constructor
 	}
-
+/**
+ * method to check name is null or empty
+ * @param stringToValidate
+ * @return
+ * @throws EmptyStringException
+ */
 	public static boolean isStringNotNullOrEmpty(String stringToValidate) throws EmptyStringException {
 
 		if (stringToValidate == null || stringToValidate.trim().isEmpty()) {
@@ -20,7 +25,12 @@ public class NameValidator {
 		}
 		return true;
 	}
-
+/**
+ * method to valid name format
+ * @param stringToValidate
+ * @return
+ * @throws InvalidNameFormatException
+ */
 	public static boolean invalidName(String stringToValidate) throws InvalidNameFormatException {
 		
 		String regex =("^([a-zA-Z])+([\\w]{2,})+$");
@@ -36,7 +46,12 @@ public class NameValidator {
 		}
 		
 	}
-
+/**
+ * method to check valid name
+ * @param donorName
+ * @return
+ * @throws InvalidNameException
+ */
 	public static boolean isValidName(String donorName) throws InvalidNameException {
 		try {
 			isStringNotNullOrEmpty(donorName);

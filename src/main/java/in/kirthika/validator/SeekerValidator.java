@@ -16,7 +16,16 @@ public class SeekerValidator {
 	private SeekerValidator() {
 
 	}
-
+/**
+ * method to validate seeker number
+ * @param number
+ * @param name
+ * @param errorMessage
+ * @return
+ * @throws NotRegisteredException
+ * @throws ClassNotFoundException
+ * @throws SQLException
+ */
 	public static boolean seekerNumberValidator(Long number, String name, String errorMessage)
 			throws NotRegisteredException, ClassNotFoundException, SQLException {
 

@@ -38,16 +38,18 @@ public class UserManagerDao {
 
 			pst.executeUpdate();
 		} catch (Exception e) {
-
 			isValid = false;
-			e.getMessage();
+			
 		} finally {
 			ConnectionUtil.close(pst, connection);
 		}
 		return isValid;
 	}
-	/*
+	/**
 	 * function to check valid credentials
+	 * @param userName
+	 * @param userPassword
+	 * @return
 	 */
 
 	public Map<String, String> checkUserCredential(String userName, String userPassword) {
@@ -78,6 +80,10 @@ public class UserManagerDao {
 		}
 		return userCredential;
 	}
+	/**
+	 * method to display all username
+	 * @return
+	 */
 	public List<String> displayName(){
 		Connection connection = null;
 		PreparedStatement pst = null;
@@ -105,8 +111,6 @@ public class UserManagerDao {
 			
 		}
 		
-
-
 	public Map<String, String> displayUserCredential() {
 		return userCredential;
 	}

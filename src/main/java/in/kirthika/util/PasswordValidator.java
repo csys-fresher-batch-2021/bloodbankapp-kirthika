@@ -13,7 +13,12 @@ public class PasswordValidator {
 	private PasswordValidator() {
 		// default constructor
 	}
-
+/**
+ * method to check password is null or empty
+ * @param passwordToValidate
+ * @return
+ * @throws EmptyPasswordException
+ */
 	public static boolean isStringNotNullOrEmpty(String passwordToValidate) throws EmptyPasswordException {
 
 		if (passwordToValidate == null || passwordToValidate.trim().isEmpty()) {
@@ -21,7 +26,12 @@ public class PasswordValidator {
 		}
 		return true;
 	}
-
+/**
+ * method to check password format
+ * @param passwordToValidate
+ * @return
+ * @throws InvalidPasswordFormatException
+ */
 	public static boolean invalidPassword(String passwordToValidate) throws InvalidPasswordFormatException {
 		String regex = "^(?=.*[0-9])" + "(?=.*[a-z])(?=.*[A-Z])" + "(?=.*[@#$%^&+=])" + "(?=\\S+$).{8,15}$";
 		Pattern regexPattern = Pattern.compile(regex);
@@ -35,7 +45,12 @@ public class PasswordValidator {
 					"Invalid password format");
 		}
 	}
-
+/**
+ * method to check valid password format
+ * @param userPassword
+ * @return
+ * @throws InvalidPasswordException
+ */
 	public static boolean isValidFormat(String userPassword) throws InvalidPasswordException {
 		try {
 			isStringNotNullOrEmpty(userPassword);

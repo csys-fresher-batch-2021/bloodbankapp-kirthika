@@ -9,7 +9,11 @@ import in.kirthika.model.SeekerStatusDetail;
 public class SeekerManager {
 
 	private static SeekerManagerDao managerDao = new SeekerManagerDao();
-
+	/**
+	 * 
+	 * @param seeker
+	 * @return
+	 */
 	public boolean addSeeker(SeekerDetail seeker) {
 
 		boolean valid = false;
@@ -21,11 +25,20 @@ public class SeekerManager {
 
 		return valid;
 	}
-
+	/**
+	 * 
+	 * @return
+	 * @throws ClassNotFoundException
+	 * @throws SQLException
+	 */
 	public List<SeekerDetail> displaySeekerList() throws ClassNotFoundException, SQLException {
 		return (managerDao.displayAllList());
 	}
-
+	/**
+	 * 
+	 * @param donorNum
+	 * @param name
+	 */
 	public void approveSeeker(Long donorNum, String name) {
 		try {
 			managerDao.approveSeeker(donorNum, name);
@@ -34,11 +47,20 @@ public class SeekerManager {
 			e.getMessage();
 		}
 	}
-
+	/**
+	 * 
+	 * @param detail
+	 * @return
+	 * @throws ClassNotFoundException
+	 * @throws SQLException
+	 */
 	public boolean seekerStatus(SeekerDetail detail) throws ClassNotFoundException, SQLException {
 		return (managerDao.seekerStatus(detail));
 	}
-
+	/**
+	 * 
+	 * @return
+	 */
 	public List<SeekerStatusDetail> displayDonor() {
 
 		return (managerDao.display());

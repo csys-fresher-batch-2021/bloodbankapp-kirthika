@@ -10,7 +10,16 @@ public class DonorValidator {
 	private DonorValidator() {
 
 	}
-
+/**
+ * method to check donor existence
+ * @param name
+ * @param number
+ * @param errorMessage
+ * @return
+ * @throws DonorAlreadyExist
+ * @throws ClassNotFoundException
+ * @throws SQLException
+ */
 	public static boolean isAlreadyExist(String name, Long number, String errorMessage)
 			throws DonorAlreadyExist, ClassNotFoundException, SQLException {
 
